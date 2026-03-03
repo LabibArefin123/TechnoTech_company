@@ -1,68 +1,90 @@
 <section id="about" class="techno-about py-5">
     <link rel="stylesheet" href="{{ asset('css/frontend/custom_about.css') }}">
 
-    <div class="container" data-aos="fade-up">
+    <div class="container">
 
         {{-- Section Header --}}
         <div class="text-center mb-5">
-            <h2 class="about-title">About TechnoTech Engineering Ltd</h2>
+            <h2 class="about-title">About Techno-Tech Engineering Ltd</h2>
 
             <p class="about-tagline">
                 Engineering Excellence • Industrial Expertise • Trusted Since 1995
             </p>
-
-            <p class="about-subtitle">
-                A leading engineering and construction company delivering reliable solutions
-                for power, energy, and industrial sectors.
-            </p>
         </div>
 
-        {{-- Content --}}
-        <div class="row justify-content-center">
-            <div class="col-lg-10">
+        <div class="row align-items-center">
+
+            {{-- LEFT CONTENT --}}
+            <div class="col-lg-6 mb-4 mb-lg-0">
 
                 <p class="about-text">
-                    <strong>TechnoTech Engineering Ltd</strong>, established in 1995, began its journey as a
-                    mechanical construction firm formed by a group of highly qualified engineers from diverse
-                    technical disciplines. Since inception, the company has successfully executed numerous
-                    sophisticated projects across gas pipelines, power plants, oil refineries, and industrial sectors.
+                    <strong>Techno-Tech Engineering Ltd</strong> was established in 1995 by a group of
+                    highly qualified engineers from diverse disciplines. What began as a mechanical
+                    construction firm has grown into a trusted name in Bangladesh’s energy and
+                    industrial sectors.
                 </p>
 
                 <p class="about-text">
-                    The company has delivered projects both independently and in collaboration with reputed
-                    local and international partners. As a certified industrial boiler license holder,
-                    TechnoTech Engineering Ltd possesses extensive expertise in refractory and insulation works,
-                    fabrication, installation, welding, heavy lifting, and inland transportation.
+                    Over the years, we have successfully executed complex projects in gas pipelines,
+                    power plants, oil refineries, and large-scale industrial facilities. Some projects
+                    were delivered independently, while others were completed in collaboration with
+                    reputable local and international partners.
                 </p>
 
                 <p class="about-text">
-                    With strong technical capabilities and strategic joint venture collaborations (JVCA) with
-                    foreign firms, the company continues to play a key role in Bangladesh’s energy and industrial
-                    development by providing cost-effective, reliable, and timely engineering solutions.
+                    As a certified industrial boiler license holder, we specialize in fabrication,
+                    installation, refractory & insulation works, welding, heavy equipment handling,
+                    and construction management. Our commitment is simple — deliver quality work,
+                    on time, with professionalism and technical excellence.
                 </p>
 
-                <hr class="my-4">
-
-                <div class="row">
+                <div class="row mt-4">
                     <div class="col-md-6">
                         <h5 class="about-heading">Our Mission</h5>
-                        <p class="about-text">
-                            To deliver high-quality engineering and construction services through technical
-                            excellence, safety, integrity, and professional project execution that exceeds
-                            client expectations.
+                        <p class="about-small-text">
+                            To provide reliable, high-quality engineering solutions through
+                            innovation, safety, and technical expertise.
                         </p>
                     </div>
 
                     <div class="col-md-6">
                         <h5 class="about-heading">Our Vision</h5>
-                        <p class="about-text">
-                            To be recognized as a leading engineering and construction company in Bangladesh
-                            and beyond, trusted for innovation, reliability, and long-term partnerships.
+                        <p class="about-small-text">
+                            To be a leading engineering and construction partner in Bangladesh
+                            and beyond, recognized for integrity and excellence.
                         </p>
                     </div>
                 </div>
 
             </div>
+
+            {{-- RIGHT SIDE IMAGES --}}
+            <div class="col-lg-6 position-relative about-image-wrapper">
+
+                <div class="image-card image-card-1">
+                    <img src="{{ asset('uploads/images/welcome_page/about/about_1.jpg') }}" alt="Project Image">
+                </div>
+
+                <div class="image-card image-card-2">
+                    <img src="{{ asset('uploads/images/welcome_page/about/about_2.jpg') }}" alt="Project Image">
+                </div>
+            </div>
         </div>
     </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+
+            const img1 = document.querySelector(".image-card-1");
+            const img2 = document.querySelector(".image-card-2");
+
+            function swapImages() {
+                img1.classList.toggle("swapped");
+                img2.classList.toggle("swapped");
+            }
+
+            img1.addEventListener("click", swapImages);
+            img2.addEventListener("click", swapImages);
+
+        });
+    </script>
 </section>
