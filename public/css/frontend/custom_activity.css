@@ -1,0 +1,63 @@
+.techno-activities {
+    background-color: #f8f9fa;
+}
+
+.activities-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #1c1c1c;
+    margin-bottom: 12px;
+}
+
+.activities-subtitle {
+    max-width: 750px;
+    margin: 0 auto;
+    color: #6c757d;
+    font-size: 1.05rem;
+}
+
+.activity-box {
+    background: #ffffff;
+    padding: 32px 28px;
+    border-radius: 14px;
+    text-align: left;
+    transition: all 0.3s ease;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+    height: 100%;
+}
+
+.activity-box i {
+    font-size: 2.4rem;
+    color: #f7931e;
+    margin-bottom: 18px;
+    display: inline-block;
+}
+
+.activity-box h5 {
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: #212529;
+    font-size: 1.15rem;
+}
+
+.activity-box p {
+    font-size: 0.95rem;
+    color: #6c757d;
+    line-height: 1.7;
+}
+
+.activity-box:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 22px 40px rgba(247, 147, 30, 0.2);
+}
+
+.activity-box:hover i {
+    color: #d97706;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .activities-title {
+        font-size: 2.1rem;
+    }
+}

@@ -1,90 +1,86 @@
-/* =========================
-   BANNER BASE
-========================= */
-
-#banner {
-    background: linear-gradient(135deg, #0d6efd, #198754);
-    color: #ffffff;
-}
-
-/* =========================
-   SLIDER CONTAINER
-========================= */
-
-#slider {
+.techno-hero {
     position: relative;
-    height: 70vh;
-    overflow: hidden;
+    height: 75vh;
+    background-image: url("/uploads/images/welcome_page/banner/banner.jpg"); /* put your image here */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
-/* =========================
-   SLIDES
-========================= */
-
-.slide {
+.techno-hero::before {
+    content: "";
     position: absolute;
     inset: 0;
+    background: linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0.75) 0%,
+        rgba(0, 0, 0, 0.55) 45%,
+        rgba(0, 0, 0, 0.15) 100%
+    );
+}
+
+.hero-overlay {
+    position: relative;
+    z-index: 2;
+    height: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 0 20px;
-
-    opacity: 0;
-    transition: opacity 0.8s ease-in-out;
 }
 
-.slide.active {
-    opacity: 1;
+.hero-tag {
+    display: inline-block;
+    color: #f7931e;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
 }
 
-/* =========================
-   TEXT STYLING
-========================= */
-
-.slide h1 {
-    font-size: 2.8rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
+.hero-title {
+    font-size: 3.2rem;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.2;
+    margin-bottom: 20px;
 }
 
-.slide p {
-    font-size: 1.2rem;
-    opacity: 0.9;
+.hero-subtitle {
+    color: #d1d1d1;
+    font-size: 1.05rem;
+    max-width: 520px;
 }
 
-/* =========================
-   DOT INDICATORS
-========================= */
-
-.dot {
-    width: 12px;
-    height: 12px;
-    background-color: rgba(255, 255, 255, 0.5);
-    border-radius: 50%;
-    cursor: pointer;
-    transition: all 0.3s ease;
+.hero-buttons .btn {
+    padding: 12px 30px;
+    font-weight: 600;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
-.dot.active {
+.hero-buttons .btn-primary {
+    background-color: #f7931e;
+    border-color: #f7931e;
+}
+
+.hero-buttons .btn-primary:hover {
+    background-color: #d97f0f;
+    border-color: #d97f0f;
+}
+
+.hero-buttons .btn-outline-light:hover {
     background-color: #ffffff;
-    transform: scale(1.2);
+    color: #000;
 }
 
-/* =========================
-   RESPONSIVE
-========================= */
-
+/* Responsive */
 @media (max-width: 768px) {
-    #slider {
-        height: 55vh;
+    .hero-title {
+        font-size: 2.4rem;
     }
 
-    .slide h1 {
-        font-size: 1.8rem;
-    }
-
-    .slide p {
-        font-size: 1rem;
+    .techno-hero {
+        height: 65vh;
     }
 }

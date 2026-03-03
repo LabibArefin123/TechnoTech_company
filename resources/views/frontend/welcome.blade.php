@@ -5,15 +5,12 @@
 @section('content')
     {{-- Header --}}
     @include('frontend.welcome_page.header')
-
     {{-- Hero Banner --}}
     @include('frontend.welcome_page.banner')
-
     {{-- About Lifeline City Hospital --}}
     @include('frontend.welcome_page.about')
-   
     @include('frontend.welcome_page.services')
-
+    @include('frontend.welcome_page.activities')
     {{-- Footer --}}
     @include('frontend.welcome_page.footer')
 @endsection

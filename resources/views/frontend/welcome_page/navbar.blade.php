@@ -1,8 +1,10 @@
 <link rel="stylesheet" href="{{ asset('css/frontend/custom_navbar.css') }}">
+
 <nav class="main-header navbar navbar-expand-md navbar-light navbar-white"
     style="padding-left: 30px; padding-right: 30px;">
     <div class="container-fluid">
-        <!-- Left: Logo -->
+
+        {{-- Logo --}}
         <a href="{{ route('welcome') }}" class="navbar-brand d-flex align-items-center">
             @php
                 $logoPath = null;
@@ -10,7 +12,6 @@
                 if (!empty($orgPicture)) {
                     foreach (['jpg', 'jpeg', 'png', 'webp'] as $ext) {
                         $path = public_path('uploads/images/backend/organization/' . $orgPicture . '.' . $ext);
-
                         if (file_exists($path)) {
                             $logoPath = asset('uploads/images/backend/organization/' . $orgPicture . '.' . $ext);
                             break;
@@ -21,111 +22,68 @@
 
             @if ($logoPath)
                 <img src="{{ $logoPath }}" alt="{{ $orgName }}" class="brand-image elevation-3"
-                    style="width:350px; height:75px; object-fit: contain;">
+                    style="width:300px; height:70px; object-fit:contain;">
             @else
-                {{-- Fallback --}}
-                <img src="{{ asset('uploads/images/logo.png') }}" alt="Default Logo" class="brand-image elevation-3"
-                    style="width:350px; height:75px; object-fit: contain;">
+                <img src="{{ asset('uploads/images/logo.png') }}" alt="TechnoTech Engineering Ltd"
+                    class="brand-image elevation-3" style="width:300px; height:70px; object-fit:contain;">
             @endif
         </a>
 
-
-        <!-- Toggle button for mobile -->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
-            aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        {{-- Mobile Toggle --}}
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <!-- Center Menu -->
-        <div class="collapse navbar-collapse justify-content-center order-2" id="navbarCollapse">
+        {{-- Center Menu --}}
+        <div class="collapse navbar-collapse justify-content-center" id="navbarCollapse">
             <ul class="navbar-nav">
+
                 <li class="nav-item">
                     <a href="{{ route('welcome') }}"
                         class="nav-link custom-link {{ request()->routeIs('welcome') ? 'active' : '' }}">
-                        Overview
+                        Home
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a href="#about" class="nav-link custom-link">About</a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="#departments" class="nav-link custom-link">Departments</a>
-                </li>
-
-                <li class="nav-item dropdown" id="facility_dropdown">
-                    <a href="#facilities" class="nav-link custom-link dropdown-toggle" role="button"
-                        aria-expanded="false">
-                        Facilities
+                    <a href="#about" class="nav-link custom-link">
+                        About Us
                     </a>
-
-                <li class="nav-item">
-                    <a href="#services" class="nav-link custom-link">Services</a>
                 </li>
 
+                <li class="nav-item">
+                    <a href="#services" class="nav-link custom-link">
+                        Services
+                    </a>
+                </li>
 
                 <li class="nav-item">
-                    <a href="#goals" class="nav-link custom-link">Our Goals</a>
+                    <a href="#activities" class="nav-link custom-link">
+                        Key Activities
+                    </a>
                 </li>
+
+                <li class="nav-item">
+                    <a href="#projects" class="nav-link custom-link">
+                        Projects
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link custom-link">
+                        Contact
+                    </a>
+                </li>
+
             </ul>
         </div>
 
-        <!-- Right: Login Button -->
-        <div class="order-3 ml-auto d-flex align-items-center">
-            <a href="{{ route('login') }}" class="btn login-btn" style="margin-right: 10px;">Hospital Login</a>
+        {{-- Right CTA --}}
+        <div class="d-flex align-items-center">
+            <button class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#quoteModal">
+                Get a Quote
+            </button>
         </div>
 
     </div>
 </nav>
-
-<!------start of welcome link js--->
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const welcomeUrl = "{{ route('welcome') }}";
-
-        document.querySelectorAll('a.nav-link[href^="#"]').forEach(link => {
-            link.addEventListener('click', function(e) {
-                const targetId = this.getAttribute('href');
-
-                // If NOT on welcome page
-                if (window.location.pathname !== new URL(welcomeUrl).pathname) {
-                    e.preventDefault();
-                    window.location.href = welcomeUrl + targetId;
-                }
-            });
-        });
-    });
-</script>
-<!------end of welcome link js--->
-
-<!------start of facility js--->
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-    const dropdown = document.getElementById('facility_dropdown');
-    const toggleLink = dropdown.querySelector('.dropdown-toggle');
-    const menu = dropdown.querySelector('.dropdown-menu');
-
-    // Toggle on click
-    toggleLink.addEventListener('click', function (e) {
-        e.preventDefault();
-
-        const isOpen = menu.classList.contains('show');
-        document.querySelectorAll('.dropdown-menu.show').forEach(el => {
-            el.classList.remove('show');
-        });
-
-        menu.classList.toggle('show', !isOpen);
-        toggleLink.setAttribute('aria-expanded', !isOpen);
-    });
-
-    // Close when clicking outside
-    document.addEventListener('click', function (e) {
-        if (!dropdown.contains(e.target)) {
-            menu.classList.remove('show');
-            toggleLink.setAttribute('aria-expanded', 'false');
-        }
-    });
-});
-</script>
-<!------end of facility js--->

@@ -1,50 +1,68 @@
-<section id="about" class="content py-5 bg-white">
+<section id="about" class="techno-about py-5">
+    <link rel="stylesheet" href="{{ asset('css/frontend/custom_about.css') }}">
+
     <div class="container" data-aos="fade-up">
 
+        {{-- Section Header --}}
         <div class="text-center mb-5">
-            <h2 class="fw-bold" style="font-size: 2.8rem;">About Lifetime City Hospital</h2>
+            <h2 class="about-title">About TechnoTech Engineering Ltd</h2>
 
-            <p class="text-danger fw-semibold mb-3" style="font-size: 1.1rem;">
-                Trusted Healthcare. Compassionate Service. Modern Treatment.
+            <p class="about-tagline">
+                Engineering Excellence • Industrial Expertise • Trusted Since 1995
             </p>
 
-            <p class="text-muted" style="font-size: 1.1rem;">
-                Providing quality medical care with experienced doctors and modern facilities.
+            <p class="about-subtitle">
+                A leading engineering and construction company delivering reliable solutions
+                for power, energy, and industrial sectors.
             </p>
         </div>
 
+        {{-- Content --}}
         <div class="row justify-content-center">
-            <div class="col-lg-10 text-start">
+            <div class="col-lg-10">
 
-                <p style="font-size: 1rem; line-height: 1.9; text-align: justify;">
-                    <strong>Lifetime City Hospital</strong> is a modern multi-specialty healthcare institution dedicated
-                    to delivering high-quality medical services to our community. Our hospital combines experienced
-                    medical professionals, advanced diagnostic technology, and patient-centered care to ensure the
-                    best possible treatment outcomes.
+                <p class="about-text">
+                    <strong>TechnoTech Engineering Ltd</strong>, established in 1995, began its journey as a
+                    mechanical construction firm formed by a group of highly qualified engineers from diverse
+                    technical disciplines. Since inception, the company has successfully executed numerous
+                    sophisticated projects across gas pipelines, power plants, oil refineries, and industrial sectors.
                 </p>
 
-                <p style="font-size: 1rem; line-height: 1.9; text-align: justify;">
-                    We offer a wide range of medical services including general medicine, surgery, cardiology,
-                    orthopedics, pediatrics, and emergency care. Our team is committed to maintaining high standards
-                    of safety, hygiene, and ethical medical practice.
+                <p class="about-text">
+                    The company has delivered projects both independently and in collaboration with reputed
+                    local and international partners. As a certified industrial boiler license holder,
+                    TechnoTech Engineering Ltd possesses extensive expertise in refractory and insulation works,
+                    fabrication, installation, welding, heavy lifting, and inland transportation.
+                </p>
+
+                <p class="about-text">
+                    With strong technical capabilities and strategic joint venture collaborations (JVCA) with
+                    foreign firms, the company continues to play a key role in Bangladesh’s energy and industrial
+                    development by providing cost-effective, reliable, and timely engineering solutions.
                 </p>
 
                 <hr class="my-4">
 
-                <h5 class="fw-semibold text-danger">Our Mission</h5>
-                <p style="font-size: 1rem; line-height: 1.8; text-align: justify;">
-                    To provide accessible, affordable, and high-quality healthcare services while ensuring
-                    compassion, respect, and dignity for every patient.
-                </p>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h5 class="about-heading">Our Mission</h5>
+                        <p class="about-text">
+                            To deliver high-quality engineering and construction services through technical
+                            excellence, safety, integrity, and professional project execution that exceeds
+                            client expectations.
+                        </p>
+                    </div>
 
-                <h5 class="fw-semibold text-danger mt-3">Our Vision</h5>
-                <p style="font-size: 1rem; line-height: 1.8; text-align: justify;">
-                    To become a leading and trusted healthcare provider known for medical excellence,
-                    innovation, and patient satisfaction.
-                </p>
+                    <div class="col-md-6">
+                        <h5 class="about-heading">Our Vision</h5>
+                        <p class="about-text">
+                            To be recognized as a leading engineering and construction company in Bangladesh
+                            and beyond, trusted for innovation, reliability, and long-term partnerships.
+                        </p>
+                    </div>
+                </div>
 
             </div>
         </div>
-
     </div>
 </section>

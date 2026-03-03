@@ -1,49 +1,35 @@
-<section id="banner" class="w-100">
+<section id="banner" class="techno-hero">
     <link rel="stylesheet" href="{{ asset('css/frontend/custom_banner.css') }}">
 
-    <div id="slider" class="position-relative w-100 d-flex align-items-center justify-content-center text-center"
-        style="height:70vh; overflow:hidden;">
+    <div class="hero-overlay">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                
+                {{-- Left Content --}}
+                <div class="col-lg-6 col-md-8">
+                    <span class="hero-tag">Engineering & Industrial Solutions</span>
 
-        @php
-            $slides = [
-                [
-                    'title' => 'Welcome to Lifetime City Hospital',
-                    'subtitle' => 'Providing trusted, affordable, and quality healthcare services for everyone.',
-                ],
-                [
-                    'title' => 'Experienced Doctors & Modern Care',
-                    'subtitle' => 'Expert medical professionals dedicated to your health and recovery.',
-                ],
-                [
-                    'title' => 'Easy Appointments & Patient Management',
-                    'subtitle' => 'Smart hospital management system for faster service and better care.',
-                ],
-            ];
-        @endphp
-
-        {{-- Slides --}}
-        @foreach ($slides as $index => $slide)
-            <div
-                class="slide {{ $index === 0 ? 'active' : '' }} position-absolute w-100 h-100 d-flex align-items-center justify-content-center">
-
-                <div class="text-white px-3">
-                    <h1 class="fw-bold mb-3" style="font-size: 2.8rem;">
-                        {{ $slide['title'] }}
+                    <h1 class="hero-title">
+                        Committed Quality <br> To You
                     </h1>
-                    <p class="fs-5 opacity-90">
-                        {{ $slide['subtitle'] }}
+
+                    <p class="hero-subtitle">
+                        TechnoTech Engineering Ltd delivers reliable, cost-effective,
+                        and technically sound solutions in power, energy, and industrial
+                        construction since 1995.
                     </p>
+
+                    <div class="hero-buttons mt-4">
+                        <a href="#services" class="btn btn-primary me-3">
+                            Get Started
+                        </a>
+                        <a href="#projects" class="btn btn-outline-light">
+                            See Projects
+                        </a>
+                    </div>
                 </div>
 
             </div>
-        @endforeach
-
-        {{-- Dots --}}
-        <div class="position-absolute bottom-0 start-50 translate-middle-x mb-4 d-flex gap-2">
-            @foreach ($slides as $i => $slide)
-                <span class="dot" onclick="goToSlide({{ $i }})"></span>
-            @endforeach
         </div>
-
     </div>
 </section>
