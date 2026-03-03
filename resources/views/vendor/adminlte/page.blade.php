@@ -131,51 +131,18 @@
 
     <script>
         window.globalSearchUrl = "{{ route('global.search') }}";
+
+        window.appNotifications = {
+            success: @json(session('success')),
+            error: @json(session('error')),
+            warning: @json(session('warning')),
+            info: @json(session('info')),
+        };
     </script>
 
     <script src="{{ asset('js/backend/page/global_search.js') }}"></script>
+    <script src="{{ asset('js/backend/page/notification.js') }}"></script>
 
-    <script>
-        @if (session('success'))
-            Swal.fire({
-                icon: 'success',
-                title: 'Success',
-                text: "{{ session('success') }}",
-                timer: 2000,
-                showConfirmButton: false
-            });
-        @endif
-
-        @if (session('error'))
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: "{{ session('error') }}",
-                timer: 2500,
-                showConfirmButton: false
-            });
-        @endif
-
-        @if (session('warning'))
-            Swal.fire({
-                icon: 'warning',
-                title: 'Warning',
-                text: "{{ session('warning') }}",
-                timer: 2500,
-                showConfirmButton: false
-            });
-        @endif
-
-        @if (session('info'))
-            Swal.fire({
-                icon: 'info',
-                title: 'Info',
-                text: "{{ session('info') }}",
-                timer: 2500,
-                showConfirmButton: false
-            });
-        @endif
-    </script>
     <!-- end of notification toaster notification -->
     <!-- start of data table format table -->
     <script>
