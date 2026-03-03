@@ -64,7 +64,7 @@ return [
     | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Basic-Configuration
     |
     */
-    'logo' => '<b>Lifeline City Hospital</b>',
+    'logo' => '<b>TechnoTech Engi. Ltd.</b>',
     'logo_img' => null,
     'logo_img_class' => null,
     'logo_img_xl' => null,
@@ -373,6 +373,13 @@ return [
                     'can' => 'permissions.index',
                     'active' => ['permissions*'],
                     'icon' => 'fas fa-key',  // key icon
+                ],
+                [
+                    'text' => 'System Problem',
+                    'route' => 'system_problems.index',
+                    'can' => 'system_problems.index',
+                    'active' => ['system_problems*'],
+                    'icon' => 'fas fa-users-cog',  // users with cog icon
                 ],
                 [
                     'text' => 'System User',

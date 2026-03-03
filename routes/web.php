@@ -42,6 +42,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('roles', RoleController::class);
     Route::resource('permissions', PermissionController::class);
     Route::post('/permissions/delete-selected', [PermissionController::class, 'deleteSelected'])->name('permissions.deleteSelected');
+    Route::resource('system_problems', SystemProblemController::class);
     Route::resource('system_users', SystemUserController::class);
     Route::post('/system-users/{user}/change-password', [SystemUserController::class, 'updatePassword'])->name('system_users.password.update');
 });
