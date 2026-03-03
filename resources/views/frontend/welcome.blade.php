@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('title', 'Lifeline City Hospital')
+@section('title', 'TechnoTech Engineering Ltd.')
 <link href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
 @section('content')
     {{-- Header --}}
