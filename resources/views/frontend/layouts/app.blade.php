@@ -65,16 +65,11 @@
     </script>
     {{-- End of SweetAlert2 notifications --}}
     <script src="{{ asset('js/custom_frontend/sweet_alert.js') }}"></script> {{-- Sweet Alert Notification JS --}}
-    <script src="{{ asset('js/custom_frontend/phone.js') }}"></script> {{-- Phone Modal JS --}}
-    <script src="{{ asset('js/custom_frontend/land_phone.js') }}"></script> {{-- Land Phone Modal JS --}}
     <script src="{{ asset('js/custom_frontend/custom_top_map.js') }}"></script> {{-- Location Modal JS --}}
     <script src="{{ asset('js/custom_frontend/custom_banner.js') }}"></script> {{-- Location Modal JS --}}
     <script src="{{ asset('js/custom_frontend/language.js') }}"></script> {{-- Language Modal JS --}}
-    <script src="{{ asset('js/custom_frontend/magnified_image_modal.js') }}"></script> {{-- Magnified Image Modal JS --}}
     <script src="{{ asset('js/custom_frontend/scroll_progress.js') }}"></script> {{-- Scroll Progress JS --}}
     <script src="{{ asset('js/custom_frontend/custom_back_top_button.js') }}"></script> {{-- Back to Top JS --}}
-    <script src="{{ asset('js/custom_frontend/custom_footer_modal.js') }}"></script> {{-- Footer Modal JS --}}
-
 </body>
 
 </html>

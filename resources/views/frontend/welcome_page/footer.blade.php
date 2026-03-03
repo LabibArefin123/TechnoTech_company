@@ -23,17 +23,17 @@
             <div class="col-lg-4 col-md-6">
                 <h6 class="fw-semibold mb-3">Contact Information</h6>
 
-                <p class="small mb-2">
+                <p class="small mb-2 footer-action" data-action="location" style="cursor:pointer;">
                     <i class="bi bi-geo-alt-fill me-2 text-warning"></i>
                     106/A,Green Road(3rd Floor), Farmgate, Corner Place Super Market, Dhaka-1205
                 </p>
 
-                <p class="small mb-2">
+                <p class="small mb-2 footer-action" data-action="phone" style="cursor:pointer;">
                     <i class="bi bi-telephone-fill me-2 text-warning"></i>
                     (+88)01754-327566
                 </p>
 
-                <p class="small mb-0">
+                <p class="small mb-0 footer-action" data-action="email" style="cursor:pointer;">
                     <i class="bi bi-envelope-fill me-2 text-warning"></i>
                     info@technotechengineering.com
                 </p>

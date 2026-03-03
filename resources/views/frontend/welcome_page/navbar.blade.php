@@ -30,7 +30,8 @@
         </a>
 
         {{-- Mobile Toggle --}}
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+            aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -86,7 +87,7 @@
 
         {{-- Right CTA --}}
         <div class="d-flex align-items-center">
-            <button class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#quoteModal">
+            <button class="btn quote-btn" data-bs-toggle="modal" data-bs-target="#quoteModal">
                 Get a Quote
             </button>
         </div>
