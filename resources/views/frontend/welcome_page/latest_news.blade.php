@@ -12,7 +12,7 @@
         </div>
 
         <div class="row g-4 align-items-stretch">
-            
+
             {{-- FEATURED VIDEO NEWS --}}
             <div class="col-lg-6">
                 <div class="news-video-card">
@@ -52,7 +52,7 @@
                         </h5>
 
                         <div class="news-meta">
-                            <span>Techno-Tech Engineering Ltd</span>
+                            <span>TechnoTech Engineering Ltd</span>
                             <a href="#" class="read-more">Read More →</a>
                         </div>
                     </div>

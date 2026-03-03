@@ -12,7 +12,7 @@
             </h2>
 
             <p class="cta-text">
-                Techno-Tech Engineering Ltd is always ready to support your
+                TechnoTech Engineering Ltd is always ready to support your
                 industrial and construction needs with reliable, cost-effective,
                 and professional solutions across Bangladesh.
             </p>

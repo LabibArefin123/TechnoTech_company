@@ -5,7 +5,7 @@
 
         {{-- Section Header --}}
         <div class="text-center mb-5">
-            <h2 class="about-title">About Techno-Tech Engineering Ltd</h2>
+            <h2 class="about-title">About TechnoTech Engineering Ltd</h2>
 
             <p class="about-tagline">
                 Engineering Excellence • Industrial Expertise • Trusted Since 1995
@@ -18,7 +18,7 @@
             <div class="col-lg-6 mb-4 mb-lg-0">
 
                 <p class="about-text">
-                    <strong>Techno-Tech Engineering Ltd</strong> was established in 1995 by a group of
+                    <strong>TechnoTech Engineering Ltd</strong> was established in 1995 by a group of
                     highly qualified engineers from diverse disciplines. What began as a mechanical
                     construction firm has grown into a trusted name in Bangladesh’s energy and
                     industrial sectors.
