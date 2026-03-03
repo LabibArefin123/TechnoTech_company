@@ -21,18 +21,8 @@ class DashboardController extends Controller
 
     public function index()
     {
-        $totalPatients = Patient::count();
-        $totalDoctors = Doctor::count();
-        $totalAppointments = Appointment::count();
-        $totalBills = Bill::count();
-        return view('backend.dashboard', compact(
-            'totalDoctors',
-            'totalPatients',
-            'totalAppointments',
-            'totalBills'
-        ));
+        return view('backend.dashboard');
     }
-
 
     /**
      * Show the form for creating a new resource.

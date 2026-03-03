@@ -1,64 +1,121 @@
 @extends('adminlte::page')
 
-@section('title', 'Lifeline City Hospital Dashboard')
+@section('title', 'Techno-Tech Dashboard')
 
 @section('content')
 
     <div class="container py-4">
 
         <h3 class="mb-4 fw-bold text-success">
-            Welcome to Lifeline City Hospital
+            Welcome to Techno-Tech Engineering Ltd Admin Panel
         </h3>
 
         <div class="row g-4">
 
-            <!-- Doctors -->
+            <!-- EMPLOYEES / ENGINEERS -->
             <div class="col-md-3 col-6">
-                <a href="{{ route('doctors.index') }}" class="text-decoration-none">
+                <a href="#" class="text-decoration-none">
                     <div class="card dashboard-card bg-primary text-white text-center shadow-sm h-100">
                         <div class="card-body">
                             <i class="bi bi-person-badge fs-1 mb-2"></i>
-                            <h4>{{ $totalDoctors }}</h4>
-                            <p class="mb-0">Total Doctors</p>
+                            <h4>00</h4>
+                            <p class="mb-0">Total Employees</p>
                         </div>
                     </div>
                 </a>
             </div>
 
-            <!-- Patients -->
+            <!-- PROJECTS -->
             <div class="col-md-3 col-6">
-                <a href="{{ route('patients.index') }}" class="text-decoration-none">
+                <a href="#" class="text-decoration-none">
                     <div class="card dashboard-card bg-success text-white text-center shadow-sm h-100">
                         <div class="card-body">
-                            <i class="bi bi-people fs-1 mb-2"></i>
-                            <h4>{{ $totalPatients }}</h4>
-                            <p class="mb-0">Total Patients</p>
+                            <i class="bi bi-building fs-1 mb-2"></i>
+                            <h4>00</h4>
+                            <p class="mb-0">Active Projects</p>
                         </div>
                     </div>
                 </a>
             </div>
 
-            <!-- Appointments -->
+            <!-- EQUIPMENT / MACHINERY -->
             <div class="col-md-3 col-6">
-                <a href="{{ route('appointments.index') }}" class="text-decoration-none">
+                <a href="#" class="text-decoration-none">
                     <div class="card dashboard-card bg-warning text-dark text-center shadow-sm h-100">
                         <div class="card-body">
-                            <i class="bi bi-calendar-check fs-1 mb-2"></i>
-                            <h4>{{ $totalAppointments }}</h4>
-                            <p class="mb-0">Appointments</p>
+                            <i class="bi bi-tools fs-1 mb-2"></i>
+                            <h4>00</h4>
+                            <p class="mb-0">Total Equipment</p>
                         </div>
                     </div>
                 </a>
             </div>
 
-            <!-- Bills -->
+            <!-- REPORTS / DOCUMENTS -->
             <div class="col-md-3 col-6">
-                <a href="{{ route('bills.index') }}" class="text-decoration-none">
+                <a href="#" class="text-decoration-none">
                     <div class="card dashboard-card bg-danger text-white text-center shadow-sm h-100">
                         <div class="card-body">
-                            <i class="bi bi-receipt fs-1 mb-2"></i>
-                            <h4>{{ $totalBills }}</h4>
-                            <p class="mb-0">Total Bills</p>
+                            <i class="bi bi-file-earmark-text fs-1 mb-2"></i>
+                            <h4>00</h4>
+                            <p class="mb-0">Reports Generated</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+
+        <!-- SECOND ROW: TRANSPORT & INSTALLATIONS -->
+        <div class="row g-4 mt-4">
+
+            <!-- TRANSPORT / LOGISTICS -->
+            <div class="col-md-3 col-6">
+                <a href="#" class="text-decoration-none">
+                    <div class="card dashboard-card bg-info text-white text-center shadow-sm h-100">
+                        <div class="card-body">
+                            <i class="bi bi-truck fs-1 mb-2"></i>
+                            <h4>00</h4>
+                            <p class="mb-0">Logistics Entries</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- INSTALLATIONS / ERECTIONS -->
+            <div class="col-md-3 col-6">
+                <a href="#" class="text-decoration-none">
+                    <div class="card dashboard-card bg-secondary text-white text-center shadow-sm h-100">
+                        <div class="card-body">
+                            <i class="bi bi-tools fs-1 mb-2"></i>
+                            <h4>00</h4>
+                            <p class="mb-0">Installations</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- CLIENTS -->
+            <div class="col-md-3 col-6">
+                <a href="#" class="text-decoration-none">
+                    <div class="card dashboard-card bg-success text-white text-center shadow-sm h-100">
+                        <div class="card-body">
+                            <i class="bi bi-briefcase fs-1 mb-2"></i>
+                            <h4>00</h4>
+                            <p class="mb-0">Clients</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- CONTRACTS / AGREEMENTS -->
+            <div class="col-md-3 col-6">
+                <a href="#" class="text-decoration-none">
+                    <div class="card dashboard-card bg-primary text-white text-center shadow-sm h-100">
+                        <div class="card-body">
+                            <i class="bi bi-file-earmark-check fs-1 mb-2"></i>
+                            <h4>00</h4>
+                            <p class="mb-0">Contracts</p>
                         </div>
                     </div>
                 </a>
@@ -76,8 +133,8 @@
         }
 
         .dashboard-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            transform: translateY(-6px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
             opacity: 0.95;
         }
     </style>

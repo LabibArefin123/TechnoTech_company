@@ -357,57 +357,6 @@ return [
         ],
 
         [
-            'text'    => 'Doctor Management',
-            'icon'    => 'fas fa-user-md',
-            'submenu' => [
-                [
-                    'text'  => 'Doctor List',
-                    'route' => 'doctors.index',
-                    'can'   => 'doctors.index',
-                    'icon'  => 'fas fa-list',
-                ],
-            ],
-        ],
-        [
-            'text'    => 'Patient Management',
-            'icon'    => 'bi bi-person-heart',
-            'submenu' => [
-                [
-                    'text'  => 'Patient List',
-                    'route' => 'patients.index',
-                    'can'   => 'patients.index',
-                    'icon'  => 'fas fa-list',
-                ],
-            ],
-        ],
-        [
-            'text'    => 'Appointment Manage',
-            'icon'    => 'fas fa-calendar-check',
-            'submenu' => [
-                [
-                    'text'  => 'Appointment List',
-                    'route' => 'appointments.index',
-                    'can'   => 'appointments.index',
-                    'icon'  => 'fas fa-list',
-                ],
-            ],
-        ],
-
-        [
-            'text'    => 'Bill Management',
-            'icon'    => 'fas fa-file-invoice-dollar',
-            'submenu' => [
-                [
-                    'text'  => 'Bill List',
-                    'route' => 'bills.index',
-                    'can'   => 'bills.index',
-                    'icon'  => 'fas fa-list',
-                ],
-            ],
-        ],
-
-
-        [
             'text'    => 'Setting Management',
             'icon'    => 'fas fa-cogs',
             'submenu' => [
