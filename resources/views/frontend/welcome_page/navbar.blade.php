@@ -70,6 +70,12 @@
                 </li>
 
                 <li class="nav-item">
+                    <a href="#news" class="nav-link custom-link">
+                        News
+                    </a>
+                </li>
+
+                <li class="nav-item">
                     <a href="#contact" class="nav-link custom-link">
                         Contact
                     </a>

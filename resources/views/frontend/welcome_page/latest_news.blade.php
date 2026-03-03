@@ -1,4 +1,4 @@
-<section id="latest-news" class="techno-news py-5">
+<section id="news" class="techno-news py-5">
     <link rel="stylesheet" href="{{ asset('css/frontend/custom_news.css') }}">
 
     <div class="container">
