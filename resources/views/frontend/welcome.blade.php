@@ -11,13 +11,7 @@
 
     {{-- About Lifeline City Hospital --}}
     @include('frontend.welcome_page.about')
-
-    {{-- Our Departments --}}
-    @include('frontend.welcome_page.department')
-
-    {{-- Hospital Services --}}
-    @include('frontend.welcome_page.doctors')
-    
+   
     @include('frontend.welcome_page.services')
 
     {{-- Footer --}}

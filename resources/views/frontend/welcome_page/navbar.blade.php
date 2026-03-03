@@ -1,27 +1,48 @@
 <link rel="stylesheet" href="{{ asset('css/frontend/custom_navbar.css') }}">
+<nav class="main-header navbar navbar-expand-md navbar-light navbar-white"
+    style="padding-left: 30px; padding-right: 30px;">
+    <div class="container-fluid">
+        <!-- Left: Logo -->
+        <a href="{{ route('welcome') }}" class="navbar-brand d-flex align-items-center">
+            @php
+                $logoPath = null;
 
-<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm py-3">
-    <div class="container">
+                if (!empty($orgPicture)) {
+                    foreach (['jpg', 'jpeg', 'png', 'webp'] as $ext) {
+                        $path = public_path('uploads/images/backend/organization/' . $orgPicture . '.' . $ext);
 
-        <!-- Brand Name (Text Only) -->
-        <a href="{{ route('welcome') }}" class="navbar-brand fw-bold text-success" style="font-size: 1.4rem;">
-            Lifetime City Hospital
+                        if (file_exists($path)) {
+                            $logoPath = asset('uploads/images/backend/organization/' . $orgPicture . '.' . $ext);
+                            break;
+                        }
+                    }
+                }
+            @endphp
+
+            @if ($logoPath)
+                <img src="{{ $logoPath }}" alt="{{ $orgName }}" class="brand-image elevation-3"
+                    style="width:350px; height:75px; object-fit: contain;">
+            @else
+                {{-- Fallback --}}
+                <img src="{{ asset('uploads/images/logo.png') }}" alt="Default Logo" class="brand-image elevation-3"
+                    style="width:350px; height:75px; object-fit: contain;">
+            @endif
         </a>
 
-        <!-- Mobile Toggle -->
+
+        <!-- Toggle button for mobile -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
             aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
         <!-- Center Menu -->
-        <div class="collapse navbar-collapse justify-content-center" id="navbarCollapse">
+        <div class="collapse navbar-collapse justify-content-center order-2" id="navbarCollapse">
             <ul class="navbar-nav">
-
                 <li class="nav-item">
                     <a href="{{ route('welcome') }}"
                         class="nav-link custom-link {{ request()->routeIs('welcome') ? 'active' : '' }}">
-                        Home
+                        Overview
                     </a>
                 </li>
 
@@ -33,27 +54,78 @@
                     <a href="#departments" class="nav-link custom-link">Departments</a>
                 </li>
 
+                <li class="nav-item dropdown" id="facility_dropdown">
+                    <a href="#facilities" class="nav-link custom-link dropdown-toggle" role="button"
+                        aria-expanded="false">
+                        Facilities
+                    </a>
+
                 <li class="nav-item">
                     <a href="#services" class="nav-link custom-link">Services</a>
                 </li>
 
-                <li class="nav-item">
-                    <a href="#doctors" class="nav-link custom-link">Doctors</a>
-                </li>
 
                 <li class="nav-item">
-                    <a href="#contact" class="nav-link custom-link">Contact</a>
+                    <a href="#goals" class="nav-link custom-link">Our Goals</a>
                 </li>
-
             </ul>
         </div>
 
-        <!-- Right Side Login -->
-        <div class="d-flex">
-            <a href="{{ route('login') }}" class="btn btn-success px-4">
-                Hospital Login
-            </a>
+        <!-- Right: Login Button -->
+        <div class="order-3 ml-auto d-flex align-items-center">
+            <a href="{{ route('login') }}" class="btn login-btn" style="margin-right: 10px;">Hospital Login</a>
         </div>
 
     </div>
 </nav>
+
+<!------start of welcome link js--->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const welcomeUrl = "{{ route('welcome') }}";
+
+        document.querySelectorAll('a.nav-link[href^="#"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href');
+
+                // If NOT on welcome page
+                if (window.location.pathname !== new URL(welcomeUrl).pathname) {
+                    e.preventDefault();
+                    window.location.href = welcomeUrl + targetId;
+                }
+            });
+        });
+    });
+</script>
+<!------end of welcome link js--->
+
+<!------start of facility js--->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const dropdown = document.getElementById('facility_dropdown');
+    const toggleLink = dropdown.querySelector('.dropdown-toggle');
+    const menu = dropdown.querySelector('.dropdown-menu');
+
+    // Toggle on click
+    toggleLink.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        const isOpen = menu.classList.contains('show');
+        document.querySelectorAll('.dropdown-menu.show').forEach(el => {
+            el.classList.remove('show');
+        });
+
+        menu.classList.toggle('show', !isOpen);
+        toggleLink.setAttribute('aria-expanded', !isOpen);
+    });
+
+    // Close when clicking outside
+    document.addEventListener('click', function (e) {
+        if (!dropdown.contains(e.target)) {
+            menu.classList.remove('show');
+            toggleLink.setAttribute('aria-expanded', 'false');
+        }
+    });
+});
+</script>
+<!------end of facility js--->
