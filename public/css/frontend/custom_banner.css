@@ -1,6 +1,6 @@
 .techno-hero {
     position: relative;
-    height: 75vh;
+    height: 100vh;
     background-image: url("/uploads/images/welcome_page/banner/banner.jpg"); /* put your image here */
     background-size: cover;
     background-position: center;

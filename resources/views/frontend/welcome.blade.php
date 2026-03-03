@@ -7,6 +7,8 @@
     @include('frontend.welcome_page.banner')
     @include('frontend.welcome_page.about')
     @include('frontend.welcome_page.services')
+    @include('frontend.welcome_page.project')
     @include('frontend.welcome_page.activities')
+    @include('frontend.welcome_page.skill')
     @include('frontend.welcome_page.footer')
 @endsection

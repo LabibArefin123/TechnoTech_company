@@ -1,0 +1,181 @@
+/* ================================
+   SECTION
+================================ */
+.techno-projects {
+    background: #f8fafc;
+}
+
+.projects-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.projects-subtitle {
+    color: #64748b;
+    max-width: 600px;
+    margin: auto;
+}
+
+/* ================================
+   SLIDER
+================================ */
+.projects-slider {
+    position: relative;
+    overflow: hidden;
+}
+
+.projects-slide {
+    display: none;
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+.projects-slide.active {
+    display: block;
+}
+
+/* ================================
+   FORCE 1x3 LAYOUT (Desktop)
+================================ */
+.projects-slide .row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.projects-slide .col-lg-4 {
+    flex: 0 0 33.3333%;
+    max-width: 33.3333%;
+}
+
+/* ================================
+   PROJECT CARD
+================================ */
+.project-card {
+    position: relative;
+    height: 500px;
+    overflow: hidden;
+    padding: 0;
+    transition: all 0.4s ease;
+}
+
+.project-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.project-card:hover img {
+    transform: scale(1.1);
+}
+
+/* Dark gradient overlay */
+.project-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent 60%);
+    z-index: 1;
+}
+
+/* Bottom content overlay */
+.project-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 25px;
+    z-index: 2;
+    background: rgba(255, 255, 255, 0.15); /* glass tint */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 -8px 25px rgba(0, 0, 0, 0.25);
+}
+
+.project-info h5 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 5px;
+
+}
+
+.project-info span {
+    font-size: 15px;
+    font-weight: 500;
+    color: #f97316;
+}
+
+/* ================================
+   RESPONSIVE
+================================ */
+
+/* Tablet */
+@media (max-width: 992px) {
+    .projects-slide .col-lg-4 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+
+    .project-card {
+        height: 380px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+    .projects-slide .col-lg-4 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    .project-card {
+        height: 320px;
+    }
+
+    .projects-title {
+        font-size: 28px;
+    }
+}
+
+/* ================================
+   DOTS
+================================ */
+.projects-dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.projects-dots .dot {
+    width: 12px;
+    height: 12px;
+    background: #cbd5e1;
+    border-radius: 50%;
+    margin: 0 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.projects-dots .dot:hover {
+    transform: scale(1.2);
+}
+
+.projects-dots .dot.active {
+    background: #f97316;
+}
+
+/* ================================
+   ANIMATION
+================================ */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

@@ -1,40 +1,70 @@
-<!-- Simple Footer -->
-<footer class="bg-dark text-white py-4" id="contact">
+<!-- Footer -->
+<footer class="bg-dark text-white pt-5 pb-4" id="contact">
     <link rel="stylesheet" href="{{ asset('css/frontend/custom_footer.css') }}">
 
     <div class="container">
-        <div class="row text-center text-md-start align-items-center">
 
-            <!-- Hospital Info -->
-            <div class="col-md-4 mb-3 mb-md-0">
-                <h5 class="fw-bold text-success">Lifetime City Hospital</h5>
-                <p class="small mb-0">
-                    Providing trusted and quality healthcare services with compassion and care.
+        <div class="row gy-4">
+
+            <!-- Company Info -->
+            <div class="col-lg-4 col-md-6">
+                <h5 class="fw-bold text-warning mb-3">
+                    TechnoTech Engineering Ltd
+                </h5>
+                <p class="small text-light">
+                    Established in 1995, TechnoTech Engineering Ltd is a leading
+                    engineering and construction company delivering reliable,
+                    cost-effective, and technically sound solutions in the
+                    power, energy, and industrial sectors of Bangladesh.
                 </p>
             </div>
 
             <!-- Contact Info -->
-            <div class="col-md-4 mb-3 mb-md-0">
-                <h6 class="fw-semibold">Contact Us</h6>
-                <p class="small mb-1">📍 123 Main Road, City Center</p>
-                <p class="small mb-1">📞 +880 1700-000000</p>
-                <p class="small mb-0">✉ info@lifetimehospital.com</p>
+            <div class="col-lg-4 col-md-6">
+                <h6 class="fw-semibold mb-3">Contact Information</h6>
+
+                <p class="small mb-2">
+                    <i class="bi bi-geo-alt-fill me-2 text-warning"></i>
+                    106/A,Green Road(3rd Floor), Farmgate, Corner Place Super Market, Dhaka-1205
+                </p>
+
+                <p class="small mb-2">
+                    <i class="bi bi-telephone-fill me-2 text-warning"></i>
+                    (+88)01754-327566
+                </p>
+
+                <p class="small mb-0">
+                    <i class="bi bi-envelope-fill me-2 text-warning"></i>
+                    info@technotechengineering.com
+                </p>
             </div>
 
             <!-- Quick Links -->
-            <div class="col-md-4">
-                <h6 class="fw-semibold">Quick Links</h6>
-                <p class="small mb-1 text-white"><a href="#about" class="footer-link">About</a></p>
-                <p class="small mb-1 text-white"><a href="#departments" class="footer-link">Departments</a></p>
-                <p class="small mb-1 text-white"><a href="#services" class="footer-link">Services</a></p>
-                <p class="small mb-0 text-white"><a href="{{ route('login') }}" class="footer-link">Hospital Login</a></p>
+            <div class="col-lg-4 col-md-6">
+                <h6 class="fw-semibold mb-3">Quick Links</h6>
+
+                <ul class="list-unstyled small">
+                    <li class="mb-2">
+                        <a href="#about" class="footer-link">About Us</a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="#services" class="footer-link">Services</a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="#activities" class="footer-link">Key Activities</a>
+                    </li>
+                    <li>
+                        <a href="#projects" class="footer-link">Projects</a>
+                    </li>
+                </ul>
             </div>
 
         </div>
 
-        <!-- Bottom -->
+        <!-- Bottom Bar -->
         <div class="text-center small mt-4 pt-3 border-top border-secondary">
-            &copy; {{ date('Y') }} Lifetime City Hospital. All rights reserved.
+            © {{ date('Y') }} TechnoTech Engineering Ltd. All rights reserved.
         </div>
+
     </div>
 </footer>
