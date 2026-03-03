@@ -1,0 +1,111 @@
+/* ================================
+   CONTACT CTA SECTION
+================================ */
+.techno-contact-cta {
+    position: relative;
+    background-color: #0f172a; /* fallback if no image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url('/uploads/images/welcome_page/contact_cta/image.jpg');
+}
+
+/* Optional overlay (keeps text readable on image) */
+.techno-contact-cta::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to right,
+        rgba(15, 23, 42, 0.85),
+        rgba(15, 23, 42, 0.65)
+    );
+    z-index: 1;
+}
+
+.contact-cta-box {
+    position: relative;
+    z-index: 2;
+    max-width: 720px;
+    padding: 60px;
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+}
+
+/* Tag */
+.cta-tag {
+    display: inline-block;
+    padding: 6px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #f97316;
+    background: rgba(249, 115, 22, 0.15);
+    border-radius: 20px;
+    margin-bottom: 15px;
+}
+
+/* Title */
+.cta-title {
+    font-size: 40px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+/* Text */
+.cta-text {
+    color: #e2e8f0;
+    font-size: 16px;
+    margin-bottom: 35px;
+}
+
+/* Buttons */
+.cta-actions {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.cta-btn {
+    background: #f97316;
+    border: none;
+    padding: 14px 28px;
+    font-weight: 600;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+}
+
+.cta-btn:hover {
+    background: #fb923c;
+    transform: translateY(-2px);
+}
+
+.cta-btn-outline {
+    color: #ffffff;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    padding: 12px 26px;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.cta-btn-outline:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+/* ================================
+   RESPONSIVE
+================================ */
+@media (max-width: 768px) {
+    .contact-cta-box {
+        padding: 40px 30px;
+    }
+
+    .cta-title {
+        font-size: 30px;
+    }
+}

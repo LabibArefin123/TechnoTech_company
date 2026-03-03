@@ -10,5 +10,7 @@
     @include('frontend.welcome_page.project')
     @include('frontend.welcome_page.activities')
     @include('frontend.welcome_page.skill')
+    @include('frontend.welcome_page.contact-cta')
+    @include('frontend.welcome_page.latest_news')
     @include('frontend.welcome_page.footer')
 @endsection

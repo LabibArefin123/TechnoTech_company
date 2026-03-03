@@ -1,0 +1,155 @@
+/* ================================
+   NEWS SECTION
+================================ */
+.techno-news {
+    background: #f8fafc;
+}
+
+.news-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.news-subtitle {
+    color: #64748b;
+    max-width: 600px;
+    margin: auto;
+}
+
+/* ================================
+   VIDEO CARD
+================================ */
+.news-video-card {
+    height: 100%;
+    background: #0f172a;
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.3);
+}
+
+.news-video-card iframe {
+    width: 100%;
+    height: 380px; /* vertical feel */
+    object-fit: cover;
+}
+
+.news-video-info {
+    padding: 25px;
+    color: #ffffff;
+}
+
+.news-video-info h4 {
+    font-size: 22px;
+    font-weight: 700;
+    margin: 10px 0;
+}
+
+.news-video-info p {
+    font-size: 15px;
+    color: #e2e8f0;
+}
+
+/* ================================
+   NEWS LIST
+================================ */
+.news-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.news-item {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.news-item:hover {
+    transform: translateY(-6px);
+}
+
+.news-item h5 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 10px 0 15px;
+}
+
+/* ================================
+   META
+================================ */
+.news-category {
+    font-size: 13px;
+    font-weight: 600;
+    color: #f97316;
+}
+
+.news-date {
+    font-size: 13px;
+    color: #64748b;
+    margin-left: 10px;
+}
+
+.news-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    color: #64748b;
+}
+
+.read-more {
+    color: #f97316;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.read-more:hover {
+    text-decoration: underline;
+}
+/* ================================
+   FIX FB VIDEO HEIGHT & BALANCE
+================================ */
+
+/* Lock video area height */
+.news-video-frame {
+    height: 360px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: #000;
+}
+
+/* Force FB iframe to respect container */
+.news-video-frame iframe {
+    /* width: 100% !important; */
+    height: 100% !important;
+    max-height: 360px;
+    border-radius: 0;
+}
+
+/* Prevent card from over-growing */
+.news-video-card {
+    justify-content: space-between;
+}
+
+/* Make info section friendlier */
+.news-video-info {
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(6px);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+/* ================================
+   RESPONSIVE
+================================ */
+@media (max-width: 768px) {
+    .news-video-card iframe {
+        height: 260px;
+    }
+}
