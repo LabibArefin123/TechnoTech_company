@@ -38,6 +38,12 @@
         <main class="">
             @yield('content')
         </main>
+        @include('frontend.components.quote_modal')
+        @include('frontend.components.location_modal_t')
+        @include('frontend.components.phone_modal_t')
+        @include('frontend.components.email_modal_footer')
+        @include('frontend.components.phone_modal_footer')
+        @include('frontend.components.location_modal_footer')
     </div>
     <!-- Bootstrap JS + dependencies -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -64,12 +70,14 @@
         };
     </script>
     {{-- End of SweetAlert2 notifications --}}
+    <script src="{{ asset('js/custom_frontend/custom_top_bar.js') }}"></script> {{-- Sweet Alert Notification JS --}}
     <script src="{{ asset('js/custom_frontend/sweet_alert.js') }}"></script> {{-- Sweet Alert Notification JS --}}
     <script src="{{ asset('js/custom_frontend/custom_top_map.js') }}"></script> {{-- Location Modal JS --}}
     <script src="{{ asset('js/custom_frontend/custom_banner.js') }}"></script> {{-- Location Modal JS --}}
     <script src="{{ asset('js/custom_frontend/language.js') }}"></script> {{-- Language Modal JS --}}
     <script src="{{ asset('js/custom_frontend/scroll_progress.js') }}"></script> {{-- Scroll Progress JS --}}
     <script src="{{ asset('js/custom_frontend/custom_back_top_button.js') }}"></script> {{-- Back to Top JS --}}
+    <script src="{{ asset('js/custom_frontend/custom_footer_modal.js') }}"></script> {{-- Back to Top JS --}}
 </body>
 
 </html>

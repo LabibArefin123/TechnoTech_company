@@ -85,12 +85,24 @@
             </ul>
         </div>
 
-        {{-- Right CTA --}}
+        <!-- Button -->
         <div class="d-flex align-items-center">
-            <button class="btn quote-btn" data-bs-toggle="modal" data-bs-target="#quoteModal">
+            <button class="btn quote-btn" id="openQuote">
                 Get a Quote
             </button>
         </div>
+        
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
 
+                var offcanvasElement = document.getElementById('quoteOffcanvas');
+                var offcanvas = new bootstrap.Offcanvas(offcanvasElement);
+
+                document.getElementById('openQuote').addEventListener('click', function() {
+                    offcanvas.show();
+                });
+
+            });
+        </script>
     </div>
 </nav>

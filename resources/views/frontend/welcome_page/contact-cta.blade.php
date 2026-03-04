@@ -21,7 +21,7 @@
                 <a href="#contact" class="btn btn-primary cta-btn">
                     Contact Us
                 </a>
-                <a href="tel:+880XXXXXXXXX" class="btn btn-outline-light cta-btn-outline">
+                <a href="tel:+8801754327566" class="btn btn-outline-light cta-btn-outline">
                     Call Now
                 </a>
             </div>

@@ -1,11 +1,8 @@
 <!-- Footer -->
 <footer class="bg-dark text-white pt-5 pb-4" id="contact">
     <link rel="stylesheet" href="{{ asset('css/frontend/custom_footer.css') }}">
-
     <div class="container">
-
         <div class="row gy-4">
-
             <!-- Company Info -->
             <div class="col-lg-4 col-md-6">
                 <h5 class="fw-bold text-warning mb-3">
@@ -19,7 +16,6 @@
                 </p>
             </div>
 
-            <!-- Contact Info -->
             <div class="col-lg-4 col-md-6">
                 <h6 class="fw-semibold mb-3">Contact Information</h6>
 
@@ -38,7 +34,7 @@
                     info@technotechengineering.com
                 </p>
             </div>
-
+            
             <!-- Quick Links -->
             <div class="col-lg-4 col-md-6">
                 <h6 class="fw-semibold mb-3">Quick Links</h6>
@@ -62,7 +58,7 @@
         </div>
 
         <!-- Bottom Bar -->
-        <div class="text-center small mt-4 pt-3 border-top border-secondary">
+        <div class="text-center small mt-1 pt-1 border-top border-secondary">
             © {{ date('Y') }} TechnoTech Engineering Ltd. All rights reserved.
         </div>
 
