@@ -3,8 +3,8 @@
         © {{ date('Y') }} <strong>TechnoTech Engineering Ltd</strong> | Industrial & Construction Solutions
     </div>
     <div class="footer-right">
-        Designed & Developed by <strong>Md. Labib Arefin</strong> 
-        <a href="https://labib.work/" class="text-decoration-none" target="_blank"></a>
+        Designed & Developed by 
+        <a href="https://labib.work/" class="text-decoration-none" target="_blank"><strong>Md. Labib Arefin</strong> </a>
     </div>
 </footer>
 
