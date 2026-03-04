@@ -2,82 +2,170 @@
    SKILLS SECTION
 ================================ */
 .techno-skills {
-    background: linear-gradient(135deg, #f8fafc, #eef2f7);
+    background: linear-gradient(135deg, #ffffff, #f8fafc);
+    color: #0f172a;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Soft glowing background blur shapes */
+.techno-skills::before,
+.techno-skills::after {
+    content: "";
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.4;
+    z-index: 0;
+}
+
+.techno-skills::before {
+    top: -100px;
+    left: -100px;
+}
+
+.techno-skills::after {
+    bottom: -100px;
+    right: -100px;
+}
+
+/* Make content above glow */
+.techno-skills .container {
+    position: relative;
+    z-index: 2;
 }
 
 .skills-tag {
     display: inline-block;
-    padding: 6px 14px;
+    padding: 6px 16px;
     font-size: 14px;
     font-weight: 600;
-    color: #f97316;
-    background: rgba(249, 115, 22, 0.1);
-    border-radius: 20px;
+    color: #000000; /* Text Black */
+    background: #ff6b6b; /* Background Red */
+    border-radius: 30px;
     margin-bottom: 15px;
 }
 
 .skills-title {
     font-size: 38px;
     font-weight: 700;
-    color: #0f172a;
-    line-height: 1.2;
     margin-bottom: 20px;
 }
 
 .skills-description {
-    color: #475569;
-    font-size: 16px;
-    margin-bottom: 35px;
+    color: #cbd5e1;
+    margin-bottom: 40px;
 }
 
 /* ================================
-   SKILL BAR
+   SKILL ITEM
 ================================ */
 .skill-item {
-    margin-bottom: 22px;
+    margin-bottom: 28px;
 }
 
 .skill-label {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 10px;
     font-weight: 600;
-    color: #0f172a;
-    margin-bottom: 8px;
 }
 
-.skill-bar {
-    width: 100%;
-    height: 10px;
-    background: rgba(15, 23, 42, 0.1);
-    border-radius: 20px;
-    overflow: hidden;
-}
-
-/* Glassy progress */
-.skill-progress {
-    height: 100%;
-    background: linear-gradient(90deg, #f97316, #fb923c);
-    border-radius: 20px;
-    box-shadow: 0 4px 15px rgba(249, 115, 22, 0.5);
-    transition: width 1s ease;
+.skill-percent {
+    color: #000;
 }
 
 /* ================================
-   IMAGE WITH GLASS FRAME
+   BAR
 ================================ */
-.skills-image {
-    position: relative;
-    border-radius: 20px;
+.skill-bar {
+    width: 100%;
+    height: 14px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 50px;
     overflow: hidden;
     backdrop-filter: blur(10px);
 }
 
+/* ================================
+   PROGRESS
+================================ */
+.skill-progress {
+    width: 0;
+    height: 100%;
+    position: relative;
+    border-radius: 50px;
+    background: linear-gradient(90deg, #00f5ff, #7c3aed, #00f5ff);
+    background-size: 300% 300%;
+    transition: width 2s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    box-shadow:
+        0 0 15px #00f5ff,
+        0 0 30px #7c3aed;
+}
+
+/* Elastic bounce trigger */
+.skill-progress.animate {
+    animation: gradientMove 3s infinite linear;
+}
+
+/* Gradient Animation */
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+/* ================================
+   WAVE EFFECT
+================================ */
+.wave {
+    position: absolute;
+    width: 200%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.15);
+    opacity: 0.4;
+    animation: waveMove 3s linear infinite;
+}
+
+@keyframes waveMove {
+    from {
+        transform: translateX(-50%);
+    }
+    to {
+        transform: translateX(0%);
+    }
+}
+
+/* ================================
+   BUBBLE
+================================ */
+.progress-bubble {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 6px 12px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 600;
+    backdrop-filter: blur(10px);
+    color: #00f5ff;
+    box-shadow: 0 0 10px #00f5ff;
+    transform: translateX(50%);
+}
+
+/* ================================
+   IMAGE
+================================ */
 .skills-image img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
     border-radius: 20px;
-    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.5);
 }
 
 /* ================================
@@ -85,10 +173,6 @@
 ================================ */
 @media (max-width: 768px) {
     .skills-title {
-        font-size: 30px;
-    }
-
-    .skills-image {
-        margin-top: 30px;
+        font-size: 28px;
     }
 }

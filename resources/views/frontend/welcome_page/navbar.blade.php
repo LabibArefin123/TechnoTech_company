@@ -87,11 +87,11 @@
 
         <!-- Button -->
         <div class="d-flex align-items-center">
-            <button class="btn quote-btn" id="openQuote">
+            <button class="btn quote-btn" id="openQuote" style="border: 2px solid red;">
                 Get a Quote
             </button>
         </div>
-        
+
         <script>
             document.addEventListener("DOMContentLoaded", function() {
 

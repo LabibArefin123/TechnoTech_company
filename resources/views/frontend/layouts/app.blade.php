@@ -74,6 +74,7 @@
     <script src="{{ asset('js/custom_frontend/sweet_alert.js') }}"></script> {{-- Sweet Alert Notification JS --}}
     <script src="{{ asset('js/custom_frontend/custom_top_map.js') }}"></script> {{-- Location Modal JS --}}
     <script src="{{ asset('js/custom_frontend/custom_banner.js') }}"></script> {{-- Location Modal JS --}}
+    <script src="{{ asset('js/custom_frontend/custom_skill.js') }}"></script> {{-- Location Modal JS --}}
     <script src="{{ asset('js/custom_frontend/language.js') }}"></script> {{-- Language Modal JS --}}
     <script src="{{ asset('js/custom_frontend/scroll_progress.js') }}"></script> {{-- Scroll Progress JS --}}
     <script src="{{ asset('js/custom_frontend/custom_back_top_button.js') }}"></script> {{-- Back to Top JS --}}

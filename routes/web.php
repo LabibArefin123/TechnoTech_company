@@ -19,6 +19,7 @@ use Illuminate\Http\Request;
 Route::get('/', [WelcomePageController::class, 'index'])->name('welcome');
 Route::get('/contact-us', [WelcomePageController::class, 'contact'])->name('contact');
 Route::post('/contact/send', [WelcomePageController::class, 'sendContact'])->name('contact.send');
+Route::post('/system-problem/store', [WelcomePageController::class, 'system_problem_store'])->name('system_problem.store');
 
 Route::get('/user_profile', function () {
     return view('user_profile');
