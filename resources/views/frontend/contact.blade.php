@@ -4,7 +4,7 @@
 
 @section('content')
     @include('frontend.welcome_page.header')
-    <section id="contact" class="techno-contact py-5">
+    <section id="contact" class="bg-white py-5">
         <div class="container">
 
             {{-- Section Header --}}
@@ -15,24 +15,75 @@
                 </p>
             </div>
 
-            <div class="row g-4 align-items-start">
+            <!-- Contact Info Cards Section -->
+            <section class="contact-info-cards my-5">
+                <div class="container">
+                    <div class="row g-4 justify-content-center">
+                        <!-- Card 1: Make A Quote -->
+                        <div class="col-md-4">
+                            <div class="card h-100 text-center shadow-sm border-0">
+                                <div class="card-img-top p-3"
+                                    style="height:150px; display:flex; align-items:center; justify-content:center;">
+                                    <img src="{{ asset('uploads/images/welcome_page/contact_page/image_1.webp') }}" alt="Make a Quote"
+                                        style="max-width:100%; max-height:100%; object-fit:contain;">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">Make A Quote</h5>
+                                    <p class="card-text"><a href="mailto:info@technotechengineering.com"> info@technotechengineering.com</a></p>
+                                </div>
+                            </div>
+                        </div>
 
-                {{-- Contact Info --}}
-                <div class="col-lg-4">
-                    <div class="contact-card p-4 shadow-sm rounded-4">
-                        <h5 class="fw-bold mb-3">Make A Quote</h5>
-                        <p><i class="bi bi-envelope-fill me-2 text-success"></i> info@elevate.com</p>
+                        <!-- Card 2: Call Us 24/7 -->
+                        <div class="col-md-4">
+                            <div class="card h-100 text-center shadow-sm border-0">
+                                <div class="card-img-top p-3"
+                                    style="height:150px; display:flex; align-items:center; justify-content:center;">
+                                    <img src="{{ asset('uploads/images/welcome_page/contact_page/image_2.webp') }}" alt="Call Us 24/7"
+                                        style="max-width:100%; max-height:100%; object-fit:contain;">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">Call Us 24/7</h5>
+                                    <p class="card-text"><a href="tel:+1754327566">(+880)1754327566</a></p>
+                                </div>
+                            </div>
+                        </div>
 
-                        <h5 class="fw-bold mt-4 mb-3">Call Us 24/7</h5>
-                        <p><i class="bi bi-telephone-fill me-2 text-success"></i> +584 (25) 21453</p>
+                        <!-- Card 3: Work Station -->
+                        <div class="col-md-4">
+                            <div class="card h-100 text-center shadow-sm border-0">
+                                <div class="card-img-top p-3"
+                                    style="height:150px; display:flex; align-items:center; justify-content:center;">
+                                    <img src="{{ asset('uploads/images/welcome_page/contact_page/image_3.webp') }}" alt="Work Station"
+                                        style="max-width:100%; max-height:100%; object-fit:contain;">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">Work Station</h5>
+                                    <p class="card-text">106/A, Green Road (3rd Floor), Farmgate, Corner Place Super Market, Dhaka-1205</p>
+                                </div>
+                            </div>
+                        </div>
 
-                        <h5 class="fw-bold mt-4 mb-3">Work Station</h5>
-                        <p><i class="bi bi-geo-alt-fill me-2 text-success"></i> 25 Hilton Street, Aus.</p>
                     </div>
                 </div>
+            </section>
+
+            <!-- Optional CSS -->
+            <style>
+                .contact-info-cards .card {
+                    transition: transform 0.3s, box-shadow 0.3s;
+                }
+
+                .contact-info-cards .card:hover {
+                    transform: translateY(-5px);
+                    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+                }
+            </style>
+
+            <div class="row g-4 align-items-start">
 
                 {{-- Contact Form --}}
-                <div class="col-lg-8">
+                <div class="col-lg-12">
                     <div class="contact-card p-4 shadow-sm rounded-4 bg-white">
                         <form action="{{ route('contact.send') }}" method="POST">
                             @csrf
@@ -74,10 +125,6 @@
     </section>
     @include('frontend.welcome_page.footer')
     <style>
-        .techno-contact {
-            background: #f8fafc;
-        }
-
         .contact-title {
             font-size: 36px;
             font-weight: 700;

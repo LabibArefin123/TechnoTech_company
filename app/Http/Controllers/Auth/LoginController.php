@@ -43,7 +43,7 @@ class LoginController extends Controller
         $request->ensureIsNotRateLimited();
 
         $loginInput = $request->input('login');
-        $password   = $request->input('password');
+        $password   = $request->input('password');  
 
         // Determine if login is email or username
         $field = filter_var($loginInput, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';

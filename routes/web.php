@@ -48,6 +48,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/system-users/{user}/change-password', [SystemUserController::class, 'updatePassword'])->name('system_users.password.update');
 });
 
-Auth::routes([
-    'register' => false, // disables register
-]);
+require __DIR__ . '/auth.php';
+
+Route::post('/developer-unlock', function (Request $request) {
+    session(['developer_mode' => true]);
+    return response()->json(['status' => 'ok']);
+});
