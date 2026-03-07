@@ -66,7 +66,7 @@
 
     <!-- Layout Selection -->
     <div>
-        <h5>Layout</h5>
+        <h5>Navbar Layout</h5>
         <div style="display:flex; gap:10px; margin-top:10px;">
             <button class="layoutBtn" data-layout="1" style="flex:1;">Layout 1</button>
             <button class="layoutBtn" data-layout="2" style="flex:1;">Layout 2</button>

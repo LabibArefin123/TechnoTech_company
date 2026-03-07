@@ -7,7 +7,6 @@
 
     <section id="contact" class="bg-white py-5">
         <div class="container">
-
             {{-- Section Header --}}
             <div class="text-center mb-5">
                 <h2 class="contact-title">Get In Touch</h2>
@@ -94,19 +93,16 @@
                             @csrf
                             <div class="row g-3 flex-fill">
                                 <div class="col-md-6">
-                                    <input type="text" name="name" class="form-control" placeholder="Your Name"
-                                        required>
+                                    <input type="text" name="name" class="form-control" placeholder="Your Name">
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="email" name="email" class="form-control" placeholder="Your Email"
-                                        required>
+                                    <input type="email" name="email" class="form-control" placeholder="Your Email">
                                 </div>
                                 <div class="col-12">
-                                    <input type="text" name="subject" class="form-control" placeholder="Subject"
-                                        required>
+                                    <input type="text" name="subject" class="form-control" placeholder="Subject">
                                 </div>
                                 <div class="col-12 flex-fill">
-                                    <textarea name="message" rows="5" class="form-control h-100" placeholder="Comments" required></textarea>
+                                    <textarea name="message" rows="5" class="form-control h-100" placeholder="Comments"></textarea>
                                 </div>
                                 <div class="col-12 text-end">
                                     <button type="submit" class="btn btn-success px-4 py-2">Send Message</button>
