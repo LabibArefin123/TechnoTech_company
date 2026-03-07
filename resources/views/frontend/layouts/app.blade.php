@@ -31,7 +31,7 @@
 
 <body>
     <div id="app">
-       
+
         @include('frontend.components.setting_float_modal')
         <!-- Scroll Progress Bar -->
         <div id="scrollProgress"

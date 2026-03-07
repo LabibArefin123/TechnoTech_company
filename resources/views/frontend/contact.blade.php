@@ -1,9 +1,9 @@
 @extends('frontend.layouts.app')
 
 @section('title', 'Contact Us | TechnoTech Engineering Ltd.')
-
 @section('content')
     @include('frontend.welcome_page.header')
+    <link rel="stylesheet" href="{{ asset('css/frontend/contact_page/custom_contact.css') }}">
 
     <section id="contact" class="bg-white py-5">
         <div class="container">
@@ -82,65 +82,9 @@
                 </div>
             </section>
 
-            <!-- Modals -->
-            <!-- Email Modal -->
-            <div class="modal fade" id="emailModal" tabindex="-1" aria-labelledby="emailModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content p-3">
-                        <div class="modal-header border-0">
-                            <h5 class="modal-title" id="emailModalLabel">Send Email</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <p>Email to: <strong>info@technotechengineering.com</strong></p>
-                            {{-- You can add a form or action button here --}}
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @include('frontend.components.contact_page.email')
+            @include('frontend.components.contact_page.phone')
 
-            <!-- Call Modal -->
-            <div class="modal fade" id="callModal" tabindex="-1" aria-labelledby="callModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content p-3">
-                        <div class="modal-header border-0">
-                            <h5 class="modal-title" id="callModalLabel">Call Us</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <p>Call: <strong>(+880) 1754327566</strong></p>
-                            {{-- You can add call button or further info here --}}
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            {{-- Custom CSS --}}
-            <style>
-                .invisible-link {
-                    color: #0f172a;
-                    text-decoration: none;
-                    transition: color 0.3s;
-                    cursor: pointer;
-                }
-
-                .invisible-link:hover {
-                    color: #ff6b6b;
-                }
-            </style>
-
-            {{-- JS Trigger for Modals --}}
-            <script>
-                document.getElementById('emailModalTrigger').addEventListener('click', function() {
-                    var emailModal = new bootstrap.Modal(document.getElementById('emailModal'));
-                    emailModal.show();
-                });
-
-                document.getElementById('callModalTrigger').addEventListener('click', function() {
-                    var callModal = new bootstrap.Modal(document.getElementById('callModal'));
-                    callModal.show();
-                });
-            </script>
             {{-- Contact Form + Map Section --}}
             <div class="row g-4 align-items-stretch"> {{-- align-items-stretch ensures equal heights --}}
                 {{-- Contact Form --}}
@@ -184,80 +128,6 @@
 
         </div>
     </section>
-
     @include('frontend.welcome_page.footer')
-
-    {{-- Custom CSS --}}
-    <style>
-        .contact-title {
-            font-size: 36px;
-            font-weight: 700;
-            color: #0f172a;
-        }
-
-        .contact-subtitle {
-            color: #64748b;
-            max-width: 600px;
-            margin: auto;
-        }
-
-        .contact-info-cards .card {
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .contact-info-cards .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-        }
-
-        .contact-card {
-            background: #f1f5f9;
-            transition: all 0.3s ease;
-        }
-
-        .contact-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-        }
-
-        .map-card {
-            background: #f1f5f9;
-            transition: all 0.3s ease;
-        }
-
-        .map-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-        }
-
-        .form-control {
-            border-radius: 12px;
-            border: 1px solid #cbd5e1;
-            padding: 12px;
-            transition: all 0.3s ease;
-        }
-
-        .form-control:focus {
-            border-color: #22c55e;
-            box-shadow: 0 0 8px rgba(34, 197, 94, 0.3);
-        }
-
-        .btn-success {
-            border-radius: 12px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .btn-success:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(34, 197, 94, 0.4);
-        }
-
-        @media (max-width: 991px) {
-            .map-card {
-                min-height: 300px;
-                margin-top: 20px;
-            }
-        }
-    </style>
+    <script src="{{ asset('js/custom_frontend/contact_page/custom_contact.js') }}"></script>
 @endsection
