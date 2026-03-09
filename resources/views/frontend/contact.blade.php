@@ -15,68 +15,43 @@
                 </p>
             </div>
 
-            <!-- Contact Info Cards Section -->
             <section class="contact-info-cards my-5">
                 <div class="row g-4 justify-content-center">
 
-                    <!-- Card 1: Make A Quote -->
-                    <div class="col-md-4">
-                        <div class="card h-100 text-center shadow-sm border-0 p-3 pt-5 position-relative">
-                            <!-- Floating Image -->
-                            <div class="position-absolute top-0 start-50 translate-middle"
-                                style="width:100%; max-width:420px; height:250px;">
-                                <img src="{{ asset('uploads/images/welcome_page/contact_page/image_1.webp') }}"
-                                    alt="Make a Quote"
-                                    style="width:100%; height:100%; object-fit:contain; border-radius: 12px;">
-                            </div>
-                            <div class="card-body mt-5 pt-5">
-                                <h5 class="card-title">Make A Quote</h5>
-                                <p class="card-text">
-                                    <a href="javascript:void(0);" class="invisible-link" id="emailModalTrigger">
-                                        info@technotechengineering.com
-                                    </a>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                    @foreach ($cards as $card)
+                        <div class="col-md-4">
+                            <div class="card h-100 text-center shadow-sm border-0 p-3 pt-5 position-relative">
 
-                    <!-- Card 2: Call Us 24/7 -->
-                    <div class="col-md-4">
-                        <div class="card h-100 text-center shadow-sm border-0 p-3 pt-5 position-relative">
-                            <div class="position-absolute top-0 start-50 translate-middle"
-                                style="width:100%; max-width:420px; height:250px;">
-                                <img src="{{ asset('uploads/images/welcome_page/contact_page/image_2.webp') }}"
-                                    alt="Call Us 24/7"
-                                    style="width:100%; height:100%; object-fit:contain; border-radius: 12px;">
-                            </div>
-                            <div class="card-body mt-5 pt-5">
-                                <h5 class="card-title">Call Us 24/7</h5>
-                                <p class="card-text">
-                                    <a href="javascript:void(0);" class="invisible-link" id="callModalTrigger">
-                                        (+880) 1754327566
-                                    </a>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                                <div class="position-absolute top-0 start-50 translate-middle"
+                                    style="width:100%; max-width:420px; height:250px;">
 
-                    <!-- Card 3: Work Station -->
-                    <div class="col-md-4">
-                        <div class="card h-100 text-center shadow-sm border-0 p-3 pt-5 position-relative">
-                            <div class="position-absolute top-0 start-50 translate-middle"
-                                style="width:100%; max-width:420px; height:250px;">
-                                <img src="{{ asset('uploads/images/welcome_page/contact_page/image_3.webp') }}"
-                                    alt="Work Station"
-                                    style="width:100%; height:100%; object-fit:contain; border-radius: 12px;">
-                            </div>
-                            <div class="card-body mt-5 pt-5">
-                                <h5 class="card-title">Work Station</h5>
-                                <p class="card-text">
-                                    106/A, Green Road (3rd Floor), Farmgate, Corner Place Super Market, Dhaka-1205
-                                </p>
+                                    <img src="{{ asset($card->image) }}" alt="{{ $card->title }}"
+                                        style="width:100%; height:100%; object-fit:contain; border-radius: 12px;">
+                                </div>
+
+                                <div class="card-body mt-5 pt-5">
+                                    <h5 class="card-title">{{ $card->title }}</h5>
+
+                                    <p class="card-text">
+
+                                        @if ($card->type == 'email')
+                                            <a href="mailto:{{ $card->value }}" class="invisible-link">
+                                                {{ $card->value }}
+                                            </a>
+                                        @elseif($card->type == 'phone')
+                                            <a href="tel:{{ $card->value }}" class="invisible-link">
+                                                {{ $card->value }}
+                                            </a>
+                                        @else
+                                            {{ $card->value }}
+                                        @endif
+
+                                    </p>
+
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    @endforeach
 
                 </div>
             </section>

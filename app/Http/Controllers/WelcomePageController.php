@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Str;
+use App\Models\ContactCard;
 use App\Models\SystemProblem;
 use App\Models\Contact;
 use Illuminate\Http\Request;
@@ -14,10 +15,11 @@ class WelcomePageController extends Controller
     {
         return view('frontend.welcome');
     }
-
     public function contact()
     {
-        return view('frontend.contact');
+        $cards = ContactCard::where('status', 1)->get();
+
+        return view('frontend.contact', compact('cards'));
     }
 
     public function sendContact(Request $request)
