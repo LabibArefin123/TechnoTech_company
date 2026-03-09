@@ -342,6 +342,19 @@ return [
         ],
 
         [
+            'text'    => 'Contact Page',
+            'icon'    => 'fas fa-cogs',
+            'submenu' => [
+
+                [
+                    'text' => 'Contact Card',
+                    'route' => 'contact_cards.index',
+                    'can' => 'contact_cards.index',
+                    'icon' => 'fas fa-sliders-h',  // settings sliders icon
+                ],
+            ],
+        ],
+        [
             'text'    => 'Organization Menu',
             'icon'    => 'fas fa-cogs',
             // 'route'    => 'organization_menu',

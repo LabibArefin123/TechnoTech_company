@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Pagination\LengthAwarePaginator;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
@@ -11,23 +13,21 @@ class RoleController extends Controller
 {
     public function index()
     {
-        $roles = Role::with('permissions')->get();
+        $roles = Role::with('permissions')->paginate(25);
         return view('backend.setting_management.roles_and_permission.roles.index', compact('roles'));
     }
 
     public function create()
     {
-        // Paginate permissions (same as edit)
-        $permissions = Permission::orderBy('name')->paginate(500);
+        $permissions = \Spatie\Permission\Models\Permission::all();
 
-        // Group by first part before dot (example: patients.index -> patients)
-        $groupedPermissions = $permissions->getCollection()->groupBy(function ($permission) {
-            return explode('.', $permission->name)[0];
+        $groupedPermissions = $permissions->groupBy(function ($permission) {
+            return explode('.', $permission->name)[0]; // user.create → user
         });
 
         return view(
             'backend.setting_management.roles_and_permission.roles.create',
-            compact('permissions', 'groupedPermissions')
+            compact('groupedPermissions')
         );
     }
 
@@ -36,11 +36,12 @@ class RoleController extends Controller
         $request->validate([
             'name' => 'required|unique:roles,name',
             'permissions' => 'nullable|array',
-            // No need to validate permissions.* here
         ]);
 
+        // Create the new role
         $role = Role::create(['name' => $request->name]);
 
+        // Handle attached permissions if available
         if ($request->filled('permissions')) {
             foreach ($request->permissions as $permissionName) {
                 Permission::firstOrCreate([
@@ -49,25 +50,11 @@ class RoleController extends Controller
                 ]);
             }
 
+            // Attach permissions to the role
             $role->syncPermissions($request->permissions);
         }
 
         return redirect()->route('roles.index')->with('success', 'Role created successfully.');
-    }
-
-    public function show($id)
-    {
-        $role = Role::with('permissions')->findOrFail($id);
-
-        // Group permissions by prefix (before first dot)
-        $groupedPermissions = $role->permissions->groupBy(function ($permission) {
-            return explode('.', $permission->name)[0];
-        });
-
-        return view(
-            'backend.setting_management.roles_and_permission.roles.show',
-            compact('role', 'groupedPermissions')
-        );
     }
 
     public function edit($id)
@@ -76,19 +63,20 @@ class RoleController extends Controller
 
         $rolePermissions = $role->permissions()->pluck('name')->toArray();
 
-        // Paginate permissions
-        $permissions = Permission::orderBy('name')->paginate(500);
+        $permissions = Permission::orderBy('name')->get();
 
-        // Group paginated items only
-        $groupedPermissions = $permissions->getCollection()->groupBy(function ($permission) {
+        $groupedPermissions = $permissions->groupBy(function ($permission) {
             return explode('.', $permission->name)[0];
         });
-        return view('backend.setting_management.roles_and_permission.roles.edit', compact(
-            'role',
-            'rolePermissions',
-            'permissions',
-            'groupedPermissions',
-        ));
+
+        return view(
+            'backend.setting_management.roles_and_permission.roles.edit',
+            compact(
+                'role',
+                'rolePermissions',
+                'groupedPermissions'
+            )
+        );
     }
 
     public function update(Request $request, $id)

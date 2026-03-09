@@ -5,15 +5,13 @@ use App\Http\Controllers\OrganizationController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Backend\Frontend_Management\ContactCardController;
 
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\SystemUserController;
-use App\Http\Controllers\BanUserController;
-use App\Http\Controllers\SettingController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SystemProblemController;
 
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 Route::get('/', [WelcomePageController::class, 'index'])->name('welcome');
@@ -34,7 +32,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     // Organization Routes
     Route::resource('organizations', OrganizationController::class);
-
+    Route::resource('contact_cards', ContactCardController::class);
     Route::get('/user_profile', [ProfileController::class, 'user_profile_show'])->name('user_profile_show');
     Route::get('/user_profile_edit', [ProfileController::class, 'user_profile_edit'])->name('user_profile_edit');
     Route::put('/user_profile_edit', [ProfileController::class, 'user_profile_update'])->name('user_profile_update');
