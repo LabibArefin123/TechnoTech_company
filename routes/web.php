@@ -6,6 +6,8 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Backend\Frontend_Management\ContactCardController;
+use App\Http\Controllers\Backend\Frontend_Management\AboutSectionController;
+use App\Http\Controllers\Backend\Frontend_Management\ProjectSectionController;
 
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\SystemUserController;
@@ -32,7 +34,10 @@ Route::group(['middleware' => 'auth'], function () {
 
     // Organization Routes
     Route::resource('organizations', OrganizationController::class);
+    Route::resource('about_sections', AboutSectionController::class);
+    Route::resource('project_sections', ProjectSectionController::class);
     Route::resource('contact_cards', ContactCardController::class);
+
     Route::get('/user_profile', [ProfileController::class, 'user_profile_show'])->name('user_profile_show');
     Route::get('/user_profile_edit', [ProfileController::class, 'user_profile_edit'])->name('user_profile_edit');
     Route::put('/user_profile_edit', [ProfileController::class, 'user_profile_update'])->name('user_profile_update');

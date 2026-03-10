@@ -342,18 +342,34 @@ return [
         ],
 
         [
-            'text'    => 'Contact Page',
-            'icon'    => 'fas fa-cogs',
+            'text' => 'Frontend Management',
+            'icon' => 'fas fa-globe',
             'submenu' => [
 
                 [
-                    'text' => 'Contact Card',
+                    'text' => 'About Section',
+                    'route' => 'about_sections.index',
+                    'can' => 'about_sections.index',
+                    'icon' => 'fas fa-info-circle',
+                ],
+
+                [
+                    'text' => 'Projects',
+                    'route' => 'project_sections.index',
+                    'can' => 'project_sections.index',
+                    'icon' => 'fas fa-project-diagram',
+                ],
+
+                [
+                    'text' => 'Contact Cards',
                     'route' => 'contact_cards.index',
                     'can' => 'contact_cards.index',
-                    'icon' => 'fas fa-sliders-h',  // settings sliders icon
+                    'icon' => 'fas fa-address-card',
                 ],
+
             ],
         ],
+        
         [
             'text'    => 'Organization Menu',
             'icon'    => 'fas fa-cogs',
