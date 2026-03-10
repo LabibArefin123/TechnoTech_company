@@ -3,16 +3,12 @@
 @section('title', 'Add Project')
 
 @section('content_header')
-
     <div class="d-flex justify-content-between align-items-center">
         <h3>Add Project</h3>
-
         <a href="{{ route('project_sections.index') }}" class="btn btn-sm btn-secondary">
             <i class="fas fa-arrow-left"></i> Back
         </a>
-
     </div>
-
 @stop
 
 
@@ -21,9 +17,7 @@
         <div class="card-body">
             <form action="{{ route('project_sections.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
-
                 <div class="row">
-
                     <div class="col-md-6">
                         <label>Project Title</label>
                         <input type="text" name="title" class="form-control">

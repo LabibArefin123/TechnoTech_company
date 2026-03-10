@@ -345,31 +345,47 @@ return [
             'text' => 'Frontend Management',
             'icon' => 'fas fa-globe',
             'submenu' => [
-
                 [
                     'text' => 'About Section',
                     'route' => 'about_sections.index',
                     'can' => 'about_sections.index',
+                    'active' => ['about_sections*'],
                     'icon' => 'fas fa-info-circle',
                 ],
-
                 [
                     'text' => 'Projects',
                     'route' => 'project_sections.index',
                     'can' => 'project_sections.index',
+                    'active' => ['project_sections*'],
                     'icon' => 'fas fa-project-diagram',
+                ],
+                [
+                    'text' => 'News Section',
+                    'route' => 'news_sections.index',
+                    'can' => 'news_sections.index',
+                    'active' => ['news_sections*'],
+                    'icon' => 'fas fa-newspaper',
+                ],
+
+                [
+                    'text' => 'News List',
+                    'route' => 'news.index',
+                    'can' => 'news.index',
+                    'active' => ['news*'],
+                    'icon' => 'fas fa-list',
                 ],
 
                 [
                     'text' => 'Contact Cards',
                     'route' => 'contact_cards.index',
                     'can' => 'contact_cards.index',
+                    'active' => ['contact_cards*'],
                     'icon' => 'fas fa-address-card',
                 ],
 
             ],
         ],
-        
+
         [
             'text'    => 'Organization Menu',
             'icon'    => 'fas fa-cogs',

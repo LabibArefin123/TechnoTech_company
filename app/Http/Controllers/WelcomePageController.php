@@ -7,6 +7,8 @@ use App\Models\AboutSection;
 use App\Models\ContactCard;
 use App\Models\ProjectSection;
 use App\Models\SystemProblem;
+use App\Models\News;
+use App\Models\NewsSection;
 use App\Models\Contact;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
@@ -17,8 +19,24 @@ class WelcomePageController extends Controller
     {
         $about = AboutSection::where('status', 1)->first();
         $projects = ProjectSection::where('status', 1)->get();
+        $newsSection = NewsSection::first();
+        $featuredNews = News::where('type', 'featured')
+            ->where('status', 1)
+            ->latest()
+            ->first();
+        $listNews = News::where('type', 'list')
+            ->where('status', 1)
+            ->latest()
+            ->take(3)
+            ->get();
 
-        return view('frontend.welcome', compact('about', 'projects'));
+        return view('frontend.welcome', compact(
+            'about',
+            'projects',
+            'newsSection',
+            'featuredNews',
+            'listNews'
+        ));
     }
 
     public function contact()

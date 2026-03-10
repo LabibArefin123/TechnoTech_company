@@ -21,7 +21,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
             // PermissionSeeder::class,
             // ContactCardSeeder::class,
-            AboutSectionSeeder::class,
+            // AboutSectionSeeder::class,
+            NewsSeeder::class,
             // ProjectSectionSeeder::class,
             // UserSeeder::class,
         ]);
