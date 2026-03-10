@@ -11,7 +11,6 @@
     </div>
 @stop
 
-
 @section('content')
     <div class="card shadow">
         @if ($errors->any())
@@ -25,53 +24,34 @@
         @endif
 
         <div class="card-body">
-
             <form action="{{ route('contact_cards.update', $card->id) }}" method="POST">
                 @csrf
                 @method('PUT')
                 <div class="row">
-
                     <div class="col-md-6">
-
                         <label>Title</label>
-
                         <input type="text" name="title" value="{{ $card->title }}" class="form-control">
-
                     </div>
 
-
                     <div class="col-md-6">
-
                         <label>Type</label>
-
                         <select name="type" class="form-control">
-
                             <option value="email" {{ $card->type == 'email' ? 'selected' : '' }}>
                                 Email
                             </option>
-
                             <option value="phone" {{ $card->type == 'phone' ? 'selected' : '' }}>
                                 Phone
                             </option>
-
                             <option value="address" {{ $card->type == 'address' ? 'selected' : '' }}>
                                 Address
                             </option>
-
                         </select>
-
                     </div>
-
 
                     <div class="col-md-6">
-
                         <label>Value</label>
-
                         <input type="text" name="value" value="{{ $card->value }}" class="form-control">
-
                     </div>
-
-
                     <div class="col-md-6">
 
                         <label>Status</label>
@@ -92,50 +72,31 @@
 
                 </div>
 
-
-                <div class="row mt-2">
-
+                {{-- <div class="row mt-2">
                     <div class="col-md-6">
-
                         <label>Image</label>
-
                         <div class="input-group">
-
                             <input type="text" name="image" id="image_path" value="{{ $card->image }}"
                                 class="form-control" readonly>
-
                             <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                 data-bs-target="#imageUploadModal">
 
                                 Upload
-
                             </button>
-
                         </div>
-
                     </div>
-
-                </div>
-
+                </div> --}}
 
                 <div class="text-end mt-4">
-
                     <button class="btn btn-success">
                         Update Contact Card
                     </button>
-
                 </div>
-
-
             </form>
-
         </div>
     </div>
-
     @include('backend.contact_cards.partials.image_modal')
-
 @stop
-
 
 @push('js')
     <script src="{{ asset('js/backend/contact_cards/partials/image_script.js') }}"></script>

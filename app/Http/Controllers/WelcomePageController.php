@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Str;
+use App\Models\AboutSection;
 use App\Models\ContactCard;
+use App\Models\ProjectSection;
 use App\Models\SystemProblem;
 use App\Models\Contact;
 use Illuminate\Http\Request;
@@ -13,8 +15,12 @@ class WelcomePageController extends Controller
 {
     public function index()
     {
-        return view('frontend.welcome');
+        $about = AboutSection::where('status', 1)->first();
+        $projects = ProjectSection::where('status', 1)->get();
+
+        return view('frontend.welcome', compact('about', 'projects'));
     }
+
     public function contact()
     {
         $cards = ContactCard::where('status', 1)->get();

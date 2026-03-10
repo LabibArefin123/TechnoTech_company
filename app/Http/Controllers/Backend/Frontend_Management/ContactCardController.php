@@ -16,7 +16,6 @@ class ContactCardController extends Controller
     public function index()
     {
         $cards = ContactCard::latest()->get();
-
         return view('backend.contact_cards.index', compact('cards'));
     }
 
@@ -28,8 +27,6 @@ class ContactCardController extends Controller
     {
         return view('backend.contact_cards.create');
     }
-
-
     /**
      * Store a newly created resource in storage.
      */
@@ -47,22 +44,15 @@ class ContactCardController extends Controller
         $imagePath = null;
 
         if ($request->hasFile('image')) {
-
             $image = $request->file('image');
-
             $folder = public_path('uploads/images/frontend/contact_page/contact_card');
-
             if (!File::exists($folder)) {
                 File::makeDirectory($folder, 0755, true);
             }
-
             $filename = time() . '_contact_card.' . $image->getClientOriginalExtension();
-
             $image->move($folder, $filename);
-
             $imagePath = 'uploads/images/frontend/contact_page/contact_card/' . $filename;
         }
-
 
         ContactCard::create([
             'title' => $request->title,
@@ -71,8 +61,6 @@ class ContactCardController extends Controller
             'status' => $request->status,
             'image' => $imagePath
         ]);
-
-
         return redirect()->route('contact_cards.index')
             ->with('success', 'Contact Card created successfully.');
     }
@@ -83,9 +71,7 @@ class ContactCardController extends Controller
      */
     public function show(string $id)
     {
-
         $card = ContactCard::findOrFail($id);
-
         return view('backend.contact_cards.show', compact('card'));
     }
 
@@ -95,9 +81,7 @@ class ContactCardController extends Controller
      */
     public function edit(string $id)
     {
-
         $card = ContactCard::findOrFail($id);
-
         return view('backend.contact_cards.edit', compact('card'));
     }
 
@@ -107,7 +91,6 @@ class ContactCardController extends Controller
      */
     public function update(Request $request, string $id)
     {
-
         $card = ContactCard::findOrFail($id);
 
         $request->validate([
@@ -120,13 +103,10 @@ class ContactCardController extends Controller
 
         $imagePath = $card->image;
 
-
         if ($request->hasFile('image')) {
-
             if ($card->image && File::exists(public_path($card->image))) {
                 File::delete(public_path($card->image));
             }
-
             $image = $request->file('image');
 
             $folder = public_path('uploads/images/frontend/contact_page/contact_card');
@@ -134,14 +114,10 @@ class ContactCardController extends Controller
             if (!File::exists($folder)) {
                 File::makeDirectory($folder, 0755, true);
             }
-
             $filename = time() . '_contact_card.' . $image->getClientOriginalExtension();
-
             $image->move($folder, $filename);
-
             $imagePath = 'uploads/images/frontend/contact_page/contact_card/' . $filename;
         }
-
 
         $card->update([
             'title' => $request->title,
@@ -162,17 +138,11 @@ class ContactCardController extends Controller
      */
     public function destroy(string $id)
     {
-
         $card = ContactCard::findOrFail($id);
-
         if ($card->image && File::exists(public_path($card->image))) {
-
             File::delete(public_path($card->image));
         }
-
         $card->delete();
-
-
         return redirect()->route('contact_cards.index')
             ->with('success', 'Contact Card deleted successfully.');
     }

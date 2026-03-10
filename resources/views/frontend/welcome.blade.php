@@ -1,7 +1,7 @@
 @extends('frontend.layouts.app')
 
 @section('title', 'TechnoTech Engineering Ltd.')
-<link href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
+
 @section('content')
     @include('frontend.welcome_page.header')
     @include('frontend.welcome_page.banner')
