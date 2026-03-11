@@ -10,6 +10,7 @@ class FrontendSetting extends Model
         'theme_color',
         'text_size',
         'navbar_layout',
+        'about_layout',
         'dark_mode',
         'animations',
         'back_to_top'

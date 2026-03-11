@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('theme_color')->nullable();
             $table->integer('text_size')->default(16);
             $table->integer('navbar_layout')->default(1);
+            $table->integer('about_layout')->default(1);
             $table->boolean('dark_mode')->default(false);
             $table->boolean('animations')->default(true);
             $table->boolean('back_to_top')->default(false);

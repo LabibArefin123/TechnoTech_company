@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Organization;
+use App\Models\ProjectSection;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
@@ -17,7 +18,8 @@ class DashboardController extends Controller
 
     public function index()
     {
-        return view('backend.dashboard');
+        $totalActiveProject = ProjectSection::count();
+        return view('backend.dashboard', compact('totalActiveProject'));
     }
 
     /**
