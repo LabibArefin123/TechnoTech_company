@@ -49,11 +49,23 @@
         <div>
             <h5>Navbar Layout</h5>
             <div style="display:flex;gap:10px;margin-top:10px;">
-                <button type="button" class="layoutBtn btn btn-outline-primary" data-layout="1">Layout 1</button>
-                <button type="button" class="layoutBtn btn btn-outline-primary" data-layout="2">Layout 2</button>
-                <button type="button" class="layoutBtn btn btn-outline-primary" data-layout="3">Layout 3</button>
+                <button type="button" class="navbarLayoutBtn btn btn-outline-primary" data-layout="1">Layout 1</button>
+                <button type="button" class="navbarLayoutBtn btn btn-outline-primary" data-layout="2">Layout 2</button>
+                <button type="button" class="navbarLayoutBtn btn btn-outline-primary" data-layout="3">Layout 3</button>
             </div>
             <input type="hidden" name="navbar_layout" id="layoutInput">
+        </div>
+        <hr>
+
+        <!-- About Layout -->
+        <div>
+            <h5>About Layout</h5>
+            <div style="display:flex;gap:10px;margin-top:10px;">
+                <button type="button" class="aboutLayoutBtn btn btn-outline-primary" data-layout="1">Layout 1</button>
+                <button type="button" class="aboutLayoutBtn btn btn-outline-primary" data-layout="2">Layout 2</button>
+                <button type="button" class="aboutLayoutBtn btn btn-outline-primary" data-layout="3">Layout 3</button>
+            </div>
+            <input type="hidden" name="about_layout" id="layoutInput">
         </div>
         <hr>
 
@@ -66,7 +78,7 @@
                 </label>
                 <br>
                 <label>
-                    <input type="checkbox" id="showBackToTop"  name="back_to_top" value="1"> Show Back To Top
+                    <input type="checkbox" id="showBackToTop" name="back_to_top" value="1"> Show Back To Top
                 </label>
                 <br>
                 <label>

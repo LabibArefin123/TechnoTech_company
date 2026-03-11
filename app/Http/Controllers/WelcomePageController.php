@@ -126,18 +126,16 @@ class WelcomePageController extends Controller
 
     public function updateSettings(Request $request)
     {
-        // Get the first setting row or create new
         $setting = FrontendSetting::first() ?? new FrontendSetting();
 
-        // Update all fields with proper type casting
         $setting->theme_color   = $request->input('theme_color', $setting->theme_color);
         $setting->text_size     = $request->input('text_size', $setting->text_size);
-        $setting->navbar_layout = $request->input('navbar_layout', $setting->navbar_layout);
+        $setting->navbar_layout = $request->input('navbar_layout', $setting->navbar_layout ?? 1);
+        $setting->about_layout  = $request->input('about_layout', $setting->about_layout ?? 1);
 
-        // Make sure checkboxes / toggles are saved as 0 or 1
-        $setting->animations    = $request->has('animations') ? (int)$request->input('animations') : 0;
-        $setting->back_to_top   = $request->has('back_to_top') ? (int)$request->input('back_to_top') : 0;
-        $setting->dark_mode     = $request->has('dark_mode') ? (int)$request->input('dark_mode') : 0;
+        $setting->animations  = (int) $request->input('animations', 0);
+        $setting->back_to_top = (int) $request->input('back_to_top', 0);
+        $setting->dark_mode   = (int) $request->input('dark_mode', 0);
 
         $setting->save();
 

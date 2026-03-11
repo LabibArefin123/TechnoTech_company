@@ -1,0 +1,52 @@
+.about-style-2 {
+    background: #fff;
+}
+
+.about2-title {
+    font-size: 30px;
+    font-weight: 700;
+    color: #0d3b66;
+}
+
+.about2-tagline {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.about2-text {
+    color: #444;
+    line-height: 1.8;
+    margin-bottom: 10px;
+}
+
+.about2-image {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.about2-image img {
+    width: 100%;
+    border-radius: 15px;
+}
+
+.about2-overlay {
+    position: absolute;
+    bottom: -30px;
+    right: -30px;
+    width: 180px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.about2-overlay img {
+    width: 100%;
+    border-radius: 12px;
+}
+
+.about2-card {
+    background: #f7f7f7;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}

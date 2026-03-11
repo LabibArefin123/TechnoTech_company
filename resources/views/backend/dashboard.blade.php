@@ -3,15 +3,11 @@
 @section('title', 'Techno-Tech Dashboard')
 
 @section('content')
-
     <div class="container py-4">
-
         <h3 class="mb-4 fw-bold text-success">
             Welcome to Techno-Tech Engineering Ltd Admin Panel
         </h3>
-
         <div class="row g-4">
-
             <!-- TOTAL ACTIVE PROJECTS -->
             <div class="col-md-3 col-6">
                 <a href="{{ route('project_sections.index') }}" class="text-decoration-none">
