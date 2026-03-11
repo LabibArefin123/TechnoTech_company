@@ -23,7 +23,8 @@ class DatabaseSeeder extends Seeder
             // ContactCardSeeder::class,
             // AboutSectionSeeder::class,
             // NewsSeeder::class,
-            KeyActivitySeeder::class,
+            // KeyActivitySeeder::class,
+            SeoSettingSeeder::class,
             // ProjectSectionSeeder::class,
             // UserSeeder::class,
         ]);
