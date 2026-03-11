@@ -17,7 +17,7 @@
             <table class="table table-bordered table-hover">
                 <thead class="thead-light">
                     <tr>
-                        <th width="5%">#</th>
+                        <th class="text-center">#</th>
                         <th>Image</th>
                         <th>Title</th>
                         <th>Icon</th>
@@ -29,11 +29,12 @@
                 <tbody>
                     @forelse($activities as $key => $item)
                         <tr>
-                            <td>{{ $key + 1 }}</td>
+                            <td class="text-center">{{ $loop->iteration }}</td>
                             <td width="90">
-                                @if ($item->image)
-                                    <img src="{{ asset($item->image) }}" width="70" class="img-thumbnail">
-                                @endif
+                                <img src="{{ $item->image
+                                    ? asset('uploads/images/welcome_page/key_activities/' . $item->image)
+                                    : asset('uploads/images/default.jpg') }}"
+                                    width="70" class="img-thumbnail">
                             </td>
                             <td>{{ $item->title }}</td>
                             <td>
