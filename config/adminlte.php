@@ -360,6 +360,13 @@ return [
                     'icon' => 'fas fa-project-diagram',
                 ],
                 [
+                    'text' => 'Key Activities',
+                    'route' => 'key_activities.index',
+                    'can' => 'key_activities.index',
+                    'active' => ['key_activities*'],
+                    'icon' => 'fas fa-industry',
+                ],
+                [
                     'text' => 'News Section',
                     'route' => 'news_sections.index',
                     'can' => 'news_sections.index',

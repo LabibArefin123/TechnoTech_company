@@ -22,7 +22,8 @@ class DatabaseSeeder extends Seeder
             // PermissionSeeder::class,
             // ContactCardSeeder::class,
             // AboutSectionSeeder::class,
-            NewsSeeder::class,
+            // NewsSeeder::class,
+            KeyActivitySeeder::class,
             // ProjectSectionSeeder::class,
             // UserSeeder::class,
         ]);

@@ -5,9 +5,11 @@ use App\Http\Controllers\OrganizationController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
+
 use App\Http\Controllers\Backend\Frontend_Management\ContactCardController;
 use App\Http\Controllers\Backend\Frontend_Management\AboutSectionController;
 use App\Http\Controllers\Backend\Frontend_Management\ProjectSectionController;
+use App\Http\Controllers\Backend\Frontend_Management\KeyActivityController;
 use App\Http\Controllers\Backend\Frontend_Management\NewsController;
 use App\Http\Controllers\Backend\Frontend_Management\NewsSectionController;
 
@@ -38,6 +40,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('organizations', OrganizationController::class);
     Route::resource('about_sections', AboutSectionController::class);
     Route::resource('project_sections', ProjectSectionController::class);
+    Route::resource('key_activities', KeyActivityController::class);
     Route::resource('news_sections', NewsSectionController::class);
     Route::resource('news', NewsController::class);
     Route::resource('contact_cards', ContactCardController::class);
