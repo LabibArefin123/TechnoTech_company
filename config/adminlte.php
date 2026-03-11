@@ -342,6 +342,21 @@ return [
         ],
 
         [
+            'text'    => 'SEO Menu',
+            'icon'    => 'fas fa-cogs',
+            'submenu' => [
+
+                [
+                    'text' => 'SEO List',
+                    'route' => 'seo.index',
+                    'can' => 'seo.index',
+                    'icon' => 'fas fa-sliders-h',  // settings sliders icon
+                ],
+            ],
+        ],
+
+
+        [
             'text' => 'Frontend Management',
             'icon' => 'fas fa-globe',
             'submenu' => [

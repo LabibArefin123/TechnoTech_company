@@ -1,10 +1,26 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
-<head>
+<head>  
     <link rel="icon" type="image/png" href="{{ asset('uploads/images/icon.png') }}">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{{ $seo->meta_description ?? 'TechnoTech Engineering Ltd.' }}">
+    <meta name="keywords" content="{{ $seo->meta_keywords ?? 'engineering, technology, bangladesh' }}">
+    <meta name="author" content="TechnoTech">
+
+    <!-- OpenGraph -->
+    <meta property="og:title" content="{{ $seo->og_title ?? config('app.name') }}">
+    <meta property="og:description" content="{{ $seo->og_description ?? $seo->meta_description }}">
+    <meta property="og:image" content="{{ asset($seo->og_image ?? 'uploads/default-seo.png') }}">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ $seo->og_title }}">
+    <meta name="twitter:description" content="{{ $seo->og_description }}">
+    <meta name="twitter:image" content="{{ asset($seo->og_image ?? 'uploads/default-seo.png') }}">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
