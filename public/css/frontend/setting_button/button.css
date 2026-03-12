@@ -1,0 +1,39 @@
+/* Floating Settings Button */
+#floatingSettingsBtn {
+    position: fixed;
+    top: 60%;
+    right: 20px;
+    z-index: 9999;
+    background: #ff6b6b;
+    color: #fff;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Spinning Icon */
+#floatingSettingsBtn i {
+    font-size: 20px;
+    animation: spinSettings 2s linear infinite;
+}
+
+/* Spin Animation */
+@keyframes spinSettings {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Hover effect */
+#floatingSettingsBtn:hover {
+    background: #ff5252;
+    transform: scale(1.1);
+}

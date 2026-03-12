@@ -1,6 +1,5 @@
 <!-- Floating Settings Button -->
-<div id="floatingSettingsBtn" title="Settings"
-    style="position:fixed;top:60%;right:20px;z-index:9999;background:#ff6b6b;color:#fff;width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,0.2);">
+<div id="floatingSettingsBtn" title="Settings">
     <i class="fas fa-cog"></i>
 </div>
 
