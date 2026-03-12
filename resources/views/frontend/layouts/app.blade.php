@@ -29,8 +29,8 @@
             {{ config('app.name', 'TechnoTech Engineering Ltd.') }}
         @endif
     </title>
-
-    <!-- Fonts -->
+    
+    <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
     <!-- AOS CSS -->
     <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
