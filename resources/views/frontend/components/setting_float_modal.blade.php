@@ -34,6 +34,7 @@
             <input type="hidden" name="theme_color" id="themeColorInput">
         </div>
         <hr>
+        
         <!-- Text Size -->
         <div>
             <h5>Text Size</h5>
@@ -90,26 +91,17 @@
             <input type="hidden" name="footer_layout" id="footerLayoutInput">
         </div>
         <hr>
+        
         <!-- Extras -->
         <div>
             <h5>Extras</h5>
             <div style="margin-top:10px;">
                 <label>
-                    <input type="checkbox" id="enableAnimations" name="animations" value="1"> Enable Animations
-                </label>
-                <br>
-                <label>
-                    <input type="checkbox" id="showBackToTop" name="back_to_top" value="1"> Show Back To Top
-                </label>
-                <br>
-                <label>
                     <input type="checkbox" id="darkModeToggle" name="dark_mode" value="1"> Dark Mode
                 </label>
             </div>
         </div>
-
         <hr>
-
         <button class="btn btn-success w-100">
             Save Settings
         </button>

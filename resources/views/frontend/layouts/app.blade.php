@@ -95,7 +95,7 @@
     <script src="{{ asset('js/custom_frontend/custom_back_top_button.js') }}"></script> {{-- Back to Top JS --}}
     <script src="{{ asset('js/custom_frontend/custom_footer_modal.js') }}"></script> {{-- Back to Top JS --}}
     <script src="{{ asset('js/custom_frontend/developer_mode.js') }}"></script>
-    <script src="{{ asset('js/custom_frontend/setting_modal.js') }}"></script>
+    <script type="module" src="{{ asset('js/custom_frontend/setting_modal/init.js') }}"></script>
     <script src="{{ asset('js/custom_frontend/open_quote_modal.js') }}"></script>
 </body>
 

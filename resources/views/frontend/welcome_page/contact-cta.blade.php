@@ -18,7 +18,7 @@
             </p>
 
             <div class="cta-actions">
-                <a href="#contact" class="btn btn-primary cta-btn">
+                <a href="{{ route('contact') }}" class="btn btn-primary cta-btn">
                     Contact Us
                 </a>
                 <a href="tel:+8801754327566" class="btn btn-outline-light cta-btn-outline">
