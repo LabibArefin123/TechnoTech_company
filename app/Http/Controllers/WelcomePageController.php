@@ -130,8 +130,10 @@ class WelcomePageController extends Controller
 
         $setting->theme_color   = $request->input('theme_color', $setting->theme_color);
         $setting->text_size     = $request->input('text_size', $setting->text_size);
+
         $setting->navbar_layout = $request->input('navbar_layout', $setting->navbar_layout ?? 1);
         $setting->about_layout  = $request->input('about_layout', $setting->about_layout ?? 1);
+        $setting->footer_layout = $request->input('footer_layout', $setting->footer_layout ?? 1);
 
         $setting->animations  = (int) $request->input('animations', 0);
         $setting->back_to_top = (int) $request->input('back_to_top', 0);

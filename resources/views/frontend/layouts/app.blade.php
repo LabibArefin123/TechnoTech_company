@@ -29,7 +29,7 @@
             {{ config('app.name', 'TechnoTech Engineering Ltd.') }}
         @endif
     </title>
-    
+
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
     <!-- AOS CSS -->
@@ -45,7 +45,6 @@
 
 <body>
     <div id="app">
-
         @include('frontend.components.setting_float_modal')
         <!-- Scroll Progress Bar -->
         <div id="scrollProgress"

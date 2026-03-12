@@ -11,6 +11,7 @@ class FrontendSetting extends Model
         'text_size',
         'navbar_layout',
         'about_layout',
+        'footer_layout',
         'dark_mode',
         'animations',
         'back_to_top'

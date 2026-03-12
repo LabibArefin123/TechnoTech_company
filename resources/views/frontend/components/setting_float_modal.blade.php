@@ -69,6 +69,27 @@
         </div>
         <hr>
 
+        <!-- Footer Layout -->
+        <div>
+            <h5>Footer Layout</h5>
+
+            <div style="display:flex;gap:10px;margin-top:10px;">
+                <button type="button" class="footerLayoutBtn btn btn-outline-primary" data-layout="1">
+                    Layout 1
+                </button>
+
+                <button type="button" class="footerLayoutBtn btn btn-outline-primary" data-layout="2">
+                    Layout 2
+                </button>
+
+                <button type="button" class="footerLayoutBtn btn btn-outline-primary" data-layout="3">
+                    Layout 3
+                </button>
+            </div>
+
+            <input type="hidden" name="footer_layout" id="footerLayoutInput">
+        </div>
+        <hr>
         <!-- Extras -->
         <div>
             <h5>Extras</h5>
