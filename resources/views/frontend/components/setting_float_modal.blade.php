@@ -1,108 +1,112 @@
 <!-- Floating Settings Button -->
-<div id="floatingSettingsBtn" title="Settings">
+<div id="floatingSettingsBtn" title="Customize Website">
     <i class="fas fa-cog"></i>
 </div>
 
+<!-- Overlay -->
+<div id="settingsOverlay"></div>
+
 <!-- Settings Panel -->
-<div id="settingsPanel"
-    style="position:fixed;top:0;right:-350px;width:350px;height:100%;background:#fff;box-shadow:-4px 0 16px rgba(0,0,0,0.2);z-index:9998;padding:20px;overflow-y:auto;transition:right .4s;">
-    <div style="display:flex;justify-content:space-between;align-items:center;">
-        <h4>Website Settings</h4>
-        <button id="closeSettingsPanel" style="background:none;border:none;font-size:22px;">&times;</button>
+<div id="settingsPanel">
+
+    <div class="settings-header">
+        <h4><i class="fas fa-sliders-h"></i> Website Customizer</h4>
+        <button id="closeSettingsPanel">
+            <i class="fas fa-times"></i>
+        </button>
     </div>
-    <hr>
 
     <form id="settingsForm">
         @csrf
-        <!-- Theme -->
-        <div>
-            <h5>Theme Color</h5>
-            <div style="display:flex;gap:10px;margin-top:10px;">
-                <div class="themeColor" data-color="#ff6b6b"
-                    style="width:30px;height:30px;background:#ff6b6b;border-radius:50%;cursor:pointer;"></div>
 
-                <div class="themeColor" data-color="#1e90ff"
-                    style="width:30px;height:30px;background:#1e90ff;border-radius:50%;cursor:pointer;"></div>
+        <!-- Theme Colors -->
+        <div class="settings-card">
+            <h5><i class="fas fa-palette"></i> Theme Color</h5>
 
-                <div class="themeColor" data-color="#28a745"
-                    style="width:30px;height:30px;background:#28a745;border-radius:50%;cursor:pointer;"></div>
+            <div class="color-grid">
 
-                <div class="themeColor" data-color="#6f42c1"
-                    style="width:30px;height:30px;background:#6f42c1;border-radius:50%;cursor:pointer;"></div>
+                <div class="themeColor" data-color="#ff6b6b"></div>
+                <div class="themeColor" data-color="#1e90ff"></div>
+                <div class="themeColor" data-color="#28a745"></div>
+                <div class="themeColor" data-color="#6f42c1"></div>
+                <div class="themeColor" data-color="#f39c12"></div>
+                <div class="themeColor" data-color="#17a2b8"></div>
+
             </div>
+
             <input type="hidden" name="theme_color" id="themeColorInput">
         </div>
-        <hr>
 
         <!-- Text Size -->
-        <div>
-            <h5>Text Size</h5>
-            <button type="button" class="textSizeBtn btn btn-sm btn-light" data-size="14">A-</button>
-            <button type="button" class="textSizeBtn btn btn-sm btn-light" data-size="16">A</button>
-            <button type="button" class="textSizeBtn btn btn-sm btn-light" data-size="18">A+</button>
-            <button type="button" class="textSizeBtn btn btn-sm btn-light" data-size="20">A++</button>
+        <div class="settings-card">
+            <h5><i class="fas fa-font"></i> Text Size</h5>
+
+            <div class="btn-group-modern">
+
+                <button type="button" class="textSizeBtn" data-size="14">A-</button>
+                <button type="button" class="textSizeBtn" data-size="16">A</button>
+                <button type="button" class="textSizeBtn" data-size="18">A+</button>
+                <button type="button" class="textSizeBtn" data-size="20">A++</button>
+
+            </div>
+
             <input type="hidden" name="text_size" id="textSizeInput">
         </div>
-        <hr>
 
         <!-- Navbar Layout -->
-        <div>
-            <h5>Navbar Layout</h5>
-            <div style="display:flex;gap:10px;margin-top:10px;">
-                <button type="button" class="navbarLayoutBtn btn btn-outline-primary" data-layout="1">Layout 1</button>
-                <button type="button" class="navbarLayoutBtn btn btn-outline-primary" data-layout="2">Layout 2</button>
-                <button type="button" class="navbarLayoutBtn btn btn-outline-primary" data-layout="3">Layout 3</button>
+        <div class="settings-card">
+            <h5><i class="fas fa-bars"></i> Navbar Layout</h5>
+
+            <div class="btn-group-modern">
+                <button type="button" class="navbarLayoutBtn" data-layout="1">Layout 1</button>
+                <button type="button" class="navbarLayoutBtn" data-layout="2">Layout 2</button>
+                <button type="button" class="navbarLayoutBtn" data-layout="3">Layout 3</button>
             </div>
+
             <input type="hidden" name="navbar_layout" id="navbarLayoutInput">
         </div>
-        <hr>
 
         <!-- About Layout -->
-        <div>
-            <h5>About Layout</h5>
-            <div style="display:flex;gap:10px;margin-top:10px;">
-                <button type="button" class="aboutLayoutBtn btn btn-outline-primary" data-layout="1">Layout 1</button>
-                <button type="button" class="aboutLayoutBtn btn btn-outline-primary" data-layout="2">Layout 2</button>
-                <button type="button" class="aboutLayoutBtn btn btn-outline-primary" data-layout="3">Layout 3</button>
+        <div class="settings-card">
+            <h5><i class="fas fa-bars"></i> About Layout</h5>
+
+            <div class="btn-group-modern">
+                <button type="button" class="aboutLayoutBtn" data-layout="1">Layout 1</button>
+                <button type="button" class="aboutLayoutBtn" data-layout="2">Layout 2</button>
+                <button type="button" class="aboutLayoutBtn" data-layout="3">Layout 3</button>
             </div>
+
             <input type="hidden" name="about_layout" id="aboutLayoutInput">
         </div>
-        <hr>
 
         <!-- Footer Layout -->
-        <div>
-            <h5>Footer Layout</h5>
+        <div class="settings-card">
+            <h5><i class="fas fa-bars"></i> Footer Layout</h5>
 
-            <div style="display:flex;gap:10px;margin-top:10px;">
-                <button type="button" class="footerLayoutBtn btn btn-outline-primary" data-layout="1">
-                    Layout 1
-                </button>
-
-                <button type="button" class="footerLayoutBtn btn btn-outline-primary" data-layout="2">
-                    Layout 2
-                </button>
-
-                <button type="button" class="footerLayoutBtn btn btn-outline-primary" data-layout="3">
-                    Layout 3
-                </button>
+            <div class="btn-group-modern">
+                <button type="button" class="footerLayoutBtn" data-layout="1">Layout 1</button>
+                <button type="button" class="footerLayoutBtn" data-layout="2">Layout 2</button>
+                <button type="button" class="footerLayoutBtn" data-layout="3">Layout 3</button>
             </div>
 
-            <input type="hidden" name="footer_layout" id="footerLayoutInput">
+            <input type="hidden" name="footer_layout" id="footerLayoutBtn">
         </div>
-        <hr>
 
-        <!-- Extras -->
-        <div>
-            <h5>Extras</h5>
-            <div style="margin-top:10px;">
-                <label>
-                    <input type="checkbox" id="darkModeToggle" name="dark_mode" value="1"> Dark Mode
-                </label>
-            </div>
+        <!-- Dark Mode -->
+        <div class="settings-card">
+            <h5><i class="fas fa-moon"></i> Dark Mode</h5>
+
+            <label class="switch">
+                <input type="checkbox" id="darkModeToggle" name="dark_mode" value="1">
+                <span class="slider"></span>
+            </label>
+
         </div>
-        <hr>
-        <button class="btn btn-success w-100">
-            Save Settings
+
+        <button class="saveSettingsBtn">
+            <i class="fas fa-save"></i> Save Settings
         </button>
+
     </form>
+
 </div>
