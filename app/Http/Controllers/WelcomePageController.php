@@ -11,6 +11,7 @@ use App\Models\SystemProblem;
 use App\Models\KeyActivity;
 use App\Models\News;
 use App\Models\NewsSection;
+use App\Models\SkillSection;
 use App\Models\Contact;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
@@ -38,6 +39,9 @@ class WelcomePageController extends Controller
             ->orderBy('serial')
             ->get();
 
+
+        $skillSection = SkillSection::where('status', 1)->orderBy('serial')->get();
+
         $setting = FrontendSetting::first();
 
         return view('frontend.welcome', compact(
@@ -47,6 +51,7 @@ class WelcomePageController extends Controller
             'featuredNews',
             'listNews',
             'activities',
+            'skillSection',
             'setting'
         ));
     }

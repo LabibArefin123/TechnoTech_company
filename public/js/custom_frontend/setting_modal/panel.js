@@ -1,40 +1,53 @@
 export function initPanel() {
     const btn = document.getElementById("floatingSettingsBtn");
     const panel = document.getElementById("settingsPanel");
-    const close = document.getElementById("closeSettingsPanel");
+    const closeBtn = document.getElementById("closeSettingsPanel");
+    const overlay = document.getElementById("settingsOverlay");
 
     if (!btn || !panel) return;
 
     const openPanel = () => {
-        panel.style.right = "0";
+        panel.classList.add("active");
+        if (overlay) overlay.classList.add("active");
     };
 
     const closePanel = () => {
-        panel.style.right = "-350px";
+        panel.classList.remove("active");
+        if (overlay) overlay.classList.remove("active");
     };
 
-    // open
+    // Toggle panel
     btn.addEventListener("click", (e) => {
         e.stopPropagation();
-        openPanel();
+
+        if (panel.classList.contains("active")) {
+            closePanel();
+        } else {
+            openPanel();
+        }
     });
 
-    // close button
-    if (close) {
-        close.addEventListener("click", closePanel);
+    // Close button
+    if (closeBtn) {
+        closeBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            closePanel();
+        });
     }
 
-    // click outside panel
-    document.addEventListener("click", (e) => {
-        const isInside = panel.contains(e.target);
-        const isButton = btn.contains(e.target);
+    // Overlay click
+    if (overlay) {
+        overlay.addEventListener("click", closePanel);
+    }
 
-        if (!isInside && !isButton) {
+    // Click outside panel
+    document.addEventListener("click", (e) => {
+        if (!panel.contains(e.target) && !btn.contains(e.target)) {
             closePanel();
         }
     });
 
-    // prevent closing when clicking inside panel
+    // Prevent closing when clicking inside panel
     panel.addEventListener("click", (e) => {
         e.stopPropagation();
     });

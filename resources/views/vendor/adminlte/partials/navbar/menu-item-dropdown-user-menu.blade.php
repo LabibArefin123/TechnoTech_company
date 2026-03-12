@@ -38,6 +38,13 @@
                 <span>Profile</span>
             </a>
         </li>
+        
+        {{-- <li>
+            <a href="{{ route('setting.index') }}" class="dropdown-item d-flex align-items-center gap-2">
+                <i class="fa fa-user text-primary"></i>
+                <span>Setting</span>
+            </a>
+        </li> --}}
 
         <li>
             <a href="#" class="dropdown-item d-flex align-items-center gap-2 text-danger"

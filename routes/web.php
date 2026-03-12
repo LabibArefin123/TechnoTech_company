@@ -16,6 +16,7 @@ use App\Http\Controllers\Backend\Frontend_Management\ContactCardController;
 use App\Http\Controllers\Backend\Frontend_Management\AboutSectionController;
 use App\Http\Controllers\Backend\Frontend_Management\ProjectSectionController;
 use App\Http\Controllers\Backend\Frontend_Management\KeyActivityController;
+use App\Http\Controllers\Backend\Frontend_Management\SkillSectionController;
 use App\Http\Controllers\Backend\Frontend_Management\NewsController;
 use App\Http\Controllers\Backend\Frontend_Management\NewsSectionController;
 
@@ -116,6 +117,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('key_activities', KeyActivityController::class);
     Route::resource('news_sections', NewsSectionController::class);
     Route::resource('news', NewsController::class);
+    Route::resource('skill_sections', SkillSectionController::class);
     Route::resource('contact_cards', ContactCardController::class);
 
 

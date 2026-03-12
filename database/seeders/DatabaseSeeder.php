@@ -24,7 +24,8 @@ class DatabaseSeeder extends Seeder
             // AboutSectionSeeder::class,
             // NewsSeeder::class,
             // KeyActivitySeeder::class,
-            SeoSettingSeeder::class,
+            // SeoSettingSeeder::class,
+            SkillSectionSeeder::class,
             // ProjectSectionSeeder::class,
             // UserSeeder::class,
         ]);

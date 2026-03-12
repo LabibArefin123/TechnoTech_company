@@ -360,6 +360,7 @@ return [
             'text' => 'Frontend Management',
             'icon' => 'fas fa-globe',
             'submenu' => [
+
                 [
                     'text' => 'About Section',
                     'route' => 'about_sections.index',
@@ -367,6 +368,7 @@ return [
                     'active' => ['about_sections*'],
                     'icon' => 'fas fa-info-circle',
                 ],
+
                 [
                     'text' => 'Projects',
                     'route' => 'project_sections.index',
@@ -374,6 +376,15 @@ return [
                     'active' => ['project_sections*'],
                     'icon' => 'fas fa-project-diagram',
                 ],
+
+                [
+                    'text' => 'Skill Section',
+                    'route' => 'skill_sections.index',
+                    'can' => 'skill_sections.index',
+                    'active' => ['skill_sections*'],
+                    'icon' => 'fas fa-chart-line',
+                ],
+
                 [
                     'text' => 'Key Activities',
                     'route' => 'key_activities.index',
@@ -381,6 +392,7 @@ return [
                     'active' => ['key_activities*'],
                     'icon' => 'fas fa-industry',
                 ],
+
                 [
                     'text' => 'News Section',
                     'route' => 'news_sections.index',
@@ -404,7 +416,6 @@ return [
                     'active' => ['contact_cards*'],
                     'icon' => 'fas fa-address-card',
                 ],
-
             ],
         ],
 
