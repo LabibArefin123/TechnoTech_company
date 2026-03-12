@@ -34,7 +34,7 @@
             <input type="hidden" name="theme_color" id="themeColorInput">
         </div>
         <hr>
-        
+
         <!-- Text Size -->
         <div>
             <h5>Text Size</h5>
@@ -54,7 +54,7 @@
                 <button type="button" class="navbarLayoutBtn btn btn-outline-primary" data-layout="2">Layout 2</button>
                 <button type="button" class="navbarLayoutBtn btn btn-outline-primary" data-layout="3">Layout 3</button>
             </div>
-            <input type="hidden" name="navbar_layout" id="layoutInput">
+            <input type="hidden" name="navbar_layout" id="navbarLayoutInput">
         </div>
         <hr>
 
@@ -66,7 +66,7 @@
                 <button type="button" class="aboutLayoutBtn btn btn-outline-primary" data-layout="2">Layout 2</button>
                 <button type="button" class="aboutLayoutBtn btn btn-outline-primary" data-layout="3">Layout 3</button>
             </div>
-            <input type="hidden" name="about_layout" id="layoutInput">
+            <input type="hidden" name="about_layout" id="aboutLayoutInput">
         </div>
         <hr>
 
@@ -91,7 +91,7 @@
             <input type="hidden" name="footer_layout" id="footerLayoutInput">
         </div>
         <hr>
-        
+
         <!-- Extras -->
         <div>
             <h5>Extras</h5>

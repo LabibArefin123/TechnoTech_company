@@ -29,3 +29,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
     initExtras(settings, saveSettings, csrf);
 });
+
+console.log("Settings module loaded");
