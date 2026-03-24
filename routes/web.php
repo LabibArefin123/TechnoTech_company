@@ -78,7 +78,7 @@ require __DIR__ . '/auth.php';
 |--------------------------------------------------------------------------
 */
 
-Route::middleware(['auth'])->group(function () {
+Route::group(['middleware' => ['auth', 'check_banned_device', 'detect.attack']],  function () {
 
     /*
     | Dashboard

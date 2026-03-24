@@ -88,9 +88,9 @@
         };
     </script>
     {{-- End of SweetAlert2 notifications --}}
+    <script src="{{ asset('js/custom_frontend/sweet_alert.js') }}"></script> {{-- Sweet Alert Notification JS --}}
     @if (!request()->is('login'))
         <script src="{{ asset('js/custom_frontend/custom_top_bar.js') }}"></script> {{-- Sweet Alert Notification JS --}}
-        <script src="{{ asset('js/custom_frontend/sweet_alert.js') }}"></script> {{-- Sweet Alert Notification JS --}}
         <script src="{{ asset('js/custom_frontend/custom_top_map.js') }}"></script> {{-- Location Modal JS --}}
         <script src="{{ asset('js/custom_frontend/custom_banner.js') }}"></script> {{-- Location Modal JS --}}
         <script src="{{ asset('js/custom_frontend/custom_skill.js') }}"></script> {{-- Location Modal JS --}}
