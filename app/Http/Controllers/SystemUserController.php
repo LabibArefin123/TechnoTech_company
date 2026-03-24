@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
-use App\Models\Role;
+use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Crypt;
 
@@ -130,9 +130,14 @@ class SystemUserController extends Controller
         ]);
 
         $user->update([
-            // 🔐 ENCRYPT (reversible)
-            'password' => Crypt::encryptString($request->password),
+            'password' => Hash::make($request->password),
         ]);
+
+        // Log the password change activity
+        activity()
+            ->causedBy(auth()->user()) // the currently logged-in user
+            ->performedOn($user)       // the user whose password changed
+            ->log('Password changed');
 
         return back()->with('success', 'Password updated successfully.');
     }

@@ -26,6 +26,8 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SystemProblemController;
 use App\Http\Controllers\BannedDeviceController;
 use App\Http\Controllers\UserDeviceController;
+use App\Http\Controllers\ActivityLogController;
+use App\Http\Controllers\SettingController;
 
 
 /*
@@ -172,6 +174,36 @@ Route::group(['middleware' => ['auth', 'check_banned_device', 'detect.attack']],
     Route::post('/user_devices/{id}/ban', [UserDeviceController::class, 'ban'])->name('user_devices.ban');
     Route::post('/user_devices/{id}/unban', [UserDeviceController::class, 'unban'])->name('user_devices.unban');
     Route::resource('user_devices', UserDeviceController::class);
+
+
+    Route::get('/activity-logs', [ActivityLogController::class, 'index'])->name('activity.logs.index');
+    Route::delete('/activity-logs/{id}', [ActivityLogController::class, 'destroy'])->name('activity.logs.destroy');
+
+
+    //Setting 
+    Route::get('/settings', [SettingController::class, 'index'])->name('settings.index');
+    Route::get('/settings/password_policy', [SettingController::class, 'password_policy'])->name('settings.password_policy');
+    Route::get('/settings/2fa', [SettingController::class, 'show2FA'])->name('settings.2fa');
+    Route::post('/settings/toggle-2fa', [SettingController::class, 'toggle2FA'])->name('settings.toggle2fa');
+    Route::get('/settings/2fa/resend', [SettingController::class, 'resend'])->name('settings.2fa.resend');
+    Route::post('/settings/2fa/verify', [SettingController::class, 'verify'])->name('settings.2fa.verify');
+    Route::get('settings/notifications', [SettingController::class, 'notificationSettings'])->name('settings.notification.index');
+    Route::post('settings/notifications', [SettingController::class, 'notificationUpdate'])->name('settings.notification.update');
+    Route::post('settings/notifications/test', [SettingController::class, 'sendTestNotification'])->name('settings.notification.test');
+    Route::get('/settings/timeout', [SettingController::class, 'showTimeout'])->name('settings.timeout');
+    Route::post('/settings/timeout', [SettingController::class, 'updateTimeout'])->name('settings.timeout.update');
+    Route::get('/settings/database-backup', [SettingController::class, 'databaseBackup'])->name('settings.database.backup');
+    Route::post('/settings/database-backup/download', [SettingController::class, 'downloadDatabase'])->name('settings.database.backup.download');
+    Route::get('/settings/logs', [SettingController::class, 'logs'])->name('settings.logs');
+    Route::post('/settings/logs/clear', [SettingController::class, 'clearLogs'])->name('settings.clearLogs');
+    Route::get('/settings/maintenance', [SettingController::class, 'maintenance'])->name('settings.maintenance');
+    Route::post('/settings/maintenance', [SettingController::class, 'maintenanceUpdate'])->name('settings.maintenance.update');
+    Route::get('/settings/language', [SettingController::class, 'language'])->name('settings.language');
+    Route::post('/settings/language/update', [SettingController::class, 'updateLanguage'])->name('settings.language.update');
+    Route::get('/settings/datetime', [SettingController::class, 'dateTime'])->name('settings.datetime');
+    Route::post('/settings/datetime/update', [SettingController::class, 'updateDateTime'])->name('settings.datetime.update');
+    Route::get('/settings/theme', [SettingController::class, 'theme'])->name('settings.theme');
+    Route::post('/settings/theme/update', [SettingController::class, 'updateTheme'])->name('settings.theme.update');
 });
 
 
