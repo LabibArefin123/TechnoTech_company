@@ -95,7 +95,7 @@
                     <hr class="my-4">
 
                     <div class="text-center">
-                        <a href="javascript:void(0)" onclick="openProblemModal()" class="text-decoration-none fw-semibold">
+                        <a href="javascript:void(0)" id="openProblemBtn" class="text-decoration-none dev-link fw-semibold">
                             ⚠ Facing a system problem?
                         </a>
                         <p class="text-muted small mt-1">
@@ -108,53 +108,7 @@
         </div>
     </div>
 
-    {{-- SYSTEM PROBLEM MODAL --}}
-    <div id="problemModal" class="problem-modal">
-        <div class="problem-modal-content">
-            <div class="modal-header">
-                <h5 class="fw-bold mb-0">Report a System Problem</h5>
-                <button type="button" class="close-btn" onclick="closeProblemModal()">×</button>
-            </div>
-
-            <form method="POST" action="{{ route('system_problem.store') }}" enctype="multipart/form-data">
-                @csrf
-
-                <!-- Hidden Problem ID -->
-                <input type="hidden" name="problem_id" value="Auto Generated">
-
-                <div class="mb-3">
-                    <label class="form-label fw-semibold">Problem Title</label>
-                    <input type="text" name="problem_title" class="form-control" placeholder="Example: Login not working"
-                        required>
-                </div>
-
-                <div class="mb-3">
-                    <label class="form-label fw-semibold">Describe the Problem</label>
-                    <textarea name="problem_description" class="form-control" rows="4" placeholder="Please explain what happened..."
-                        required></textarea>
-                </div>
-
-                <div class="mb-3">
-                    <label class="form-label fw-semibold">Priority Level</label>
-                    <select name="status" class="form-control" required>
-                        <option value="low">Low</option>
-                        <option value="medium">Medium</option>
-                        <option value="high">High</option>
-                        <option value="critical">Critical</option>
-                    </select>
-                </div>
-
-                <div class="mb-3">
-                    <label class="form-label fw-semibold">Attachment (Optional)</label>
-                    <input type="file" name="problem_file" class="form-control" accept="image/*,.pdf">
-                </div>
-
-                <button class="btn btn-primary w-100 rounded-pill">
-                    Submit Problem
-                </button>
-            </form>
-        </div>
-    </div>
+    @include('auth.custom_login_page.modal.problem')
 
     {{-- STYLES --}}
     <style>
@@ -167,7 +121,6 @@
         }
     </style>
     <link rel="stylesheet" href="{{ asset('css/backend/custom_login.css') }}">
-
     {{-- SCRIPTS --}}
     <script>
         function toggleAbout(showFull) {
@@ -181,18 +134,6 @@
                 shortAbout.style.display = 'block';
             }
         }
-
-        function openProblemModal() {
-            document.getElementById('problemModal').classList.add('show');
-        }
-
-        function closeProblemModal() {
-            document.getElementById('problemModal').classList.remove('show');
-        }
-
-        // Close modal when clicking outside
-        document.getElementById('problemModal').addEventListener('click', function(e) {
-            if (e.target === this) closeProblemModal();
-        });
     </script>
+    <script src="{{ asset('js/custom_frontend/login_page/problem.js') }}"></script>
 @endsection
