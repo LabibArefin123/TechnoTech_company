@@ -6,12 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Crypt;
-use Illuminate\Support\Facades\Hash;
-use App\Models\SystemProblem;
-use Illuminate\Support\Str;
-use App\Models\User;
-use App\Models\BanUser;
+use App\Services\AuthService;
 
 class LoginController extends Controller
 {
@@ -38,80 +33,31 @@ class LoginController extends Controller
      * Handle login (Crypt-based)
      */
 
-    public function login(LoginRequest $request)
+    public function login(LoginRequest $request, AuthService $authService)
     {
         $request->ensureIsNotRateLimited();
 
-        $loginInput = $request->input('login');
-        $password   = $request->input('password');  
+        $user = $authService->findUser($request->input('login'));
 
-        // Determine if login is email or username
-        $field = filter_var($loginInput, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
-
-        $user = User::where($field, $loginInput)->first();
-
-        // -----------------------------
-        // 1. Maintenance Mode Check
-        // -----------------------------
-        $globalMaintenance = User::where('is_maintenance', 1)->first();
-
-        if ($globalMaintenance && (!$user || !$user->hasRole('admin'))) {
-            return back()->with('maintenance', $globalMaintenance->maintenance_message);
+        if ($response = $authService->checkMaintenance($user)) {
+            return $response;
         }
 
-        // -----------------------------
-        // 2. User Exists Check
-        // -----------------------------
         if (!$user) {
-            return back()->withErrors([
-                'login' => trans('auth.failed'),
-            ]);
+            return $authService->failedLogin();
         }
 
-        // -----------------------------
-        // 3. BANNED USER CHECK ✅
-        // -----------------------------
-        if ($user->is_banned) {
-            $ban = BanUser::where('user_id', $user->id)
-                ->where('is_banned', true)
-                ->latest('banned_at')
-                ->first();
-
-            return back()->with(
-                'banned',
-                $ban?->ban_reason ?? 'Your account has been banned. Please contact support.'
-            );
+        if ($response = $authService->checkUserBan($user)) {
+            return $response;
         }
 
-        // -----------------------------
-        // 4. Password check using Hash
-        // -----------------------------
-        if (!Hash::check($password, $user->password)) {
-            return back()->withErrors([
-                'login' => trans('auth.failed'),
-            ]);
+        if (!$authService->validatePassword($request->input('password'), $user)) {
+            return $authService->failedLogin();
         }
 
-        // -----------------------------
-        // 5. Manual login
-        // -----------------------------
-        Auth::login($user, $request->boolean('remember'));
-        $request->session()->regenerate();
-
-        // Call authenticated hook
-        $this->authenticated($request, $user);
+        $authService->performLogin($request, $user);
 
         return redirect()->intended($this->redirectTo);
-    }
-
-   
-    /**
-     * Handle actions after successful login
-     */
-    protected function authenticated(Request $request, $user)
-    {
-        // SweetAlert / toast message
-        session()->flash('login_success', 'Welcome back, ' . $user->name . '!');
     }
 
     /**
@@ -119,6 +65,14 @@ class LoginController extends Controller
      */
     public function logout(Request $request)
     {
+        $user = Auth::user();
+
+        if ($user) {
+            activity('User')
+                ->causedBy($user)
+                ->log('User logged out');
+        }
+
         Auth::logout();
 
         $request->session()->invalidate();

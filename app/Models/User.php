@@ -8,10 +8,13 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Spatie\Permission\Traits\HasRoles;
+use Spatie\Activitylog\Traits\LogsActivity;
+use Spatie\Activitylog\LogOptions;
+use Carbon\Carbon;
 
 class User extends Authenticatable
 {
-    use HasFactory, Notifiable, HasRoles;
+    use HasFactory, Notifiable, HasRoles, LogsActivity;
 
     protected $fillable = [
         'name',
@@ -21,6 +24,15 @@ class User extends Authenticatable
         'phone',
         'phone_2',
         'profile_picture',
+        'two_factor_enabled',
+        'two_factor_code',
+        'two_factor_expires_at',
+        'session_timeout',
+        'last_seen',
+        'is_maintenance',
+        'is_banned',
+        'maintenance_message',
+        'is_notifications',
     ];
 
     protected $hidden = [
@@ -32,6 +44,7 @@ class User extends Authenticatable
     {
         return [
             'email_verified_at' => 'datetime',
+            'last_seen' => 'datetime',
         ];
     }
 
@@ -39,7 +52,20 @@ class User extends Authenticatable
        Two Factor Helpers
     ========================== */
 
- 
+    public function generateTwoFactorCode()
+    {
+        $this->two_factor_code = rand(100000, 999999);
+        $this->two_factor_expires_at = now()->addMinutes(60);
+        $this->save();
+    }
+
+    public function resetTwoFactorCode()
+    {
+        $this->two_factor_code = null;
+        $this->two_factor_expires_at = null;
+        $this->save();
+    }
+
     /* =========================
        Profile Image Helpers
     ========================== */
@@ -65,4 +91,47 @@ class User extends Authenticatable
             : asset('uploads/images/default.jpg');
     }
 
+    /* =========================
+       Password Decryption
+    ========================== */
+
+    public function getDecryptedPasswordAttribute()
+    {
+        try {
+            return Crypt::decryptString($this->password);
+        } catch (\Exception $e) {
+            return null;
+        }
+    }
+
+    public function getActivitylogOptions(): LogOptions
+    {
+        return LogOptions::defaults()
+            ->logOnly(['name', 'email'])
+            ->logOnlyDirty()
+            ->dontSubmitEmptyLogs()
+            ->useLogName('User')
+            ->setDescriptionForEvent(function (string $eventName) {
+                return match ($eventName) {
+                    'created' => 'User created',
+                    'deleted' => 'User deleted',
+                    'updated' => 'User updated', // must return string
+                    default => 'User activity',  // ❗ NEVER return null
+                };
+            });
+    }
+
+    protected static function booted()
+    {
+        static::updating(function ($user) {
+            if ($user->isDirty('last_seen') && count($user->getDirty()) === 1) {
+                return false; // ❌ stop logging last_seen updates
+            }
+        });
+    }
+
+    public function getIsOnlineAttribute()
+    {
+        return $this->last_seen && $this->last_seen->gt(now()->subMinutes(5));
+    }
 }
