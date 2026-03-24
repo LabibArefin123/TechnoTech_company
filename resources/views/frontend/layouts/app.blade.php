@@ -46,7 +46,9 @@
 
 <body>
     <div id="app">
-        @include('frontend.components.setting_float_modal')
+        @if (!request()->is('login'))
+            @include('frontend.components.setting_float_modal')
+        @endif
         <!-- Scroll Progress Bar -->
         <div id="scrollProgress"
             style="position: fixed; top: 0; left: 0; width: 0%; height: 4px; background-color: #ff6b6b; z-index: 9999; transition: width 0.25s ease;">
@@ -86,18 +88,20 @@
         };
     </script>
     {{-- End of SweetAlert2 notifications --}}
-    <script src="{{ asset('js/custom_frontend/custom_top_bar.js') }}"></script> {{-- Sweet Alert Notification JS --}}
-    <script src="{{ asset('js/custom_frontend/sweet_alert.js') }}"></script> {{-- Sweet Alert Notification JS --}}
-    <script src="{{ asset('js/custom_frontend/custom_top_map.js') }}"></script> {{-- Location Modal JS --}}
-    <script src="{{ asset('js/custom_frontend/custom_banner.js') }}"></script> {{-- Location Modal JS --}}
-    <script src="{{ asset('js/custom_frontend/custom_skill.js') }}"></script> {{-- Location Modal JS --}}
-    <script src="{{ asset('js/custom_frontend/language.js') }}"></script> {{-- Language Modal JS --}}
-    <script src="{{ asset('js/custom_frontend/scroll_progress.js') }}"></script> {{-- Scroll Progress JS --}}
-    <script src="{{ asset('js/custom_frontend/custom_back_top_button.js') }}"></script> {{-- Back to Top JS --}}
-    <script src="{{ asset('js/custom_frontend/custom_footer_modal.js') }}"></script> {{-- Back to Top JS --}}
-    <script src="{{ asset('js/custom_frontend/developer_mode.js') }}"></script>
-    <script type="module" src="{{ asset('js/custom_frontend/setting_modal/init.js') }}"></script>
-    <script src="{{ asset('js/custom_frontend/open_quote_modal.js') }}"></script>
+    @if (!request()->is('login'))
+        <script src="{{ asset('js/custom_frontend/custom_top_bar.js') }}"></script> {{-- Sweet Alert Notification JS --}}
+        <script src="{{ asset('js/custom_frontend/sweet_alert.js') }}"></script> {{-- Sweet Alert Notification JS --}}
+        <script src="{{ asset('js/custom_frontend/custom_top_map.js') }}"></script> {{-- Location Modal JS --}}
+        <script src="{{ asset('js/custom_frontend/custom_banner.js') }}"></script> {{-- Location Modal JS --}}
+        <script src="{{ asset('js/custom_frontend/custom_skill.js') }}"></script> {{-- Location Modal JS --}}
+        <script src="{{ asset('js/custom_frontend/language.js') }}"></script> {{-- Language Modal JS --}}
+        <script src="{{ asset('js/custom_frontend/scroll_progress.js') }}"></script> {{-- Scroll Progress JS --}}
+        <script src="{{ asset('js/custom_frontend/custom_back_top_button.js') }}"></script> {{-- Back to Top JS --}}
+        <script src="{{ asset('js/custom_frontend/custom_footer_modal.js') }}"></script> {{-- Back to Top JS --}}
+        <script src="{{ asset('js/custom_frontend/developer_mode.js') }}"></script>
+        <script type="module" src="{{ asset('js/custom_frontend/setting_modal/init.js') }}"></script>
+        <script src="{{ asset('js/custom_frontend/open_quote_modal.js') }}"></script>
+    @endif
 </body>
 
 </html>
