@@ -5,7 +5,7 @@
 @section('content_header')
     <div class="d-flex justify-content-between align-items-center">
         <h3>Add Project</h3>
-        <a href="{{ route('project_sections.index') }}" class="btn btn-sm btn-secondary">
+        <a href="{{ route('project_sections.index') }}" class="back-btn btn btn-sm btn-secondary">
             <i class="fas fa-arrow-left"></i> Back
         </a>
     </div>

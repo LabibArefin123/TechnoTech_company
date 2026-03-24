@@ -3,8 +3,11 @@
 @section('title', 'Skill Section')
 
 @section('content_header')
-    <div class="d-flex justify-content-between">
-        <h3>Skill Section</h3>
+    <div class="d-flex justify-content-between align-items-center mb-2">
+        <h1>Skill List</h1>
+        <a href="{{ route('skill_sections.create') }}" class="btn btn-success btn-sm">
+            + Add Skill
+        </a>
     </div>
 @stop
 

@@ -3,7 +3,13 @@
 @section('title', 'Edit Project')
 
 @section('content_header')
-    <h3>Edit Project</h3>
+    <div class="d-flex justify-content-between align-items-center">
+        <h3>Edit Project Section</h3>
+
+        <a href="{{ route('project_sections.index') }}" class="back-btn btn btn-sm btn-secondary">
+            <i class="fas fa-arrow-left"></i> Back
+        </a>
+    </div>
 @stop
 
 @section('content')

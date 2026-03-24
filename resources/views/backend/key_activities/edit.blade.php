@@ -5,7 +5,7 @@
 @section('content_header')
     <div class="d-flex justify-content-between align-items-center">
         <h3>Edit Activity</h3>
-        <a href="{{ route('key_activities.index') }}" class="btn btn-sm btn-secondary">
+        <a href="{{ route('key_activities.index') }}" class="back-btn btn btn-sm btn-secondary">
             <i class="fas fa-arrow-left"></i> Back
         </a>
     </div>
