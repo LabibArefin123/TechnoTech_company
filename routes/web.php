@@ -28,6 +28,7 @@ use App\Http\Controllers\BannedDeviceController;
 use App\Http\Controllers\UserDeviceController;
 use App\Http\Controllers\ActivityLogController;
 use App\Http\Controllers\SettingController;
+use App\Http\Controllers\SecurityController;
 
 
 /*
@@ -156,13 +157,7 @@ Route::group(['middleware' => ['auth', 'check_banned_device', 'detect.attack']],
     | System Users
     */
     Route::resource('system_users', SystemUserController::class);
-
-    Route::post(
-        '/system-users/{user}/change-password',
-        [SystemUserController::class, 'updatePassword']
-    )
-        ->name('system_users.password.update');
-
+    Route::post('/system-users/{user}/change-password',[SystemUserController::class, 'updatePassword'])->name('system_users.password.update');
 
     /*
     | System Problems
@@ -174,11 +169,10 @@ Route::group(['middleware' => ['auth', 'check_banned_device', 'detect.attack']],
     Route::post('/user_devices/{id}/ban', [UserDeviceController::class, 'ban'])->name('user_devices.ban');
     Route::post('/user_devices/{id}/unban', [UserDeviceController::class, 'unban'])->name('user_devices.unban');
     Route::resource('user_devices', UserDeviceController::class);
-
+    Route::resource('security_logs', SecurityController::class);
 
     Route::get('/activity-logs', [ActivityLogController::class, 'index'])->name('activity.logs.index');
     Route::delete('/activity-logs/{id}', [ActivityLogController::class, 'destroy'])->name('activity.logs.destroy');
-
 
     //Setting 
     Route::get('/settings', [SettingController::class, 'index'])->name('settings.index');
