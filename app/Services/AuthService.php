@@ -67,8 +67,10 @@ class AuthService
         $request->session()->regenerate();
 
         // ✅ LOG LOGIN
-        activity('User')
+        activity()
             ->causedBy($user)
+            ->performedOn($user)
+            ->event('login')
             ->log('User logged in');
 
         $this->handleAuthenticated($request, $user);
