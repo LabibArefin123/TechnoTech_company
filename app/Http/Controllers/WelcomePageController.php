@@ -93,7 +93,7 @@ class WelcomePageController extends Controller
             'multiple_pdfs.*' => 'nullable|file|max:4096',
         ]);
 
-        $uid = 'DFCH-PROB-' . strtoupper(Str::random(6));
+        $uid = 'TECH-PROB-' . strtoupper(Str::random(6));
 
         // SINGLE FILE
         $fileName = null;
