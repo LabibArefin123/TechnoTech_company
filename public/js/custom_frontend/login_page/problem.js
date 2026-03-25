@@ -36,7 +36,7 @@ const text = document.getElementById("progressText");
 const bar = document.getElementById("progressBar");
 const previewArea = document.getElementById("previewArea");
 const pdfViewer = document.getElementById("pdfViewer");
-const form = document.querySelector("form");
+const form = document.querySelector("#problemModal form");
 
 let percent = 0;
 const radius = 50;
@@ -99,7 +99,7 @@ document.querySelectorAll(".file-input").forEach((input) => {
 form.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    const files = [...document.querySelector(".file-input:enabled").files];
+    const files = [...form.querySelector(".file-input:enabled").files];
     if (files.length === 0) {
         form.submit();
         return;

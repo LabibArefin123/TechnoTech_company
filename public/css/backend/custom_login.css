@@ -162,7 +162,7 @@
     border-radius: 16px;
     padding: 24px;
     animation: slideUp 0.35s ease;
-    box-shadow: 0 25px 60px rgba(0,0,0,0.25);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
 }
 
 .modal-header {
@@ -178,6 +178,10 @@
     font-size: 26px;
     cursor: pointer;
     color: #555;
+}
+
+.about-content.full {
+    display: none;
 }
 
 @keyframes slideUp {

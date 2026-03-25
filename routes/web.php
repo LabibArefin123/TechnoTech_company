@@ -171,6 +171,7 @@ Route::group(['middleware' => ['auth', 'check_banned_device', 'detect.attack']],
     Route::resource('user_devices', UserDeviceController::class);
     Route::resource('security_logs', SecurityController::class);
 
+    //Activity Log Menu
     Route::get('/activity-logs', [ActivityLogController::class, 'index'])->name('activity.logs.index');
     Route::delete('/activity-logs/{id}', [ActivityLogController::class, 'destroy'])->name('activity.logs.destroy');
 
