@@ -14,25 +14,50 @@
          </div>
 
          <div class="mb-4">
+             <label for="password" class="form-label fw-semibold"></label>
              <input id="password" type="password"
-                 class="form-control form-control-lg rounded-3 shadow-sm @error('password') is-invalid @enderror"
+                 class="form-control form-control-lg rounded-3 shadow-sm @error('login') is-invalid @enderror"
                  name="password" placeholder="Enter your password" required>
 
-             @error('password')
-                 <div class="invalid-feedback d-block mt-1"><strong>{{ $message }}</strong></div>
+             {{-- Show password errors only if maintenance is OFF --}}
+             @error('login')
+                 @unless (session('maintenance'))
+                     <div class="invalid-feedback d-block mt-2">
+                         <strong>{{ $message }}</strong>
+                     </div>
+                 @endunless
              @enderror
-         </div>
 
+             {{-- Maintenance Message --}}
+             @if (session('maintenance'))
+                 <div class="alert alert-warning mt-3 mb-0 py-2 px-3 rounded-3">
+                     <i class="fas fa-tools mr-1"></i>
+                     {{ session('maintenance') }}
+                 </div>
+             @endif
+
+             {{-- Banned Message --}}
+             @if (session('banned'))
+                 <div class="alert alert-danger mt-3 mb-0 py-2 px-3 rounded-3">
+                     <i class="fas fa-ban mr-1"></i>
+                     {{ session('banned') }}
+                 </div>
+             @endif
+         </div>
+         @if ($errors->has('login'))
+             <div class="alert alert-danger mt-2">
+                 {{ $errors->first('login') }}
+             </div>
+         @endif
          <button class="btn login-btn w-100 py-2 rounded-pill mt-3">
              Login
          </button>
 
          <div class="text-center mt-3">
-             <a href="{{ route('password.request') }}" id="forgotPasswordLink" class="text-decoration-none">
+             <a href="{{ route('password.request') }}" id="forgotPasswordLink" class="text-decoration-none dev-link">
                  Forgot Password?
              </a>
          </div>
-
          <hr class="my-4">
 
          <div class="text-center">

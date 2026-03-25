@@ -30,6 +30,8 @@ use App\Http\Controllers\UserDeviceController;
 use App\Http\Controllers\ActivityLogController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\SecurityController;
+use App\Http\Controllers\Auth\LoginController;
+use Illuminate\Support\Facades\Auth;
 
 
 /*
@@ -75,7 +77,16 @@ Route::get('/generate-sitemap', function () {
 |--------------------------------------------------------------------------
 */
 
-require __DIR__ . '/auth.php';
+// require __DIR__ . '/auth.php';
+Route::middleware('developer.mode')->group(function () {
+    Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
+    Route::post('login', [LoginController::class, 'login']);
+});
+
+Auth::routes([
+    'register' => false, // disables register
+]);
+
 
 
 /*

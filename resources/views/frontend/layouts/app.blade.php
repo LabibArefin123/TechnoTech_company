@@ -46,10 +46,9 @@
 
 <body>
     <div id="app">
-        @include('frontend.components.setting_float_modal')
         <!-- Scroll Progress Bar -->
         <div id="scrollProgress"
-            style="position: fixed; top: 0; left: 0; width: 0%; height: 4px; background-color: #ff6b6b; z-index: 9999; transition: width 0.25s ease;">
+        style="position: fixed; top: 0; left: 0; width: 0%; height: 4px; background-color: #ff6b6b; z-index: 9999; transition: width 0.25s ease;">
         </div>
         <main class="">
             @yield('content')
@@ -60,6 +59,9 @@
         @include('frontend.components.email_modal_footer')
         @include('frontend.components.phone_modal_footer')
         @include('frontend.components.location_modal_footer')
+        @if (!Route::is('login'))
+        @include('frontend.components.setting_float_modal')
+        @endif
     </div>
     <!-- Bootstrap JS + dependencies -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -85,31 +87,37 @@
             errors: @json($errors->all())
         };
     </script> --}}
-    <script>
+     <script>
         window.appData = {
             success: @json(session('success')),
-            login_success: @json(session('login_success')),
-            banned: @json(session('banned')),
-            maintenance: @json(session('maintenance')),
-            errors: @json($errors->all()),
-            login_error: @json($errors->first('login'))
+            errors: @json($errors->all())
         };
-
-        console.log('🔥 App Data:', window.appData);
     </script>
     {{-- End of SweetAlert2 notifications --}}
     <script src="{{ asset('js/custom_frontend/sweet_alert.js') }}"></script> {{-- Sweet Alert Notification JS --}}
-    <script src="{{ asset('js/custom_frontend/custom_top_bar.js') }}"></script> {{-- Sweet Alert Notification JS --}}
-    <script src="{{ asset('js/custom_frontend/custom_top_map.js') }}"></script> {{-- Location Modal JS --}}
-    <script src="{{ asset('js/custom_frontend/custom_banner.js') }}"></script> {{-- Location Modal JS --}}
-    <script src="{{ asset('js/custom_frontend/custom_skill.js') }}"></script> {{-- Location Modal JS --}}
-    <script src="{{ asset('js/custom_frontend/language.js') }}"></script> {{-- Language Modal JS --}}
-    <script src="{{ asset('js/custom_frontend/scroll_progress.js') }}"></script> {{-- Scroll Progress JS --}}
-    <script src="{{ asset('js/custom_frontend/custom_back_top_button.js') }}"></script> {{-- Back to Top JS --}}
-    <script src="{{ asset('js/custom_frontend/custom_footer_modal.js') }}"></script> {{-- Back to Top JS --}}
-    <script src="{{ asset('js/custom_frontend/developer_mode.js') }}"></script>
+    {{-- Custom Top Bar JS --}}
+    <script src="{{ asset('js/custom_frontend/custom_top_bar.js') }}"></script>
+    {{-- Custom Top Bar Map JS --}} 
+    <script src="{{ asset('js/custom_frontend/custom_top_map.js') }}"></script>
+    {{-- Custom Banner JS --}}
+    <script src="{{ asset('js/custom_frontend/custom_banner.js') }}"></script> 
+    {{-- Custom Skill JS --}}
+    <script src="{{ asset('js/custom_frontend/custom_skill.js') }}"></script>
+    {{-- Custom Language JS --}}
+    <script src="{{ asset('js/custom_frontend/language.js') }}"></script>
+    {{-- Custom Scroll Progress JS --}}
+    <script src="{{ asset('js/custom_frontend/scroll_progress.js') }}"></script>
+    {{-- Custom Back to Top JS --}} 
+    <script src="{{ asset('js/custom_frontend/custom_back_top_button.js') }}"></script>
+    {{-- Custom Footer JS --}} 
+    <script src="{{ asset('js/custom_frontend/custom_footer_modal.js') }}"></script> 
+    {{-- Custom Setting Modal JS --}}
     <script type="module" src="{{ asset('js/custom_frontend/setting_modal/init.js') }}"></script>
+    {{-- Custom Open Quote Modal JS --}}
     <script src="{{ asset('js/custom_frontend/open_quote_modal.js') }}"></script>
+    
+    {{-- Custom Developer Message JS --}}
+    <script src="{{ asset('js/custom_frontend/developer_mode.js') }}"></script>
 
 </body>
 

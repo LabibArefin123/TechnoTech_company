@@ -12,7 +12,7 @@ use Jenssegers\Agent\Agent;
 class AuthService
 {
     // ==============================
-    // ðŸ” LOGIN FLOW
+    // 🔐 LOGIN FLOW
     // ==============================
 
     public function findUser($loginInput)
@@ -66,7 +66,7 @@ class AuthService
         Auth::login($user, $request->boolean('remember'));
         $request->session()->regenerate();
 
-        // âœ… LOG LOGIN
+        // ✅ LOG LOGIN
         activity('User')
             ->causedBy($user)
             ->log('User logged in');
@@ -75,7 +75,7 @@ class AuthService
     }
 
     // ==============================
-    // âœ… AFTER LOGIN (AUTHENTICATED)
+    // ✅ AFTER LOGIN (AUTHENTICATED)
     // ==============================
 
     public function handleAuthenticated($request, $user)
