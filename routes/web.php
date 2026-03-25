@@ -24,6 +24,7 @@ use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\SystemUserController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SystemProblemController;
+use App\Http\Controllers\BanUserController;
 use App\Http\Controllers\BannedDeviceController;
 use App\Http\Controllers\UserDeviceController;
 use App\Http\Controllers\ActivityLogController;
@@ -159,9 +160,8 @@ Route::group(['middleware' => ['auth', 'check_banned_device', 'detect.attack']],
     Route::resource('system_users', SystemUserController::class);
     Route::post('/system-users/{user}/change-password',[SystemUserController::class, 'updatePassword'])->name('system_users.password.update');
 
-    /*
-    | System Problems
-    */
+    //Setting Menu
+    Route::resource('ban_users', BanUserController::class);
     Route::resource('banned_devices', BannedDeviceController::class);
     Route::post('system-problems/notify/{systemProblem}', [SystemProblemController::class, 'notify'])->name('system_problems.notify');
     Route::post('/system-problems/{id}/remarks', [SystemProblemController::class, 'saveRemarks'])->name('system_problems.remarks');

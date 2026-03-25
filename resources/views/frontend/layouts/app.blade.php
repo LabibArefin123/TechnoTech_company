@@ -79,15 +79,26 @@
         <i class="bi bi-arrow-up"></i>
     </button>
     {{-- Start of SweetAlert2 notifications --}}
-    <script>
+    {{-- <script>
         window.appData = {
             success: @json(session('success')),
             errors: @json($errors->all())
         };
+    </script> --}}
+    <script>
+        window.appData = {
+            success: @json(session('success')),
+            login_success: @json(session('login_success')),
+            banned: @json(session('banned')),
+            maintenance: @json(session('maintenance')),
+            errors: @json($errors->all()),
+            login_error: @json($errors->first('login'))
+        };
+
+        console.log('🔥 App Data:', window.appData);
     </script>
     {{-- End of SweetAlert2 notifications --}}
     <script src="{{ asset('js/custom_frontend/sweet_alert.js') }}"></script> {{-- Sweet Alert Notification JS --}}
-
     <script src="{{ asset('js/custom_frontend/custom_top_bar.js') }}"></script> {{-- Sweet Alert Notification JS --}}
     <script src="{{ asset('js/custom_frontend/custom_top_map.js') }}"></script> {{-- Location Modal JS --}}
     <script src="{{ asset('js/custom_frontend/custom_banner.js') }}"></script> {{-- Location Modal JS --}}
