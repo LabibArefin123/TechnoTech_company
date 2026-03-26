@@ -14,13 +14,13 @@
 
     <!-- OpenGraph -->
     <meta property="og:title" content="{{ $seo->og_title ?? config('app.name') }}">
-    {{-- <meta property="og:description" content="{{ $seo->og_description ?? $seo->meta_description }}"> --}}
     <meta property="og:image" content="{{ asset($seo->og_image ?? 'uploads/default-seo.png') }}">
     <meta property="og:url" content="{{ url()->current() }}">
     <meta property="og:type" content="website">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="settings-update-url" content="{{ route('settings.update') }}">
 
     <title>
         @hasSection('title')
@@ -48,7 +48,7 @@
     <div id="app">
         <!-- Scroll Progress Bar -->
         <div id="scrollProgress"
-        style="position: fixed; top: 0; left: 0; width: 0%; height: 4px; background-color: #ff6b6b; z-index: 9999; transition: width 0.25s ease;">
+            style="position: fixed; top: 0; left: 0; width: 0%; height: 4px; background-color: #ff6b6b; z-index: 9999; transition: width 0.25s ease;">
         </div>
         <main class="">
             @yield('content')
@@ -60,7 +60,7 @@
         @include('frontend.components.phone_modal_footer')
         @include('frontend.components.location_modal_footer')
         @if (!Route::is('login'))
-        @include('frontend.components.setting_float_modal')
+            @include('frontend.components.setting_float_modal')
         @endif
     </div>
     <!-- Bootstrap JS + dependencies -->
@@ -87,37 +87,13 @@
             errors: @json($errors->all())
         };
     </script> --}}
-     <script>
+    <script>
         window.appData = {
             success: @json(session('success')),
             errors: @json($errors->all())
         };
     </script>
-    {{-- End of SweetAlert2 notifications --}}
-    <script src="{{ asset('js/custom_frontend/sweet_alert.js') }}"></script> {{-- Sweet Alert Notification JS --}}
-    {{-- Custom Top Bar JS --}}
-    <script src="{{ asset('js/custom_frontend/custom_top_bar.js') }}"></script>
-    {{-- Custom Top Bar Map JS --}} 
-    <script src="{{ asset('js/custom_frontend/custom_top_map.js') }}"></script>
-    {{-- Custom Banner JS --}}
-    <script src="{{ asset('js/custom_frontend/custom_banner.js') }}"></script> 
-    {{-- Custom Skill JS --}}
-    <script src="{{ asset('js/custom_frontend/custom_skill.js') }}"></script>
-    {{-- Custom Language JS --}}
-    <script src="{{ asset('js/custom_frontend/language.js') }}"></script>
-    {{-- Custom Scroll Progress JS --}}
-    <script src="{{ asset('js/custom_frontend/scroll_progress.js') }}"></script>
-    {{-- Custom Back to Top JS --}} 
-    <script src="{{ asset('js/custom_frontend/custom_back_top_button.js') }}"></script>
-    {{-- Custom Footer JS --}} 
-    <script src="{{ asset('js/custom_frontend/custom_footer_modal.js') }}"></script> 
-    {{-- Custom Setting Modal JS --}}
-    <script type="module" src="{{ asset('js/custom_frontend/setting_modal/init.js') }}"></script>
-    {{-- Custom Open Quote Modal JS --}}
-    <script src="{{ asset('js/custom_frontend/open_quote_modal.js') }}"></script>
-    
-    {{-- Custom Developer Message JS --}}
-    <script src="{{ asset('js/custom_frontend/developer_mode.js') }}"></script>
+  
 
 </body>
 

@@ -135,6 +135,7 @@ class WelcomePageController extends Controller
 
         return back()->with('success', '✅ Problem submitted successfully!');
     }
+    
     public function updateSettings(Request $request)
     {
         $setting = FrontendSetting::first() ?? new FrontendSetting();

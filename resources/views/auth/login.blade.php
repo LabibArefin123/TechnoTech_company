@@ -16,7 +16,4 @@
     <link rel="stylesheet" href="{{ asset('css/backend/custom_login.css') }}">
 
     @include('auth.custom_login_page.modal.problem')
-
-    <script src="{{ asset('js/custom_frontend/login_page/about.js') }}"></script>
-    <script src="{{ asset('js/custom_frontend/login_page/problem.js') }}"></script>
 @endsection
