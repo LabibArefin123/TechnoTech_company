@@ -228,5 +228,7 @@ Route::group(['middleware' => ['auth', 'check_banned_device', 'detect.attack']],
     Route::post('/settings/datetime/update', [SettingController::class, 'updateDateTime'])->name('settings.datetime.update');
     Route::get('/settings/theme', [SettingController::class, 'theme'])->name('settings.theme');
     Route::post('/settings/theme/update', [SettingController::class, 'updateTheme'])->name('settings.theme.update');
+    Route::get('/settings/debugbar', [SettingController::class, 'debugbar'])->name('settings.debugbar');
+    Route::post('/settings/debugbar/update', [SettingController::class, 'updateDebugbar'])->name('settings.debugbar.update');
 });
 

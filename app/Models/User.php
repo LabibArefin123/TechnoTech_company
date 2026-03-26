@@ -33,6 +33,7 @@ class User extends Authenticatable
         'is_banned',
         'maintenance_message',
         'is_notifications',
+        'is_debugbar',
     ];
 
     protected $hidden = [

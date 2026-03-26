@@ -78,7 +78,7 @@
                     <div class="card-body">
 
                         <ul class="list-group">
-                             <li class="list-group-item">
+                            <li class="list-group-item">
                                 <a href="{{ route('settings.notification.index') }}"
                                     class="text-decoration-none text-dark d-flex justify-content-between align-items-center">
                                     <div>
@@ -136,26 +136,48 @@
             </div>
 
             {{-- Logs --}}
-            <div class="card" id="logs">
-                <div class="card-header bg-dark text-white" data-toggle="collapse" data-target="#logSettings"
+            <div class="card shadow-sm" id="logs">
+                <div class="card-header bg-gradient-dark text-white" data-toggle="collapse" data-target="#logSettings"
                     style="cursor:pointer;">
-                    <h5 class="mb-0">📂 Log & Debug Settings</h5>
+                    <h5 class="mb-0">
+                        📂 Logs & Debug Tools
+                    
+                    </h5>
                 </div>
+
                 <div id="logSettings" class="collapse" data-parent="#settingsAccordion">
-                    <div class="card-body">
+                    <div class="card-body p-0">
 
-                        <ul class="list-group">
+                        <ul class="list-group list-group-flush">
 
-                            <li class="list-group-item">
+                            <!-- Error Logs -->
+                            <li class="list-group-item hover-shadow">
                                 <a href="{{ route('settings.logs') }}"
-                                    class="text-decoration-none text-dark d-flex justify-content-between align-items-center">
+                                    class="text-decoration-none text-dark d-flex justify-content-between align-items-center p-2">
                                     <div>
-                                        <strong>Error Log Viewer</strong><br>
-                                        View, download, clear logs
+                                        <strong>📜 Error Logs</strong><br>
+                                        <small class="text-muted">
+                                            View, download, or clear system logs easily
+                                        </small>
                                     </div>
                                     <i class="fas fa-chevron-right text-muted"></i>
                                 </a>
                             </li>
+
+                            <!-- Debugbar -->
+                            <li class="list-group-item hover-shadow">
+                                <a href="{{ route('settings.debugbar') }}"
+                                    class="text-decoration-none text-dark d-flex justify-content-between align-items-center p-2">
+                                    <div>
+                                        <strong>🛠 Debug Mode</strong><br>
+                                        <small class="text-muted">
+                                            Enable or disable debugging tools
+                                        </small>
+                                    </div>
+                                    <i class="fas fa-chevron-right text-muted"></i>
+                                </a>
+                            </li>
+
                         </ul>
 
                     </div>

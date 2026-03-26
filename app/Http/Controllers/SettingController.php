@@ -9,6 +9,7 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Mail;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Facades\Auth;
 
 class SettingController extends Controller
 {
@@ -468,5 +469,21 @@ class SettingController extends Controller
         } catch (\Exception $e) {
             return back()->with('error', 'Failed to send test email: ' . $e->getMessage());
         }
+    }
+
+    public function debugbar()
+    {
+        $user = Auth::user();
+        return view('backend.setting_management.setting_menu.debug_bar', compact('user'));
+    }
+
+    public function updateDebugbar(Request $request)
+    {
+        $user = Auth::user();
+
+        $user->is_debugbar = $request->has('is_debugbar') ? 1 : 0;
+        $user->save();
+
+        return redirect()->back()->with('success', 'Debugbar setting updated successfully!');
     }
 }

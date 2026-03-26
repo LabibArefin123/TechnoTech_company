@@ -1,6 +1,5 @@
 @php
     $logout_url = View::getSection('logout_url') ?? config('adminlte.logout_url', 'logout');
-    // Default to your 'profile' route instead of logout
     $profile_url = View::getSection('profile_url') ?? 'user_profile';
 @endphp
 
@@ -19,40 +18,55 @@
 <li class="nav-item dropdown user-menu">
 
     {{-- User menu toggler --}}
-    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+    <a href="#" class="nav-link dropdown-toggle d-flex align-items-center" data-toggle="dropdown">
         @if (config('adminlte.usermenu_image'))
-            <img src="{{ Auth::user()->adminlte_image() }}" class="user-image img-circle elevation-2"
-                alt="{{ Auth::user()->name }}">
+            <img src="{{ Auth::user()->adminlte_image() }}" class="user-image img-circle elevation-2 mr-2"
+                style="width:32px; height:32px; object-fit:cover;" alt="{{ Auth::user()->name }}">
         @endif
-        <span @if (config('adminlte.usermenu_image')) class="d-none d-md-inline" @endif>
+
+        <span class="d-none d-md-inline font-weight-semibold">
             {{ Auth::user()->name }}
         </span>
     </a>
 
-    {{-- Simple dropdown list --}}
-    <ul class="dropdown-menu dropdown-menu-right shadow-sm border-0">
+    {{-- Dropdown --}}
+    <div class="dropdown-menu dropdown-menu-right shadow-lg border-0 p-0" style="min-width: 260px;">
 
-        <li>
-            <a href="{{ $profile_url ?? '#' }}" class="dropdown-item d-flex align-items-center gap-2">
-                <i class="fa fa-user text-primary"></i>
-                <span>Profile</span>
-            </a>
-        </li>
-        
-        {{-- <li>
-            <a href="{{ route('setting.index') }}" class="dropdown-item d-flex align-items-center gap-2">
-                <i class="fa fa-user text-primary"></i>
-                <span>Setting</span>
-            </a>
-        </li> --}}
+        {{-- User Header --}}
+        <div class="p-3 bg-gradient-primary text-white text-center">
+            <img src="{{ Auth::user()->adminlte_image() }}" class="img-circle elevation-2 mb-2"
+                style="width:60px; height:60px; object-fit:cover;" alt="{{ Auth::user()->name }}">
 
-        <li>
-            <a href="#" class="dropdown-item d-flex align-items-center gap-2 text-danger"
+            <div class="font-weight-bold">{{ Auth::user()->name }}</div>
+            <small class="text-light">
+                {{ Auth::user()->email ?? 'User Account' }}
+            </small>
+        </div>
+
+        {{-- Menu Items --}}
+        <div class="py-1">
+
+            <a href="{{ $profile_url ?? '#' }}" class="dropdown-item d-flex align-items-center px-3 py-2">
+                <i class="fas fa-user-circle text-primary mr-2"></i>
+                <span>My Profile</span>
+            </a>
+
+            <a href="{{ route('settings.index') }}" class="dropdown-item d-flex align-items-center px-3 py-2">
+                <i class="fas fa-cog text-secondary mr-2"></i>
+                <span>Settings</span>
+            </a>
+
+        </div>
+
+        <div class="dropdown-divider m-0"></div>
+
+        {{-- Logout --}}
+        <div class="p-2">
+            <a href="#" class="btn btn-outline-danger btn-block"
                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                <i class="fa fa-power-off"></i>
-                <span>Logout</span>
+                <i class="fas fa-sign-out-alt mr-1"></i> Logout
             </a>
-        </li>
+        </div>
 
         <form id="logout-form" action="{{ $logout_url }}" method="POST" style="display: none;">
             @if (config('adminlte.logout_method'))
@@ -60,6 +74,7 @@
             @endif
             {{ csrf_field() }}
         </form>
-    </ul>
+
+    </div>
 
 </li>
