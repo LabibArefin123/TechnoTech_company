@@ -77,16 +77,34 @@ Route::get('/generate-sitemap', function () {
 |--------------------------------------------------------------------------
 */
 
-// require __DIR__ . '/auth.php';
-Route::middleware('developer.mode')->group(function () {
-    Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
-    Route::post('login', [LoginController::class, 'login']);
+require __DIR__ . '/auth.php';
+Route::middleware('guest')->group(function () {
+    Route::get('/login', [LoginController::class, 'showLoginForm'])
+        ->middleware('developer.mode')
+        ->name('login');
+
+    Route::post('/login', [LoginController::class, 'login']);
 });
 
-Auth::routes([
-    'register' => false, // disables register
-]);
+Route::post('/logout', function () {
+    Auth::logout();
+    request()->session()->invalidate();
+    request()->session()->regenerateToken();
 
+    return redirect('/login');
+})->name('logout');
+/*
+|--------------------------------------------------------------------------
+| Developer Mode
+|--------------------------------------------------------------------------
+*/
+
+Route::post('/developer-unlock', function (Request $request) {
+
+    session(['developer_mode' => true]);
+
+    return response()->json(['status' => 'ok']);
+});
 
 
 /*
@@ -212,16 +230,3 @@ Route::group(['middleware' => ['auth', 'check_banned_device', 'detect.attack']],
     Route::post('/settings/theme/update', [SettingController::class, 'updateTheme'])->name('settings.theme.update');
 });
 
-
-/*
-|--------------------------------------------------------------------------
-| Developer Mode
-|--------------------------------------------------------------------------
-*/
-
-Route::post('/developer-unlock', function (Request $request) {
-
-    session(['developer_mode' => true]);
-
-    return response()->json(['status' => 'ok']);
-});

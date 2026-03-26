@@ -63,7 +63,8 @@ class AuthService
 
     public function performLogin($request, $user)
     {
-        Auth::login($user, $request->boolean('remember'));
+        // Auth::login($user, $request->boolean('remember'));
+        Auth::guard('web')->login($user, $request->boolean('remember'));
         $request->session()->regenerate();
 
         // ✅ LOG LOGIN
