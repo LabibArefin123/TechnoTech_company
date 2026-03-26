@@ -104,3 +104,14 @@
 .map-btn:hover {
     opacity: 0.9;
 }
+
+.goog-te-banner-frame.skiptranslate,
+.goog-te-balloon-frame,
+#goog-gt-tt {
+    display: none !important;
+}
+
+.goog-te-gadget {
+    height: 0 !important;
+    overflow: hidden;
+}

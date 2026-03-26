@@ -7,8 +7,6 @@
             106/A, Green Road (3rd Floor), Farmgate, Corner Place Super Market, Dhaka-1205
             </a>
         </div>
-        <!-- Hidden Google Translate Widget -->
-        <div id="google_translate_element" style="display:none;"></div>
         <div class="d-flex align-items-center gap-3">
             <span>
                 <i class="fas fa-phone"></i>

@@ -1,19 +1,24 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Map Modal
-    var mapModal = new bootstrap.Modal(document.getElementById("mapModal"));
-    document
-        .getElementById("openMapModal")
-        .addEventListener("click", function (e) {
+    const mapModal = new bootstrap.Modal(document.getElementById("mapModal"));
+    const phoneModal = new bootstrap.Modal(
+        document.getElementById("phoneModal"),
+    );
+    const emailModal = new bootstrap.Modal(
+        document.getElementById("emailModal"),
+    );
+
+    document.body.addEventListener("click", function (e) {
+        if (e.target.closest(".openMapModal")) {
             e.preventDefault();
             mapModal.show();
-        });
-
-    // Phone Modal
-    var phoneModal = new bootstrap.Modal(document.getElementById("phoneModal"));
-    document
-        .getElementById("openPhoneModal")
-        .addEventListener("click", function (e) {
+        }
+        if (e.target.closest(".openPhoneModal")) {
             e.preventDefault();
             phoneModal.show();
-        });
+        }
+        if (e.target.closest(".openEmailModal")) {
+            e.preventDefault();
+            emailModal.show();
+        }
+    });
 });

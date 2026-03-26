@@ -63,7 +63,7 @@
                 <button type="button" class="navbarLayoutBtn" data-layout="3">Layout 3</button>
             </div>
 
-            <input type="hidden" name="navbar_layout" id="navbarLayoutInput">
+            <input type="hidden" name="navbar_layout" id="navbarLayoutBtn">
         </div>
 
         <!-- About Layout -->
@@ -76,7 +76,7 @@
                 <button type="button" class="aboutLayoutBtn" data-layout="3">Layout 3</button>
             </div>
 
-            <input type="hidden" name="about_layout" id="aboutLayoutInput">
+            <input type="hidden" name="about_layout" id="aboutLayoutBtn">
         </div>
 
         <!-- Footer Layout -->

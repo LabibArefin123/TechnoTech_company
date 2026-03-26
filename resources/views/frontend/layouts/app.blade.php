@@ -69,6 +69,9 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    
+    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
     <script>
         AOS.init({
             duration: 1000, // Animation duration
@@ -81,20 +84,12 @@
     <button id="backToTop" class="back-to-top" aria-label="Back to Top">
         <i class="bi bi-arrow-up"></i>
     </button>
-    {{-- Start of SweetAlert2 notifications --}}
-    {{-- <script>
-        window.appData = {
-            success: @json(session('success')),
-            errors: @json($errors->all())
-        };
-    </script> --}}
     <script>
         window.appData = {
             success: @json(session('success')),
             errors: @json($errors->all())
         };
     </script>
-    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 </body>
 

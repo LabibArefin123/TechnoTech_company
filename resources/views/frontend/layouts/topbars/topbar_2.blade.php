@@ -1,18 +1,6 @@
 <link rel="stylesheet" href="{{ asset('css/frontend/custom_topbar.css') }}">
 
 <div style="background:#f8f9fa;border-bottom:1px solid #ddd;padding:6px 0;">
-    <style>
-        .goog-te-banner-frame.skiptranslate,
-        .goog-te-balloon-frame,
-        #goog-gt-tt {
-            display: none !important;
-        }
-
-        .goog-te-gadget {
-            height: 0 !important;
-            overflow: hidden;
-        }
-    </style>
     <div class="container d-flex justify-content-between align-items-center">
 
         <div class="small text-dark">
@@ -24,8 +12,7 @@
             <i class="fas fa-envelope"></i> info@technotech.com
 
         </div>
-        <!-- Hidden Google Translate Widget -->
-        <div id="google_translate_element" style="display:none;"></div>
+
         <div class="d-flex align-items-center gap-3">
 
             <a href="https://www.facebook.com/" target="_blank" class="text-dark">
