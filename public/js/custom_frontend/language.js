@@ -3,12 +3,11 @@ function googleTranslateElementInit() {
         {
             pageLanguage: "en",
             includedLanguages: "en,bn",
-            autoDisplay: false,
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
         },
         "google_translate_element",
     );
 }
-
 function setGoogleLanguage(lang) {
     const interval = setInterval(() => {
         const select = document.querySelector(".goog-te-combo");
@@ -21,19 +20,25 @@ function setGoogleLanguage(lang) {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-    const btn = document.getElementById("langToggle");
+    const buttons = document.querySelectorAll("#langToggle");
 
-    // Restore saved language
-    const savedLang = localStorage.getItem("site_lang") || "en";
-    btn.innerText = savedLang.toUpperCase();
-    if (savedLang === "bn") setGoogleLanguage("bn");
+    buttons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+            const currentLang = btn.innerText.trim();
 
-    btn.addEventListener("click", function () {
-        const currentLang = btn.innerText.toLowerCase();
-        const newLang = currentLang === "en" ? "bn" : "en";
+            const targetLang = currentLang === "EN" ? "bn" : "en";
 
-        setGoogleLanguage(newLang);
-        btn.innerText = newLang.toUpperCase();
-        localStorage.setItem("site_lang", newLang);
+            const select = document.querySelector(".goog-te-combo");
+
+            if (select) {
+                select.value = targetLang;
+                select.dispatchEvent(new Event("change"));
+            }
+
+            // Update ALL buttons text
+            buttons.forEach((b) => {
+                b.innerText = targetLang.toUpperCase();
+            });
+        });
     });
 });

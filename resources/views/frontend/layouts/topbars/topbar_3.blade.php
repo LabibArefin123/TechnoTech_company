@@ -4,7 +4,8 @@
     <div class="container d-flex justify-content-between align-items-center">
         <div>
             <i class="fas fa-map-marker-alt"></i>
-            Dhaka Bangladesh
+            106/A, Green Road (3rd Floor), Farmgate, Corner Place Super Market, Dhaka-1205
+            </a>
         </div>
         <!-- Hidden Google Translate Widget -->
         <div id="google_translate_element" style="display:none;"></div>
@@ -13,18 +14,16 @@
                 <i class="fas fa-phone"></i>
                 01754-327566
             </span>
-            <a href="#" style="color:white;">
+            <a href="https://www.facebook.com/" target="_blank" style="color:white;">
                 <i class="fab fa-facebook"></i>
             </a>
-            <a href="#" style="color:white;">
+            <a href="https://www.youtube.com/" target="_blank" style="color:white;">
                 <i class="fab fa-youtube"></i>
             </a>
-            <button id="langToggle" style="background:white;color:#333;border:none;padding:4px 10px;border-radius:4px;">
+            <button class="langToggle"
+                style="background:white;color:#333;border:none;padding:4px 10px;border-radius:4px;">
                 EN
             </button>
         </div>
     </div>
 </div>
-<!-- Google Translate Library -->
-<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-<!------start of translate english/bangla link js--->

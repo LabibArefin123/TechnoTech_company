@@ -28,15 +28,15 @@
         <div id="google_translate_element" style="display:none;"></div>
         <div class="d-flex align-items-center gap-3">
 
-            <a href="#" class="text-dark">
+            <a href="https://www.facebook.com/" target="_blank" class="text-dark">
                 <i class="fab fa-facebook"></i>
             </a>
 
-            <a href="#" class="text-dark">
+            <a href="https://www.linkedin.com/" target="_blank" class="text-dark">
                 <i class="fab fa-linkedin"></i>
             </a>
 
-            <button id="langToggle"
+            <button class="langToggle"
                 style="background:#198754;color:white;border:none;padding:4px 10px;border-radius:4px;">
                 EN
             </button>
@@ -46,6 +46,3 @@
     </div>
 
 </div>
-<!-- Google Translate Library -->
-<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-<!------start of translate english/bangla link js--->

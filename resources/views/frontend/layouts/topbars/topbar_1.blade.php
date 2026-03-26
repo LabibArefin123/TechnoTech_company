@@ -37,7 +37,7 @@
             <a href="https://www.facebook.com/profile.php?id=61588160976984" class="social-icon" target="_blank">
                 <i class="fab fa-facebook-f"></i>
             </a>
-            <button id="langToggle"
+            <button class="langToggle"
                 style="background:#ff6b6b; color:white; padding:6px 12px; border:none; border-radius:4px; cursor:pointer;">
                 EN
             </button>
@@ -46,5 +46,5 @@
 </div>
 
 <!-- Google Translate Library -->
-<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
 <!------start of translate english/bangla link js--->
