@@ -87,7 +87,7 @@
 
         <!-- Button -->
         <div class="d-flex align-items-center">
-            <button class="btn quote-btn" id="openQuote" style="border: 2px solid red;">
+            <button class="btn quote-btn openQuote" style="border: 2px solid red;">
                 Get a Quote
             </button>
         </div>

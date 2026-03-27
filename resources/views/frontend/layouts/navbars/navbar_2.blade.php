@@ -50,7 +50,7 @@
 
         </div>
 
-        <a class="btn btn-warning">
+        <a class="btn btn-warning openQuote">
             Get Quote
         </a>
 

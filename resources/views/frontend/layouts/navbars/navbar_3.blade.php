@@ -66,10 +66,9 @@
 
         </div>
 
-        <a class="btn btn-success">
+        <a class="btn btn-warning openQuote">
             Get Quote
         </a>
-
     </div>
 
 </nav>
