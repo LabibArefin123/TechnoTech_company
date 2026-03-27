@@ -50,7 +50,7 @@
         <div id="scrollProgress"
             style="position: fixed; top: 0; left: 0; width: 0%; height: 4px; background-color: #ff6b6b; z-index: 9999; transition: width 0.25s ease;">
         </div>
-        <div id="google_translate_element" style="display:none;"></div>
+        <div id="google_translate_element"></div>
         <main class="">
             @yield('content')
         </main>
@@ -69,7 +69,16 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-    
+    <script>
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'en,bn',
+                autoDisplay: false
+            }, 'google_translate_element');
+        }
+    </script>
+
     <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
     <script>
