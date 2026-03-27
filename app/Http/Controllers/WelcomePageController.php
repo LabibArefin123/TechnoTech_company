@@ -135,23 +135,34 @@ class WelcomePageController extends Controller
 
         return back()->with('success', '✅ Problem submitted successfully!');
     }
-    
+
     public function updateSettings(Request $request)
     {
+        // 🔥 FORCE JSON PARSE (CRITICAL FIX)
+        $data = json_decode($request->getContent(), true);
+
+        // Safety fallback (if normal form submit happens)
+        if (!$data) {
+            $data = $request->all();
+        }
+
         $setting = FrontendSetting::first() ?? new FrontendSetting();
 
-        $setting->theme_color   = $request->input('theme_color', $setting->theme_color);
-        $setting->text_size     = $request->input('text_size', $setting->text_size);
+        $setting->theme_color   = $data['theme_color'] ?? $setting->theme_color;
+        $setting->text_size     = $data['text_size'] ?? $setting->text_size;
 
-        $setting->navbar_layout = $request->input('navbar_layout', $setting->navbar_layout ?? 1);
-        $setting->about_layout  = $request->input('about_layout', $setting->about_layout ?? 1);
-        $setting->footer_layout = $request->input('footer_layout', $setting->footer_layout ?? 1);
+        $setting->navbar_layout = $data['navbar_layout'] ?? ($setting->navbar_layout ?? 1);
+        $setting->about_layout  = $data['about_layout'] ?? ($setting->about_layout ?? 1);
+        $setting->footer_layout = $data['footer_layout'] ?? ($setting->footer_layout ?? 1);
 
-        $setting->animations  = (int) $request->input('animations', 0);
-        $setting->back_to_top = (int) $request->input('back_to_top', 0);
-        $setting->dark_mode   = (int) $request->input('dark_mode', 0);
+        $setting->animations  = isset($data['animations']) ? (int)$data['animations'] : 0;
+        $setting->back_to_top = isset($data['back_to_top']) ? (int)$data['back_to_top'] : 0;
+        $setting->dark_mode   = isset($data['dark_mode']) ? (int)$data['dark_mode'] : 0;
 
         $setting->save();
+
+        // 🔥 DEBUG LOG (CHECK storage/logs/laravel.log)
+        \Log::info('Settings Saved:', $data);
 
         return response()->json([
             'status' => true,

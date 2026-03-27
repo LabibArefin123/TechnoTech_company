@@ -103,7 +103,7 @@
 
         </div>
 
-        <button class="saveSettingsBtn">
+        <button type="submit" class="saveSettingsBtn">
             <i class="fas fa-save"></i> Save Settings
         </button>
 

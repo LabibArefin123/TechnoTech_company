@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
             .querySelector('meta[name="csrf-token"]')
             ?.getAttribute("content") || "";
 
-    // 🔥 CENTRAL STATE (single source of truth)
+    // 🔥 CENTRAL STATE
     const settings = {
         theme_color: null,
         text_size: null,
@@ -22,40 +22,48 @@ document.addEventListener("DOMContentLoaded", () => {
         dark_mode: 0,
     };
 
+    // INIT MODULES
     initPanel();
-
     initTheme(settings, saveSettings, csrf);
-    initLayouts(settings, saveSettings, csrf);
+    initLayouts(settings); // ✅ FIXED (removed unused params)
     initExtras(settings, saveSettings, csrf);
 
-    // ✅ SAVE BUTTON HANDLER (IMPORTANT)
+    // =========================
+    // ✅ SAVE HANDLER (FIXED)
+    // =========================
     const form = document.getElementById("settingsForm");
 
     if (form) {
         form.addEventListener("submit", function (e) {
             e.preventDefault();
 
-            // 🔥 sync hidden inputs → settings object
+            // 🔥 ALWAYS READ LATEST VALUES
             settings.theme_color =
-                document.getElementById("themeColorInput")?.value;
-
+                document.getElementById("themeColorInput")?.value || null;
             settings.text_size =
-                document.getElementById("textSizeInput")?.value;
+                document.getElementById("textSizeInput")?.value || null;
 
             settings.navbar_layout =
-                document.getElementById("navbarLayoutInput")?.value || 1;
+                document.getElementById("navbarLayoutBtn")?.value ||
+                settings.navbar_layout;
 
             settings.about_layout =
-                document.getElementById("aboutLayoutInput")?.value || 1;
+                document.getElementById("aboutLayoutBtn")?.value ||
+                settings.about_layout;
 
             settings.footer_layout =
-                document.getElementById("footerLayoutInput")?.value || 1;
+                document.getElementById("footerLayoutBtn")?.value ||
+                settings.footer_layout;
 
             settings.dark_mode = document.getElementById("darkModeToggle")
                 ?.checked
                 ? 1
                 : 0;
 
+            // 🔥 DEBUG (remove later)
+            console.log("✅ FINAL SETTINGS:", settings);
+
+            // 🔥 SAVE
             saveSettings(settings, csrf);
         });
     }

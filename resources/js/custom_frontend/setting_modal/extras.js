@@ -13,7 +13,7 @@ export function initExtras(settings, save, csrf) {
 
             showToast("Animations updated");
 
-            save(settings, csrf);
+      
         });
     }
 
@@ -31,7 +31,7 @@ export function initExtras(settings, save, csrf) {
 
             showToast("Back to top updated");
 
-            save(settings, csrf);
+
         });
     }
 
@@ -45,7 +45,7 @@ export function initExtras(settings, save, csrf) {
 
             showToast("Dark mode updated 🌙");
 
-            save(settings, csrf);
+
         });
     }
 }

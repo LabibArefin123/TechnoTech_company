@@ -13,7 +13,6 @@ export function initTheme(settings, save, csrf) {
 
             showToast("Theme color updated 🎨");
 
-            save(settings, csrf);
         });
     });
 
@@ -29,7 +28,6 @@ export function initTheme(settings, save, csrf) {
 
             showToast("Text size updated 🔤");
 
-            save(settings, csrf);
         });
     });
 }
