@@ -1,24 +1,32 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const mapModal = new bootstrap.Modal(document.getElementById("mapModal"));
-    const phoneModal = new bootstrap.Modal(
-        document.getElementById("phoneModal"),
-    );
-    const emailModal = new bootstrap.Modal(
-        document.getElementById("emailModal"),
-    );
+    const mapEl = document.getElementById("mapModal");
+    const phoneEl = document.getElementById("phoneModal");
 
-    document.body.addEventListener("click", function (e) {
-        if (e.target.closest(".openMapModal")) {
+    // 🔥 Safety check
+    if (!mapEl || !phoneEl) {
+        console.error("Modal elements not found");
+        return;
+    }
+
+    const mapModal = new bootstrap.Modal(mapEl);
+    const phoneModal = new bootstrap.Modal(phoneEl);
+
+    // ✅ DIRECT CLICK HANDLERS (CLEAN & RELIABLE)
+
+    const mapBtn = document.getElementById("openMapModal");
+    const phoneBtn = document.getElementById("openPhoneModal");
+
+    if (mapBtn) {
+        mapBtn.addEventListener("click", function (e) {
             e.preventDefault();
             mapModal.show();
-        }
-        if (e.target.closest(".openPhoneModal")) {
+        });
+    }
+
+    if (phoneBtn) {
+        phoneBtn.addEventListener("click", function (e) {
             e.preventDefault();
             phoneModal.show();
-        }
-        if (e.target.closest(".openEmailModal")) {
-            e.preventDefault();
-            emailModal.show();
-        }
-    });
+        });
+    }
 });
