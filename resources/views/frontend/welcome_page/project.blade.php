@@ -7,7 +7,11 @@
             <h2 class="projects-title">Latest Projects</h2>
             <p class="projects-subtitle">Recently Completed Works</p>
         </div>
-
+        <div class="text-center mb-4">
+            <h4 class="fw-bold text-dark">
+                🚀 Successfully Delivered 100+ Projects
+            </h4>
+        </div>
         <div class="projects-slider">
 
             @foreach ($projects->chunk(3) as $key => $chunk)
@@ -18,12 +22,16 @@
                             <div class="col-lg-4 col-md-6">
                                 <div class="project-card">
 
-                                    <img src="{{ asset($project->image) }}" alt="{{ $project->title }}">
+                                    <a href="{{ route('project.show', $project->id) }}">
+                                        <div class="project-card">
+                                            <img src="{{ asset($project->image) }}" alt="{{ $project->title }}">
 
-                                    <div class="project-info">
-                                        <h5>{{ $project->title }}</h5>
-                                        <span>{{ $project->category }}</span>
-                                    </div>
+                                            <div class="project-info">
+                                                <h5>{{ $project->title }}</h5>
+                                                <span>{{ $project->category }}</span>
+                                            </div>
+                                        </div>
+                                    </a>
 
                                 </div>
                             </div>
@@ -37,7 +45,8 @@
 
         <div class="projects-dots">
             @foreach ($projects->chunk(3) as $key => $chunk)
-                <span class="dot {{ $key == 0 ? 'active' : '' }}" onclick="showProjectSlide({{ $key }})"></span>
+                <span class="dot {{ $key == 0 ? 'active' : '' }}"
+                    onclick="showProjectSlide({{ $key }})"></span>
             @endforeach
         </div>
 

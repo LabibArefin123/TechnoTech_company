@@ -6,5 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class SubProjectSection extends Model
 {
-    //
+    protected $fillable = [
+        'project_id',
+        'image',
+        'title',
+        'is_active'
+    ];
 }

@@ -13,12 +13,9 @@ return new class extends Migration
     {
         Schema::create('sub_project_sections', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('project_id')->constrained()->cascadeOnDelete();
-
+            $table->foreignId('project_id')->nullable()->index();
             $table->string('image');
             $table->string('title')->nullable();
-
-            // 🔥 SECRET CONTROL
             $table->boolean('is_active')->default(1);
 
             $table->timestamps();

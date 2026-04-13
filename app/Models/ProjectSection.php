@@ -12,4 +12,10 @@ class ProjectSection extends Model
         'image',
         'status'
     ];
+
+    public function subProjects()
+    {
+        return $this->hasMany(SubProjectSection::class)
+            ->where('is_active', 1);
+    }
 }

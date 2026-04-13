@@ -82,6 +82,13 @@ class WelcomePageController extends Controller
         return back()->with('success', 'Thank you! Your message has been sent.');
     }
 
+    public function showProject($id)
+    {
+        $project = ProjectSection::with('subProjects')->findOrFail($id);
+
+        return view('frontend.projects.show', compact('project'));
+    }
+
     public function system_problem_store(Request $request)
     {
         $request->validate([

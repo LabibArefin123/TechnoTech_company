@@ -179,3 +179,32 @@
         transform: translateY(0);
     }
 }
+
+/* SUB PROJECT CARD */
+.sub-project-card {
+    position: relative;
+    overflow: hidden;
+    height: 300px;
+    border-radius: 12px;
+}
+
+.sub-project-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .5s ease;
+}
+
+.sub-project-card:hover img {
+    transform: scale(1.1);
+}
+
+/* overlay */
+.sub-overlay {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 15px;
+    color: #fff;
+    background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+}
