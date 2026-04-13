@@ -15,7 +15,8 @@ class ProjectSection extends Model
 
     public function subProjects()
     {
-        return $this->hasMany(SubProjectSection::class)
-            ->where('is_active', 1);
+        return $this->hasMany(SubProjectSection::class, 'project_id')
+            ->where('is_active', 1)
+            ->latest();
     }
 }

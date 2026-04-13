@@ -11,11 +11,10 @@
     </div>
 @stop
 
-
 @section('content')
     <div class="card shadow-lg">
         <div class="card-body table-responsive">
-            <table class="table table-bordered table-hover">
+            <table class="table table-bordered table-hover" id="dataTables">
                 <thead class="table-dark">
                     <tr>
                         <th width="5%">#</th>

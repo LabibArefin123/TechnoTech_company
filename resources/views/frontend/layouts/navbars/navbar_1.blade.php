@@ -47,7 +47,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="#about" class="nav-link custom-link">
+                    <a href="#about" class="nav-link custom-link {{ request()->routeIs('welcome') ? 'active' : '' }}">
                         About Us
                     </a>
                 </li>

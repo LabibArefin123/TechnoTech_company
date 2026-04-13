@@ -15,6 +15,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Backend\Frontend_Management\ContactCardController;
 use App\Http\Controllers\Backend\Frontend_Management\AboutSectionController;
 use App\Http\Controllers\Backend\Frontend_Management\ProjectSectionController;
+use App\Http\Controllers\Backend\Frontend_Management\SubProjectSectionController;
 use App\Http\Controllers\Backend\Frontend_Management\KeyActivityController;
 use App\Http\Controllers\Backend\Frontend_Management\SkillSectionController;
 use App\Http\Controllers\Backend\Frontend_Management\NewsController;
@@ -142,6 +143,7 @@ Route::group(['middleware' => ['auth', 'check_banned_device', 'detect.attack']],
     */
     Route::resource('about_sections', AboutSectionController::class);
     Route::resource('project_sections', ProjectSectionController::class);
+    Route::resource('sub_project_sections', SubProjectSectionController::class);
     Route::resource('key_activities', KeyActivityController::class);
     Route::resource('news_sections', NewsSectionController::class);
     Route::resource('news', NewsController::class);

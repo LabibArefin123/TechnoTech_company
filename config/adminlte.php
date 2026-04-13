@@ -378,6 +378,14 @@ return [
                 ],
 
                 [
+                    'text' => 'Sub Projects',
+                    'route' => 'sub_project_sections.index',
+                    'can' => 'sub_project_sections.index',
+                    'active' => ['sub_project_sections*'],
+                    'icon' => 'fas fa-images',
+                ],
+
+                [
                     'text' => 'Skill Section',
                     'route' => 'skill_sections.index',
                     'can' => 'skill_sections.index',

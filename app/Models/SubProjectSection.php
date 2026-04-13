@@ -12,4 +12,10 @@ class SubProjectSection extends Model
         'title',
         'is_active'
     ];
+    
+    public function project()
+    {
+        return $this->belongsTo(ProjectSection::class, 'project_id');
+    }
+
 }

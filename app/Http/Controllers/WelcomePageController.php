@@ -84,11 +84,13 @@ class WelcomePageController extends Controller
 
     public function showProject($id)
     {
-        $project = ProjectSection::with('subProjects')->findOrFail($id);
+        $project = ProjectSection::with('subProjects')
+            ->where('status', 1)
+            ->findOrFail($id);
 
         return view('frontend.projects.show', compact('project'));
     }
-
+    
     public function system_problem_store(Request $request)
     {
         $request->validate([
