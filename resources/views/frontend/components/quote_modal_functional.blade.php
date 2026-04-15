@@ -57,10 +57,39 @@
                     </div>
 
                     {{-- MESSAGE --}}
-                    <div class="form-floating mb-4">
-                        <textarea name="message" class="form-control rounded-3" placeholder="Project details" id="message"
-                            style="height: 100px"></textarea>
-                        <label for="message">Project Details</label>
+                    <div class="mb-4">
+
+                        <label for="message" class="form-label fw-semibold">
+                            Project Details
+                        </label>
+
+                        {{-- Quick formatting tools --}}
+                        <div class="mb-2 d-flex gap-2 flex-wrap">
+                            <button type="button" class="btn btn-sm btn-light border" onclick="insertText('- ')">
+                                • Bullet
+                            </button>
+                            <button type="button" class="btn btn-sm btn-light border" onclick="insertText('\n\n')">
+                                New Line
+                            </button>
+                            <button type="button" class="btn btn-sm btn-light border" onclick="insertText('• ')">
+                                Point
+                            </button>
+                        </div>
+
+                        <textarea name="message" id="message" class="form-control rounded-3" rows="5"
+                            placeholder="Describe your project...
+
+                            Example:
+                            - Building size
+                            - Budget range
+                            - Timeline
+                            - Special requirements"
+                            style="resize: none;"></textarea>
+
+                        <small class="text-muted">
+                            💡 You can use bullet points (-) for better clarity.
+                        </small>
+
                     </div>
 
                     {{-- BUTTON --}}
@@ -72,4 +101,18 @@
 
         </div>
     </div>
+    <script>
+        function insertText(text) {
+            const textarea = document.getElementById('message');
+            const start = textarea.selectionStart;
+            const end = textarea.selectionEnd;
+
+            const current = textarea.value;
+
+            textarea.value = current.substring(0, start) + text + current.substring(end);
+
+            textarea.focus();
+            textarea.selectionStart = textarea.selectionEnd = start + text.length;
+        }
+    </script>
 </div>

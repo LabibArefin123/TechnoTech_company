@@ -25,7 +25,7 @@
                 <thead class="table-dark">
                     <tr>
                         <th>#</th>
-                        <th>Quote ID</th>
+                        {{-- <th>Quote ID</th> --}}
                         <th>Name</th>
                         <th>Phone</th>
                         <th>Email</th>
@@ -63,9 +63,9 @@
                         orderable: false,
                         searchable: false
                     },
-                    {
-                        data: 'id'
-                    },
+                    // {
+                    //     data: 'id'
+                    // },
                     {
                         data: 'name'
                     },
