@@ -1,39 +1,94 @@
-<x-guest-layout>
-    <form method="POST" action="{{ route('password.store') }}">
-        @csrf
+@extends('frontend.layouts.app')
 
-        <!-- Password Reset Token -->
-        <input type="hidden" name="token" value="{{ $request->route('token') }}">
+@section('content')
+    <div class="login-wrapper">
+        <div class="login-glass">
 
-        <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email', $request->email)" required autofocus autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+            {{-- LEFT : ABOUT (reuse same) --}}
+            @include('auth.custom_login_page.left')
+
+            {{-- RIGHT : RESET PASSWORD --}}
+            <div class="login-panel">
+                <div class="text-center mb-4">
+                    <h4 class="fw-bold">Reset Password</h4>
+                    <p class="text-muted">Create a new secure password</p>
+                </div>
+
+                <div class="mb-3 text-sm text-muted">
+                    Enter your email and choose a new password to secure your account.
+                </div>
+
+                <form method="POST" action="{{ route('password.store') }}">
+                    @csrf
+
+                    {{-- TOKEN --}}
+                    <input type="hidden" name="token" value="{{ $request->route('token') }}">
+
+                    {{-- EMAIL --}}
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Email Address</label>
+                        <input type="email" name="email"
+                            class="form-control form-control-lg @error('email') is-invalid @enderror"
+                            value="{{ old('email', $request->email) }}" required autofocus>
+
+                        @error('email')
+                            <div class="invalid-feedback d-block">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
+
+                    {{-- PASSWORD --}}
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">New Password</label>
+                        <input type="password" name="password"
+                            class="form-control form-control-lg @error('password') is-invalid @enderror"
+                            placeholder="Enter new password" required>
+
+                        @error('password')
+                            <div class="invalid-feedback d-block">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
+
+                    {{-- CONFIRM PASSWORD --}}
+                    <div class="mb-4">
+                        <label class="form-label fw-semibold">Confirm Password</label>
+                        <input type="password" name="password_confirmation"
+                            class="form-control form-control-lg @error('password_confirmation') is-invalid @enderror"
+                            placeholder="Confirm password" required>
+
+                        @error('password_confirmation')
+                            <div class="invalid-feedback d-block">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
+
+                    {{-- BUTTON --}}
+                    <button class="btn login-btn w-100 py-2 rounded-pill">
+                        Reset Password
+                    </button>
+
+                    {{-- BACK LINK --}}
+                    <div class="text-center mt-3">
+                        <a href="{{ route('login') }}" class="text-decoration-none dev-link">
+                            ← Back to Login
+                        </a>
+                    </div>
+                </form>
+            </div>
+
         </div>
+    </div>
 
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
-            <x-text-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
+    {{-- SAME BACKGROUND --}}
+    <style>
+        body {
+            background: url('{{ asset('uploads/images/login_page/background.jpg') }}') center/cover no-repeat;
+        }
+    </style>
 
-        <!-- Confirm Password -->
-        <div class="mt-4">
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
-
-            <x-text-input id="password_confirmation" class="block mt-1 w-full"
-                                type="password"
-                                name="password_confirmation" required autocomplete="new-password" />
-
-            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
-        </div>
-
-        <div class="flex items-center justify-end mt-4">
-            <x-primary-button>
-                {{ __('Reset Password') }}
-            </x-primary-button>
-        </div>
-    </form>
-</x-guest-layout>
+    <link rel="stylesheet" href="{{ asset('css/backend/custom_login.css') }}">
+@endsection

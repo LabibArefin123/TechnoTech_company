@@ -47,10 +47,13 @@
 <body>
     <div id="app">
         <!-- Scroll Progress Bar -->
+
         <div id="scrollProgress"
             style="position: fixed; top: 0; left: 0; width: 0%; height: 4px; background-color: #ff6b6b; z-index: 9999; transition: width 0.25s ease;">
         </div>
-        <div id="google_translate_element"></div>
+        @if (!request()->routeIs(['login', 'register', 'password.*']))
+            <div id="google_translate_element"></div>
+        @endif
         <main class="">
             @yield('content')
         </main>
@@ -60,7 +63,7 @@
         @include('frontend.components.email_modal_footer')
         @include('frontend.components.phone_modal_footer')
         @include('frontend.components.location_modal_footer')
-        @if (!Route::is('login'))
+       @if (!request()->routeIs(['login', 'register', 'password.*'])).
             @include('frontend.components.setting_float_modal')
         @endif
     </div>
