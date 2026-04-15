@@ -1,5 +1,5 @@
 <div class="modal fade" id="quoteModal" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered modal-md">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
         <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
 
             {{-- HEADER --}}
@@ -11,14 +11,13 @@
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                 </div>
                 <p class="small mt-2 mb-0 opacity-75">
-                    Tell us about your project — we’ll get back to you quickly.
+                    Tell us what you need — we’ll respond quickly 🚀
                 </p>
             </div>
 
             {{-- BODY --}}
             <div class="p-4">
 
-                {{-- SUCCESS MESSAGE --}}
                 @if (session('success'))
                     <div class="alert alert-success text-center rounded-3">
                         {{ session('success') }}
@@ -28,91 +27,132 @@
                 <form method="POST" action="{{ route('quote.store') }}">
                     @csrf
 
-                    {{-- NAME --}}
-                    <div class="form-floating mb-3">
-                        <input type="text" name="name" class="form-control rounded-3" id="name"
-                            placeholder="Your Name" required>
-                        <label for="name">Full Name</label>
-                    </div>
+                    <div class="row g-4 align-items-stretch">
 
-                    {{-- PHONE --}}
-                    <div class="form-floating mb-3">
-                        <input type="text" name="phone" class="form-control rounded-3" id="phone"
-                            placeholder="Phone Number" required>
-                        <label for="phone">Phone Number</label>
-                    </div>
+                        {{-- LEFT SIDE --}}
+                        <div class="col-lg-6">
 
-                    {{-- EMAIL --}}
-                    <div class="form-floating mb-3">
-                        <input type="email" name="email" class="form-control rounded-3" id="email"
-                            placeholder="Email">
-                        <label for="email">Email Address (Optional)</label>
-                    </div>
+                            <div class="card border-0 shadow-sm rounded-4 p-3 h-100">
 
-                    {{-- PROJECT TYPE --}}
-                    <div class="form-floating mb-3">
-                        <input type="text" name="project_type" class="form-control rounded-3" id="project_type"
-                            placeholder="Project Type">
-                        <label for="project_type">Project Type</label>
-                    </div>
+                                <h6 class="fw-bold mb-3 text-muted">
+                                    👤 Your Information
+                                </h6>
 
-                    {{-- MESSAGE --}}
-                    <div class="mb-4">
+                                <div class="form-floating mb-3">
+                                    <input type="text" name="name" class="form-control rounded-3" required>
+                                    <label>Full Name</label>
+                                </div>
 
-                        <label for="message" class="form-label fw-semibold">
-                            Project Details
-                        </label>
+                                <div class="form-floating mb-3">
+                                    <input type="text" name="phone" class="form-control rounded-3" required>
+                                    <label>Phone Number</label>
+                                </div>
 
-                        {{-- Quick formatting tools --}}
-                        <div class="mb-2 d-flex gap-2 flex-wrap">
-                            <button type="button" class="btn btn-sm btn-light border" onclick="insertText('- ')">
-                                • Bullet
-                            </button>
-                            <button type="button" class="btn btn-sm btn-light border" onclick="insertText('\n\n')">
-                                New Line
-                            </button>
-                            <button type="button" class="btn btn-sm btn-light border" onclick="insertText('• ')">
-                                Point
-                            </button>
+                                <div class="form-floating mb-3">
+                                    <input type="email" name="email" class="form-control rounded-3">
+                                    <label>Email (Optional)</label>
+                                </div>
+
+                                <div class="form-floating mb-3">
+                                    <input type="text" name="project_type" class="form-control rounded-3">
+                                    <label>Project Type</label>
+                                </div>
+
+                                <div class="alert alert-light border rounded-3 mt-auto mb-0">
+                                    💡 Tip: Clear details = faster & better quotation
+                                </div>
+
+                            </div>
+
                         </div>
 
-                        <textarea name="message" id="message" class="form-control rounded-3" rows="5"
-                            placeholder="Describe your project...
+                        {{-- RIGHT SIDE --}}
+                        <div class="col-lg-6">
 
-                            Example:
-                            - Building size
-                            - Budget range
-                            - Timeline
-                            - Special requirements"
-                            style="resize: none;"></textarea>
+                            <div class="card border-0 shadow-sm rounded-4 p-3 h-100 d-flex flex-column">
 
-                        <small class="text-muted">
-                            💡 You can use bullet points (-) for better clarity.
-                        </small>
+                                {{-- HEADER ROW --}}
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <h6 class="fw-bold mb-0 text-muted">
+                                        📝 Project Details
+                                    </h6>
+
+                                    {{-- TOOLBAR (RIGHT SIDE NOW) --}}
+                                    <div class="d-flex gap-1 flex-wrap">
+                                        <button type="button" class="btn btn-sm btn-outline-secondary"
+                                            onclick="insertText('- ')">•</button>
+
+                                        <button type="button" class="btn btn-sm btn-outline-secondary"
+                                            onclick="insertText('\n\n')">↵</button>
+
+                                        <button type="button" class="btn btn-sm btn-outline-secondary"
+                                            onclick="insertText('✔ ')">✔</button>
+                                    </div>
+                                </div>
+
+                                {{-- TEXTAREA --}}
+                                <textarea name="message" id="message" class="form-control rounded-3 shadow-sm flex-grow-1"
+                                    style="resize:none; min-height:260px;"
+                                    placeholder="Write your project details here...
+
+- What you need
+- Budget range
+- Timeline
+- Special requirements"
+                                    oninput="updateCounter()"></textarea>
+
+                                {{-- COUNTER --}}
+                                <div class="d-flex justify-content-between mt-2 text-muted small">
+                                    <span id="wordCount">Words: 0</span>
+                                    <span id="charCount">Characters: 0</span>
+                                </div>
+
+                            </div>
+
+                        </div>
 
                     </div>
 
-                    {{-- BUTTON --}}
-                    <button class="btn w-100 py-2 fw-semibold rounded-pill" style="background:#ff6b6b;color:white;">
-                        <i class="fas fa-paper-plane me-1"></i> Submit Request
-                    </button>
-                </form>
-            </div>
+                    {{-- SUBMIT --}}
+                    <div class="mt-4">
+                        <button class="btn w-100 py-2 fw-semibold rounded-pill" style="background:#ff6b6b;color:white;">
+                            <i class="fas fa-paper-plane me-1"></i> Submit Request
+                        </button>
+                    </div>
 
+                </form>
+
+            </div>
         </div>
     </div>
+
     <script>
         function insertText(text) {
             const textarea = document.getElementById('message');
             const start = textarea.selectionStart;
             const end = textarea.selectionEnd;
 
-            const current = textarea.value;
-
-            textarea.value = current.substring(0, start) + text + current.substring(end);
+            textarea.value =
+                textarea.value.substring(0, start) +
+                text +
+                textarea.value.substring(end);
 
             textarea.focus();
             textarea.selectionStart = textarea.selectionEnd = start + text.length;
+
+            updateCounter();
         }
+
+        function updateCounter() {
+            const text = document.getElementById('message').value.trim();
+
+            const words = text.length ? text.split(/\s+/).length : 0;
+            const chars = text.length;
+
+            document.getElementById('wordCount').innerText = "Words: " + words;
+            document.getElementById('charCount').innerText = "Characters: " + chars;
+        }
+
+        document.addEventListener("DOMContentLoaded", updateCounter);
     </script>
 </div>
