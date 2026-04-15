@@ -114,15 +114,12 @@ Route::group(['middleware' => ['auth', 'check_banned_device', 'detect.attack']],
     /*
     | Dashboard
     */
-    Route::get('/dashboard', [DashboardController::class, 'index'])
-        ->name('dashboard');
-
-    Route::get('/global-search', [DashboardController::class, 'globalSearch'])
-        ->name('global.search');
-
-    Route::get('/search/result', [DashboardController::class, 'searchResult'])
-        ->name('search.result');
-
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/global-search', [DashboardController::class, 'globalSearch'])->name('global.search');
+    Route::get('/search/result', [DashboardController::class, 'searchResult'])->name('search.result');
+    Route::get('/system/table/{table}', [DashboardController::class, 'viewTable'])->name('dashboard.system.table.view');
+    Route::post('/system/table/truncate', [DashboardController::class, 'truncateTable'])->name('dashboard.system.table.truncate');
+    Route::get('/system_dashboard', [DashboardController::class, 'system_index'])->name('dashboard.system');
 
     /*
     | SEO Management

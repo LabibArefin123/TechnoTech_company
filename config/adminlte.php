@@ -524,6 +524,12 @@ return [
                             'icon' => 'fas fa-book',
                         ],
                         [
+                            'text' => 'System Dashboard',
+                            'route' => 'dashboard.system',
+                            'can' => 'dashboard.system',
+                            'icon' => 'fas fa-file',
+                        ],
+                        [
                             'text' => 'Security Logs',
                             'route' => 'security_logs.index',
                             'can' => 'security_logs.index',

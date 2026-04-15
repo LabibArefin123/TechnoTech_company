@@ -103,10 +103,11 @@
             errors: @json($errors->all())
         };
     </script>
-    <script>
-        window.appSettings = @json($settings);
-    </script>
-
+    @if (!request()->routeIs(['login', 'register', 'password.*']))
+        <script>
+            window.appSettings = @json($settings);
+        </script>
+    @endif
 </body>
 
 </html>
