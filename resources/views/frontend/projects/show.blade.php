@@ -47,7 +47,7 @@
                     @endforeach
                 @else
                     <div class="text-center text-muted">
-                        No sub project images found
+                       
                     </div>
                 @endif
 

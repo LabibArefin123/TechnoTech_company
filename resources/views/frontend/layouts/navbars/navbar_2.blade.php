@@ -17,39 +17,41 @@
         <div class="collapse navbar-collapse justify-content-center" id="navbar2">
 
             <ul class="navbar-nav">
-
                 <li class="nav-item">
-                    <a href="{{ route('welcome') }}" class="nav-link">Home</a>
+                    <a href="{{ route('welcome') }}"
+                        class="nav-link custom-link {{ request()->routeIs('welcome') ? 'active' : '' }}">
+                        Home
+                    </a>
                 </li>
 
                 <li class="nav-item">
-                    <a href="#about" class="nav-link">About</a>
+                    <a href="{{ route('welcome') }}#about" class="nav-link custom-link">About Us</a>
                 </li>
 
                 <li class="nav-item">
-                    <a href="#services" class="nav-link">Services</a>
+                    <a href="{{ route('welcome') }}#services" class="nav-link custom-link">Services</a>
                 </li>
 
                 <li class="nav-item">
-                    <a href="#activities" class="nav-link">Activities</a>
+                    <a href="{{ route('welcome') }}#activities" class="nav-link custom-link">Key Activities</a>
                 </li>
 
                 <li class="nav-item">
-                    <a href="#projects" class="nav-link">Projects</a>
+                    <a href="{{ route('welcome') }}#projects" class="nav-link custom-link">Projects</a>
                 </li>
 
                 <li class="nav-item">
-                    <a href="#news" class="nav-link">News</a>
+                    <a href="{{ route('welcome') }}#news" class="nav-link custom-link">News</a>
                 </li>
 
                 <li class="nav-item">
-                    <a href="{{ route('contact') }}" class="nav-link">Contact</a>
+                    <a href="{{ route('contact') }}" class="nav-link custom-link">
+                        Contact
+                    </a>
                 </li>
 
             </ul>
-
         </div>
-
         <a class="btn btn-warning openQuote">
             Get Quote
         </a>

@@ -18,7 +18,9 @@
             provide long-term guarantees, and adopt modern technologies.
         </p>
 
-        <a href="#contact" class="btn px-4 py-2 fw-semibold" style="background:#ff6b6b;color:white;">
+        <!-- 🔥 FIXED BUTTON -->
+        <a href="#" data-bs-toggle="modal" data-bs-target="#quoteModal" class="btn px-4 py-2 fw-semibold"
+            style="background:#ff6b6b;color:white;">
             Request a Quote
         </a>
 
@@ -26,8 +28,12 @@
 
         <p class="fw-semibold mb-0">
             Got a project in mind?
-            <span style="color:#ff6b6b;">Let’s Talk.</span>
+            <span data-bs-toggle="modal" data-bs-target="#quoteModal" style="cursor:pointer; color:#ff6b6b;">
+                Let’s Talk
+            </span>
         </p>
 
     </div>
+
 </div>
+@include('frontend.components.quote_modal_functional')

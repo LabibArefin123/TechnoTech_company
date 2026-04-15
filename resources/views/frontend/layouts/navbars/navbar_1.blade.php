@@ -38,7 +38,6 @@
         {{-- Center Menu --}}
         <div class="collapse navbar-collapse justify-content-center" id="navbarCollapse">
             <ul class="navbar-nav">
-
                 <li class="nav-item">
                     <a href="{{ route('welcome') }}"
                         class="nav-link custom-link {{ request()->routeIs('welcome') ? 'active' : '' }}">

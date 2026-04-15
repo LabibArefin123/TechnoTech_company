@@ -13,6 +13,7 @@ use App\Models\News;
 use App\Models\NewsSection;
 use App\Models\SkillSection;
 use App\Models\Contact;
+use App\Models\QuoteRequest;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 
@@ -91,6 +92,21 @@ class WelcomePageController extends Controller
         return view('frontend.projects.show', compact('project'));
     }
     
+    public function quote_request_store(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'phone' => 'required|string|max:20',
+            'email' => 'required|string',
+            'project_type' => 'required|string',
+            'message' => 'required|string',
+        ]);
+
+        QuoteRequest::create($request->all());
+
+        return back()->with('success', 'Your quote request has been submitted!');
+    }
+
     public function system_problem_store(Request $request)
     {
         $request->validate([

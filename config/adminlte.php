@@ -517,6 +517,13 @@ return [
                             'icon' => 'fas fa-bug',
                         ],
                         [
+                            'text' => 'Quote Request',
+                            'route' => 'quote_requests.index',
+                            'can' => 'quote_requests.index',
+                            'active' => ['quote_requests*'],
+                            'icon' => 'fas fa-book',
+                        ],
+                        [
                             'text' => 'Security Logs',
                             'route' => 'security_logs.index',
                             'can' => 'security_logs.index',

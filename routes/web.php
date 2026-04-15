@@ -25,6 +25,7 @@ use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\SystemUserController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SystemProblemController;
+use App\Http\Controllers\QuoteRequestController;
 use App\Http\Controllers\BanUserController;
 use App\Http\Controllers\BannedDeviceController;
 use App\Http\Controllers\UserDeviceController;
@@ -45,6 +46,7 @@ Route::get('/', [WelcomePageController::class, 'index'])->name('welcome');
 Route::get('/contact-us', [WelcomePageController::class, 'contact'])->name('contact');
 Route::get('/project/{id}', [WelcomePageController::class, 'showProject'])->name('project.show');
 Route::post('/contact/send', [WelcomePageController::class, 'sendContact'])->name('contact.send');
+Route::post('/quote', [WelcomePageController::class, 'quote_request_store'])->name('quote.store');
 Route::post('/system-problem/store', [WelcomePageController::class, 'system_problem_store'])->name('system_problem.store');
 Route::post('/settings/update', [WelcomePageController::class, 'updateSettings'])->name('settings.update');
 
@@ -190,6 +192,7 @@ Route::group(['middleware' => ['auth', 'check_banned_device', 'detect.attack']],
     Route::post('system-problems/notify/{systemProblem}', [SystemProblemController::class, 'notify'])->name('system_problems.notify');
     Route::post('/system-problems/{id}/remarks', [SystemProblemController::class, 'saveRemarks'])->name('system_problems.remarks');
     Route::resource('system_problems', SystemProblemController::class);
+    Route::resource('quote_requests', QuoteRequestController::class);
     Route::post('/user_devices/{id}/ban', [UserDeviceController::class, 'ban'])->name('user_devices.ban');
     Route::post('/user_devices/{id}/unban', [UserDeviceController::class, 'unban'])->name('user_devices.unban');
     Route::resource('user_devices', UserDeviceController::class);
