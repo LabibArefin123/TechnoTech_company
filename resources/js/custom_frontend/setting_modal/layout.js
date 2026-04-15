@@ -1,22 +1,58 @@
 import { showToast } from "./toast.js";
 
-// 🔹 Helper: hide elements
+// 🔹 Helpers
 function hideAll(selector) {
     document.querySelectorAll(selector).forEach((el) => {
         el.style.display = "none";
     });
 }
 
-// 🔹 Helper: safely set hidden input
 function setInputValue(id, value) {
     const input = document.getElementById(id);
     if (input) input.value = value;
 }
 
-// 🔹 Helper: activate selected button UI
 function setActive(buttons, activeBtn) {
     buttons.forEach((btn) => btn.classList.remove("active"));
-    activeBtn.classList.add("active");
+    if (activeBtn) activeBtn.classList.add("active");
+}
+
+// 🔥 APPLY LAYOUT (NO TOAST, NO CLICK)
+function applyLayout(type, layout) {
+    layout = parseInt(layout);
+
+    if (type === "navbar") {
+        hideAll(".topbar-layout, .navbar-layout");
+
+        document
+            .getElementById("topbar" + layout)
+            ?.style.setProperty("display", "block");
+        document
+            .getElementById("navbar" + layout)
+            ?.style.setProperty("display", "block");
+
+        setInputValue("navbarLayoutBtn", layout);
+    }
+
+    if (type === "about") {
+        hideAll(".about-layout");
+
+        document
+            .getElementById("about" + layout)
+            ?.style.setProperty("display", "block");
+
+        setInputValue("aboutLayoutBtn", layout);
+    }
+
+    if (type === "footer") {
+        hideAll(".footer-layout");
+
+        document
+            .getElementById("footer" + layout)
+            ?.style.setProperty("display", "block");
+
+        setInputValue("footerLayoutBtn", layout);
+    }
 }
 
 export function initLayouts(settings) {
@@ -27,18 +63,10 @@ export function initLayouts(settings) {
 
     navbarButtons.forEach((btn) => {
         btn.addEventListener("click", () => {
-            const layout = btn.dataset.layout;
+            const layout = parseInt(btn.dataset.layout);
 
-            hideAll(".topbar-layout, .navbar-layout");
+            applyLayout("navbar", layout);
 
-            document
-                .getElementById("topbar" + layout)
-                ?.style.setProperty("display", "block");
-            document
-                .getElementById("navbar" + layout)
-                ?.style.setProperty("display", "block");
-
-            // 🔥 SAVE STATE
             settings.navbar_layout = layout;
             setInputValue("navbarLayoutBtn", layout);
 
@@ -57,13 +85,9 @@ export function initLayouts(settings) {
 
     aboutButtons.forEach((btn) => {
         btn.addEventListener("click", () => {
-            const layout = btn.dataset.layout;
+            const layout = parseInt(btn.dataset.layout);
 
-            hideAll(".about-layout");
-
-            document
-                .getElementById("about" + layout)
-                ?.style.setProperty("display", "block");
+            applyLayout("about", layout);
 
             settings.about_layout = layout;
             setInputValue("aboutLayoutBtn", layout);
@@ -83,13 +107,9 @@ export function initLayouts(settings) {
 
     footerButtons.forEach((btn) => {
         btn.addEventListener("click", () => {
-            const layout = btn.dataset.layout;
+            const layout = parseInt(btn.dataset.layout);
 
-            hideAll(".footer-layout");
-
-            document
-                .getElementById("footer" + layout)
-                ?.style.setProperty("display", "block");
+            applyLayout("footer", layout);
 
             settings.footer_layout = layout;
             setInputValue("footerLayoutBtn", layout);
@@ -103,20 +123,46 @@ export function initLayouts(settings) {
     });
 
     // =========================
-    // 🔥 LOAD SAVED (IMPORTANT)
+    // 🔥 LOAD INITIAL STATE (FIXED)
     // =========================
-    const savedNavbar = localStorage.getItem("navbarLayout") || 1;
-    const savedAbout = localStorage.getItem("aboutLayout") || 1;
-    const savedFooter = localStorage.getItem("footerLayout") || 1;
 
-    // Apply on load
-    document
-        .querySelector(`.navbarLayoutBtn[data-layout="${savedNavbar}"]`)
-        ?.click();
-    document
-        .querySelector(`.aboutLayoutBtn[data-layout="${savedAbout}"]`)
-        ?.click();
-    document
-        .querySelector(`.footerLayoutBtn[data-layout="${savedFooter}"]`)
-        ?.click();
+    const savedNavbar =
+        settings.navbar_layout ||
+        parseInt(localStorage.getItem("navbarLayout")) ||
+        1;
+
+    const savedAbout =
+        settings.about_layout ||
+        parseInt(localStorage.getItem("aboutLayout")) ||
+        1;
+
+    const savedFooter =
+        settings.footer_layout ||
+        parseInt(localStorage.getItem("footerLayout")) ||
+        1;
+
+    // APPLY WITHOUT CLICK (NO TOAST)
+    applyLayout("navbar", savedNavbar);
+    applyLayout("about", savedAbout);
+    applyLayout("footer", savedFooter);
+
+    // SET ACTIVE BUTTONS
+    setActive(
+        navbarButtons,
+        document.querySelector(
+            `.navbarLayoutBtn[data-layout="${savedNavbar}"]`,
+        ),
+    );
+
+    setActive(
+        aboutButtons,
+        document.querySelector(`.aboutLayoutBtn[data-layout="${savedAbout}"]`),
+    );
+
+    setActive(
+        footerButtons,
+        document.querySelector(
+            `.footerLayoutBtn[data-layout="${savedFooter}"]`,
+        ),
+    );
 }

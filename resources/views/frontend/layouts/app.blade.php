@@ -63,7 +63,8 @@
         @include('frontend.components.email_modal_footer')
         @include('frontend.components.phone_modal_footer')
         @include('frontend.components.location_modal_footer')
-       @if (!request()->routeIs(['login', 'register', 'password.*'])).
+        @if (!request()->routeIs(['login', 'register', 'password.*']))
+            .
             @include('frontend.components.setting_float_modal')
         @endif
     </div>
@@ -101,6 +102,9 @@
             success: @json(session('success')),
             errors: @json($errors->all())
         };
+    </script>
+    <script>
+        window.appSettings = @json($settings);
     </script>
 
 </body>

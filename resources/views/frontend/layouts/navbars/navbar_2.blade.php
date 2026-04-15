@@ -52,6 +52,7 @@
 
             </ul>
         </div>
+
         <a class="btn btn-warning openQuote">
             Get Quote
         </a>

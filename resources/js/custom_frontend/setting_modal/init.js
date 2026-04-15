@@ -10,8 +10,8 @@ document.addEventListener("DOMContentLoaded", () => {
             .querySelector('meta[name="csrf-token"]')
             ?.getAttribute("content") || "";
 
-    // 🔥 CENTRAL STATE
-    const settings = {
+    // 🔥 USE BACKEND SETTINGS (CRITICAL FIX)
+    const settings = window.appSettings || {
         theme_color: null,
         text_size: null,
         navbar_layout: 1,
@@ -22,14 +22,19 @@ document.addEventListener("DOMContentLoaded", () => {
         dark_mode: 0,
     };
 
+    // Ensure numeric values
+    settings.navbar_layout = parseInt(settings.navbar_layout) || 1;
+    settings.about_layout = parseInt(settings.about_layout) || 1;
+    settings.footer_layout = parseInt(settings.footer_layout) || 1;
+
     // INIT MODULES
     initPanel();
     initTheme(settings, saveSettings, csrf);
-    initLayouts(settings); // ✅ FIXED (removed unused params)
+    initLayouts(settings);
     initExtras(settings, saveSettings, csrf);
 
     // =========================
-    // ✅ SAVE HANDLER (FIXED)
+    // SAVE HANDLER
     // =========================
     const form = document.getElementById("settingsForm");
 
@@ -37,22 +42,22 @@ document.addEventListener("DOMContentLoaded", () => {
         form.addEventListener("submit", function (e) {
             e.preventDefault();
 
-            // 🔥 ALWAYS READ LATEST VALUES
             settings.theme_color =
                 document.getElementById("themeColorInput")?.value || null;
+
             settings.text_size =
                 document.getElementById("textSizeInput")?.value || null;
 
             settings.navbar_layout =
-                document.getElementById("navbarLayoutBtn")?.value ||
+                parseInt(document.getElementById("navbarLayoutBtn")?.value) ||
                 settings.navbar_layout;
 
             settings.about_layout =
-                document.getElementById("aboutLayoutBtn")?.value ||
+                parseInt(document.getElementById("aboutLayoutBtn")?.value) ||
                 settings.about_layout;
 
             settings.footer_layout =
-                document.getElementById("footerLayoutBtn")?.value ||
+                parseInt(document.getElementById("footerLayoutBtn")?.value) ||
                 settings.footer_layout;
 
             settings.dark_mode = document.getElementById("darkModeToggle")
@@ -60,10 +65,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 ? 1
                 : 0;
 
-            // 🔥 DEBUG (remove later)
             console.log("✅ FINAL SETTINGS:", settings);
 
-            // 🔥 SAVE
             saveSettings(settings, csrf);
         });
     }
