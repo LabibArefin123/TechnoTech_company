@@ -71,27 +71,11 @@
             login_success: @json(session('login_success')), // For login welcome alert
         };
     </script>
-    <script>
-        window.addEventListener("load", function() {
-
-            const skeleton = document.getElementById("adminSkeleton");
-
-            setTimeout(() => {
-                skeleton.style.opacity = "0";
-                skeleton.style.transition = "0.4s ease";
-
-                setTimeout(() => {
-                    skeleton.style.display = "none";
-                }, 400);
-
-            }, 300);
-
-        });
-    </script>
     <script src="{{ asset('js/backend/page/global_search.js') }}"></script>
     <script src="{{ asset('js/backend/page/login_logout.js') }}"></script>
     <script src="{{ asset('js/backend/page/notification.js') }}"></script>
     <script src="{{ asset('js/backend/page/confirm_leave.js') }}"></script>
+    <script src="{{ asset('js/backend/page/skeleton_load.js') }}"></script>
     <!-- start of data table format table -->
     <!-- end of data table format table -->
 
