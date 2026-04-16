@@ -142,3 +142,75 @@ table.dataTable {
         transform: translateY(-10px);
     }
 }
+
+/* FULL SCREEN SKELETON OVERLAY */
+#adminSkeleton {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    background: #f4f6f9;
+    overflow: hidden;
+}
+
+/* SHIMMER BASE */
+.skel-navbar,
+.skel-sidebar,
+.skel-card,
+.skel-row {
+    background: linear-gradient(90deg,
+        #e9ecef 25%,
+        #f8f9fa 37%,
+        #e9ecef 63%);
+    background-size: 400% 100%;
+    animation: shimmer 1.2s infinite;
+    border-radius: 8px;
+}
+
+@keyframes shimmer {
+    0% { background-position: 100% 0; }
+    100% { background-position: -100% 0; }
+}
+
+/* NAVBAR */
+.skel-navbar {
+    height: 50px;
+    margin: 10px;
+}
+
+/* SIDEBAR */
+.skel-sidebar {
+    position: absolute;
+    top: 70px;
+    left: 10px;
+    width: 220px;
+    height: calc(100% - 80px);
+}
+
+/* CONTENT AREA */
+.skel-content {
+    margin-left: 250px;
+    margin-top: 70px;
+    padding: 20px;
+}
+
+/* CARDS */
+.skel-card-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.skel-card {
+    flex: 1;
+    height: 100px;
+}
+
+/* TABLE */
+.skel-table {
+    margin-top: 20px;
+}
+
+.skel-row {
+    height: 18px;
+    margin-bottom: 10px;
+}
