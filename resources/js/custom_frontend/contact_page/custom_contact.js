@@ -1,17 +1,28 @@
-document
-    .getElementById("emailModalTrigger")
-    .addEventListener("click", function () {
-        var emailModal = new bootstrap.Modal(
-            document.getElementById("emailModal"),
-        );
-        emailModal.show();
-    });
+document.addEventListener("DOMContentLoaded", () => {
+    if (typeof bootstrap === "undefined") {
+        console.error("❌ Bootstrap not loaded");
+        return;
+    }
 
-document
-    .getElementById("callModalTrigger")
-    .addEventListener("click", function () {
-        var callModal = new bootstrap.Modal(
-            document.getElementById("callModal"),
-        );
-        callModal.show();
-    });
+    const emailBtn = document.getElementById("emailModalTrigger");
+    const callBtn = document.getElementById("callModalTrigger");
+
+    const emailModalEl = document.getElementById("emailModal");
+    const callModalEl = document.getElementById("callModal");
+
+    if (emailBtn && emailModalEl) {
+        const emailModal = new bootstrap.Modal(emailModalEl);
+
+        emailBtn.addEventListener("click", function () {
+            emailModal.show();
+        });
+    }
+
+    if (callBtn && callModalEl) {
+        const callModal = new bootstrap.Modal(callModalEl);
+
+        callBtn.addEventListener("click", function () {
+            callModal.show();
+        });
+    }
+});

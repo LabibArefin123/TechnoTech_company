@@ -8,10 +8,7 @@
             </a>
         </div>
         <div class="d-flex align-items-center gap-3">
-            <span>
-                <i class="fas fa-phone"></i>
-                01754-327566
-            </span>
+        
             <a href="https://www.facebook.com/" target="_blank" style="color:white;">
                 <i class="fab fa-facebook"></i>
             </a>
