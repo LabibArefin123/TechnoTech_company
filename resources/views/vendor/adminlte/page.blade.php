@@ -72,12 +72,8 @@
     <script src="{{ asset('js/backend/page/global_search.js') }}"></script>
     <script src="{{ asset('js/backend/page/login_logout.js') }}"></script>
     <script src="{{ asset('js/backend/page/notification.js') }}"></script>
+    <script src="{{ asset('js/backend/page/confirm_leave.js') }}"></script>
     <!-- start of data table format table -->
-    <script>
-        $(document).ready(function() {
-            $('#dataTables').DataTable();
-        });
-    </script>
     <!-- end of data table format table -->
 
     <!-- start of jquery and bootstrap table -->
@@ -86,5 +82,10 @@
     <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- end of jquery and bootstrap table -->
+    <script>
+        $(document).ready(function() {
+            $('#dataTables').DataTable();
+        });
+    </script>
 @section('plugins.Datatables', true)
 @stop

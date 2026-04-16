@@ -3,7 +3,14 @@
 @section('title', 'Edit Permission')
 
 @section('content_header')
-    <h1>Update Permission</h1>
+    <div class="d-flex justify-content-between align-items-center">
+        <h1 class="mb-0">Update Permission</h1>
+
+        <a href="{{ route('permissions.index') }}"
+            class="btn btn-sm btn-warning d-flex align-items-center gap-1 flex-shrink-0 back-btn">
+            <i class="fas fa-arrow-left"></i> Go Back
+        </a>
+    </div>
 @stop
 
 @section('content')

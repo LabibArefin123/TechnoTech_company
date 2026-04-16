@@ -6,16 +6,15 @@
     <div class="d-flex justify-content-between align-items-center">
         <h1 class="mb-0">Edit Role: {{ $role->name }}</h1>
 
-        <a href="{{ route('roles.index') }}" class="btn btn-sm btn-secondary">
-            <i class="fas fa-arrow-left"></i> Back
+        <a href="{{ route('roles.index') }}"
+            class="btn btn-sm btn-warning d-flex align-items-center gap-1 flex-shrink-0 back-btn">
+            <i class="fas fa-arrow-left"></i> Go Back
         </a>
     </div>
 @stop
 
 
 @section('content')
-
-    {{-- ERROR --}}
     @if ($errors->any())
         <div class="alert alert-danger">
             <ul class="mb-0">
@@ -25,7 +24,6 @@
             </ul>
         </div>
     @endif
-
 
     <form method="POST" action="{{ route('roles.update', $role->id) }}">
         @csrf
@@ -158,52 +156,6 @@
 
 @stop
 
-
-
 @section('js')
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-
-            // GLOBAL SELECT
-            document.getElementById('selectAllPermissions').addEventListener('click', function() {
-                document.querySelectorAll('.perm-all').forEach(cb => cb.checked = true);
-            });
-
-            // GLOBAL UNSELECT
-            document.getElementById('unselectAllPermissions').addEventListener('click', function() {
-                document.querySelectorAll('.perm-all').forEach(cb => cb.checked = false);
-            });
-
-            // GROUP SELECT
-            document.querySelectorAll('.select-all-btn').forEach(btn => {
-
-                btn.addEventListener('click', function() {
-
-                    const group = this.dataset.group;
-
-                    document.querySelectorAll('.perm-' + group)
-                        .forEach(cb => cb.checked = true);
-
-                });
-
-            });
-
-            // GROUP UNSELECT
-            document.querySelectorAll('.unselect-all-btn').forEach(btn => {
-
-                btn.addEventListener('click', function() {
-
-                    const group = this.dataset.group;
-
-                    document.querySelectorAll('.perm-' + group)
-                        .forEach(cb => cb.checked = false);
-
-                });
-
-            });
-
-        });
-    </script>
-
+    <script src="{{ asset('js/backend/setting_management/roles_and_permission/roles/edit.js') }}"></script>
 @stop
