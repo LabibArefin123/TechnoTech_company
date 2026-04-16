@@ -180,68 +180,91 @@ class SettingController extends Controller
 
     public function logs(Request $request)
     {
-        // Determine log file: use 'file' query param or default to today's log
-        $fileDate = $request->file ?? now()->format('Y-m-d'); // e.g., '2026-02-15'
-        $logFile  = storage_path("logs/laravel-{$fileDate}.log");
-
-        // Default response data
         $logs = [];
 
-        // Determine date range for filtering
+        // ----------------------------
+        // 1. Handle Date Range
+        // ----------------------------
         $range = $request->range ?? 'today';
-        $start = null;
-        $end   = null;
 
-        switch ($range) {
-            case 'yesterday':
-                $start = Carbon::yesterday()->startOfDay();
-                $end   = Carbon::yesterday()->endOfDay();
-                break;
-            case '7days':
-                $start = now()->subDays(7);
-                $end   = now();
-                break;
-            case '1month':
-                $start = now()->subMonth();
-                $end   = now();
-                break;
-            case '2months':
-                $start = now()->subMonths(2);
-                $end   = now();
-                break;
-            case '3months':
-                $start = now()->subMonths(3);
-                $end   = now();
-                break;
-            case '6months':
-                $start = now()->subMonths(6);
-                $end   = now();
-                break;
-            case '1year':
-                $start = now()->subYear();
-                $end   = now();
-                break;
-            case 'today':
-            default:
-                $start = now()->startOfDay();
-                $end   = now()->endOfDay();
+        if ($range === 'custom' && $request->start_date && $request->end_date) {
+            $start = Carbon::parse($request->start_date)->startOfDay();
+            $end   = Carbon::parse($request->end_date)->endOfDay();
+        } else {
+            switch ($range) {
+                case 'yesterday':
+                    $start = Carbon::yesterday()->startOfDay();
+                    $end   = Carbon::yesterday()->endOfDay();
+                    break;
+                case '7days':
+                    $start = now()->subDays(7);
+                    $end   = now();
+                    break;
+                case '1month':
+                    $start = now()->subMonth();
+                    $end   = now();
+                    break;
+                case '2months':
+                    $start = now()->subMonths(2);
+                    $end   = now();
+                    break;
+                case '3months':
+                    $start = now()->subMonths(3);
+                    $end   = now();
+                    break;
+                case '6months':
+                    $start = now()->subMonths(6);
+                    $end   = now();
+                    break;
+                case '1year':
+                    $start = now()->subYear();
+                    $end   = now();
+                    break;
+                case 'today':
+                default:
+                    $start = now()->startOfDay();
+                    $end   = now()->endOfDay();
+            }
         }
 
-        // Read log file
-        if (file_exists($logFile)) {
-            $allLines = file($logFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+        // ----------------------------
+        // 2. Get ALL log files
+        // ----------------------------
+        $logPath  = storage_path('logs');
+        $logFiles = glob($logPath . '/laravel-*.log');
 
-            $filtered   = [];
+        $allLogs = [];
+        $serial  = 1;
+
+        foreach ($logFiles as $logFile) {
+
+            // Extract date from filename
+            preg_match('/laravel-(\d{4}-\d{2}-\d{2})\.log$/', $logFile, $matches);
+
+            if (!isset($matches[1])) continue;
+
+            $fileDate = Carbon::parse($matches[1]);
+
+            // Skip files outside range
+            if ($fileDate->lt($start) || $fileDate->gt($end)) {
+                continue;
+            }
+
+            if (!file_exists($logFile)) continue;
+
+            $lines = file($logFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+
             $lineBuffer = '';
             $lineDate   = null;
             $lineLevel  = null;
-            $serial     = 1;
 
-            foreach ($allLines as $line) {
+            foreach ($lines as $line) {
+
                 if (preg_match('/^\[(.*?)\]\s(\w+)\.([A-Z]+):\s(.*)$/', $line, $match)) {
-                    // Save previous buffered log
+
+                    // Save previous log
                     if ($lineBuffer) {
-                        $filtered[] = [
+                        $allLogs[] = [
                             'serial'    => $serial++,
                             'timestamp' => $lineDate,
                             'level'     => $lineLevel,
@@ -249,7 +272,7 @@ class SettingController extends Controller
                         ];
                     }
 
-                    // Start new log line
+                    // New log entry
                     try {
                         $lineDate = Carbon::parse($match[1]);
                     } catch (\Exception $e) {
@@ -259,32 +282,38 @@ class SettingController extends Controller
                     $lineLevel  = $match[3] ?? 'INFO';
                     $lineBuffer = $match[4] ?? '';
                 } else {
-                    // Append multiline / stacktrace
+                    // Multiline (stack trace)
                     $lineBuffer .= "\n" . trim($line);
                 }
             }
 
-            // Add last buffered log
+            // Last log in file
             if ($lineBuffer) {
-                $filtered[] = [
+                $allLogs[] = [
                     'serial'    => $serial++,
                     'timestamp' => $lineDate,
                     'level'     => $lineLevel,
                     'message'   => $lineBuffer
                 ];
             }
-
-            // Filter by date range
-            $logs = array_filter($filtered, function ($log) use ($start, $end) {
-                if (!$log['timestamp']) return true;
-                return $log['timestamp']->between($start, $end);
-            });
-
-            // Sort newest first
-            $logs = array_reverse($logs);
         }
 
-        // If AJAX request, return in Yajra DataTables format
+        // ----------------------------
+        // 3. Filter logs by timestamp
+        // ----------------------------
+        $logs = array_filter($allLogs, function ($log) use ($start, $end) {
+            if (!$log['timestamp']) return true;
+            return $log['timestamp']->between($start, $end);
+        });
+
+        // Sort newest first
+        usort($logs, function ($a, $b) {
+            return $b['timestamp'] <=> $a['timestamp'];
+        });
+
+        // ----------------------------
+        // 4. AJAX DataTables Response
+        // ----------------------------
         if ($request->ajax()) {
 
             return DataTables::of($logs)
@@ -294,24 +323,21 @@ class SettingController extends Controller
                 })
 
                 ->addColumn('details', function ($log) {
-
                     if (str_contains($log['message'], "\n")) {
                         return '
-                    <button class="btn btn-sm btn-info" type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#trace' . $log['serial'] . '"
-                        aria-expanded="false">
-                        View
-                    </button>
+                        <button class="btn btn-sm btn-info" type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#trace' . $log['serial'] . '">
+                            View
+                        </button>
 
-                    <div class="collapse mt-1" id="trace' . $log['serial'] . '">
-                        <pre class="mb-0" style="font-size:12px;">'
+                        <div class="collapse mt-1" id="trace' . $log['serial'] . '">
+                            <pre class="mb-0" style="font-size:12px;">'
                             . e($log['message']) .
                             '</pre>
-                    </div>
-                ';
+                        </div>
+                    ';
                     }
-
                     return '-';
                 })
 
@@ -322,9 +348,11 @@ class SettingController extends Controller
                 })
 
                 ->editColumn('level', function ($log) {
-                    $class = $log['level'] === 'ERROR'
-                        ? 'badge bg-danger'
-                        : 'badge bg-secondary';
+                    $class = match ($log['level']) {
+                        'ERROR' => 'badge bg-danger',
+                        'WARNING' => 'badge bg-warning',
+                        default => 'badge bg-secondary',
+                    };
 
                     return '<span class="' . $class . '">' . $log['level'] . '</span>';
                 })
@@ -333,8 +361,13 @@ class SettingController extends Controller
                 ->make(true);
         }
 
-        // Normal page load
-        return view('backend.setting_management.setting_menu.log_setting.log', compact('logs', 'range', 'fileDate'));
+        // ----------------------------
+        // 5. Normal View
+        // ----------------------------
+        return view(
+            'backend.setting_management.setting_menu.log_setting.log',
+            compact('logs', 'range')
+        );
     }
 
     public function clearLogs(Request $request)

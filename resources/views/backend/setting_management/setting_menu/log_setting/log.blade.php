@@ -47,7 +47,8 @@
             <div class="card-body border-bottom">
                 <form method="GET" action="{{ route('settings.logs') }}" class="row gy-2 gx-3">
                     <div class="col-md-3">
-                        <select name="range" class="form-select">
+                        <label class="form-label fw-bold">Select Time Range</label>
+                        <select name="range" id="range" class="form-select">
                             @php
                                 $ranges = [
                                     'today' => 'Today',
@@ -58,6 +59,7 @@
                                     '3months' => 'Past 3 Months',
                                     '6months' => 'Past 6 Months',
                                     '1year' => 'Past 1 Year',
+                                    'custom' => 'Custom Range',
                                     'all' => 'All Logs',
                                 ];
                             @endphp
@@ -70,15 +72,19 @@
                     </div>
 
                     <div class="col-md-3">
+                        <label class="form-label fw-bold">Start Date</label>
                         <input type="date" name="start_date" class="form-control" placeholder="Start date">
                     </div>
 
                     <div class="col-md-3">
+                        <label class="form-label fw-bold">End Date</label>
                         <input type="date" name="end_date" class="form-control" placeholder="End date">
                     </div>
 
-                    <div class="col-md-3 d-grid">
-                        <button class="btn btn-primary"><i class="fas fa-search"></i> Filter</button>
+                    <div class="col-md-3">
+                        <button class="btn btn-primary mt-4 w-100">
+                            <i class="fas fa-search"></i> Filter
+                        </button>
                     </div>
                 </form>
             </div>
@@ -157,6 +163,29 @@
                 $('#logTables').DataTable().ajax.reload();
             });
 
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const range = document.getElementById('range');
+            const start = document.querySelector('input[name="start_date"]');
+            const end = document.querySelector('input[name="end_date"]');
+
+            function toggleCustomDates() {
+                if (range.value === 'custom') {
+                    start.removeAttribute('disabled');
+                    end.removeAttribute('disabled');
+                } else {
+                    start.setAttribute('disabled', true);
+                    end.setAttribute('disabled', true);
+                }
+            }
+
+            // Run on load
+            toggleCustomDates();
+
+            // Run on change
+            range.addEventListener('change', toggleCustomDates);
         });
     </script>
 @stop
