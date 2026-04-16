@@ -44,6 +44,7 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ asset('css/frontend/frontend.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/skeleton_load.css') }}">
     <link rel="stylesheet" href="{{ asset('css/frontend/setting_button/button.css') }}">
 </head>
 
@@ -86,7 +87,6 @@
             @include('frontend.components.setting_float_modal')
             @include('frontend.components.skeleton_load')
         @endif
-
     </div>
 
     <!-- BACK TO TOP -->
