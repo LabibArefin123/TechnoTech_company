@@ -20,6 +20,7 @@ import "../js/custom_frontend/custom_back_top_button.js";
 import "../js/custom_frontend/custom_footer_modal.js";
 import "../js/custom_frontend/open_quote_modal.js";
 import "../js/custom_frontend/developer_mode.js";
+import "../js/custom_frontend/skeleton_load.js";
 
 // 🔥 SETTINGS MODULE (ES MODULE)
 import "../js/custom_frontend/setting_modal/init.js";

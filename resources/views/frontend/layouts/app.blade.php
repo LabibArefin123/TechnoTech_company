@@ -85,19 +85,9 @@
 
         @if (!request()->routeIs(['login', 'register', 'password.*']))
             @include('frontend.components.setting_float_modal')
+            @include('frontend.components.skeleton_load')
         @endif
-        <div id="appLoader">
-            <div class="skeleton-header"></div>
-
-            <div class="skeleton-sidebar"></div>
-
-            <div class="skeleton-content">
-                <div class="skeleton-card"></div>
-                <div class="skeleton-line"></div>
-                <div class="skeleton-line"></div>
-                <div class="skeleton-line short"></div>
-            </div>
-        </div>
+        
     </div>
 
     <!-- BACK TO TOP -->
@@ -128,20 +118,7 @@
         }
     </script>
     <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-    <script>
-        window.addEventListener("load", function() {
-            const loader = document.getElementById("appLoader");
-
-            setTimeout(() => {
-                loader.classList.add("fade-out");
-
-                setTimeout(() => {
-                    loader.style.display = "none";
-                }, 400);
-
-            }, 300); // small delay = smooth feel
-        });
-    </script>
+   
 </body>
 
 </html>

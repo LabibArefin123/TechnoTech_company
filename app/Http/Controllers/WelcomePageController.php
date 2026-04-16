@@ -43,8 +43,6 @@ class WelcomePageController extends Controller
 
         $skillSection = SkillSection::where('status', 1)->orderBy('serial')->get();
 
-        $settings = FrontendSetting::first();
-
         return view('frontend.welcome', compact(
             'about',
             'projects',
@@ -53,7 +51,6 @@ class WelcomePageController extends Controller
             'listNews',
             'activities',
             'skillSection',
-            'settings'
         ));
     }
 
