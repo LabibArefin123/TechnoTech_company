@@ -4,6 +4,7 @@
 <head>
     @php
         $seo = \App\Models\SeoSetting::first();
+        $settings = \App\Models\FrontendSetting::first();
     @endphp
 
     <link rel="icon" type="image/png" href="{{ asset('uploads/images/icon.png') }}">
@@ -23,7 +24,7 @@
 
     <!-- CSRF -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
+    <meta name="settings-update-url" content="{{ route('settings.update') }}">
     <title>
         @yield('title', config('app.name'))
     </title>
@@ -44,23 +45,9 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ asset('css/frontend/frontend.css') }}">
     <link rel="stylesheet" href="{{ asset('css/frontend/setting_button/button.css') }}">
-
-    <!-- Global JS Data -->
-    <script>
-        window.appData = {
-            success: @json(session('success')),
-            errors: @json($errors->all())
-        };
-
-        @if (!request()->routeIs(['login', 'register', 'password.*']))
-            window.appSettings = @json($settings ?? null);
-        @endif
-    </script>
-
 </head>
 
 <body>
-
     <div id="app" x-data x-cloak>
         <!-- Scroll Progress -->
         <div id="scrollProgress"></div>
@@ -68,6 +55,18 @@
         <!-- Google Translate -->
         @if (!request()->routeIs(['login', 'register', 'password.*']))
             <div id="google_translate_element"></div>
+
+            <script>
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({
+                        pageLanguage: 'en',
+                        includedLanguages: 'en,bn',
+                        autoDisplay: false
+                    }, 'google_translate_element');
+                }
+            </script>
+
+            <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
         @endif
 
         <!-- MAIN CONTENT -->
@@ -87,7 +86,7 @@
             @include('frontend.components.setting_float_modal')
             @include('frontend.components.skeleton_load')
         @endif
-        
+
     </div>
 
     <!-- BACK TO TOP -->
@@ -106,19 +105,16 @@
             once: true,
         });
     </script>
-
-    <!-- Google Translate -->
+    <!-- Global JS Data -->
     <script>
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({
-                pageLanguage: 'en',
-                includedLanguages: 'en,bn',
-                autoDisplay: false
-            }, 'google_translate_element');
-        }
+        window.appData = {
+            success: @json(session('success')),
+            errors: @json($errors->all())
+        };
+
+        window.appSettings = @json($settings ?? null);
     </script>
-    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-   
+    <!-- Google Translate -->
 </body>
 
 </html>

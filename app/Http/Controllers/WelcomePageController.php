@@ -88,7 +88,7 @@ class WelcomePageController extends Controller
 
         return view('frontend.projects.show', compact('project'));
     }
-    
+
     public function quote_request_store(Request $request)
     {
         $request->validate([

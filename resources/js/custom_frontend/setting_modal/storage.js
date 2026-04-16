@@ -20,7 +20,15 @@ export function saveSettings(settings, csrf) {
         body: JSON.stringify(settings),
     })
         .then(async (res) => {
-            const data = await res.json();
+            const text = await res.text();
+
+            let data;
+            try {
+                data = JSON.parse(text);
+            } catch (e) {
+                console.error("❌ Non-JSON response:", text);
+                throw { message: "Invalid server response", raw: text };
+            }
 
             if (!res.ok) {
                 throw data;

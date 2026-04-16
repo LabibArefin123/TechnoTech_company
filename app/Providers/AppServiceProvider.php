@@ -6,8 +6,6 @@ use App\Models\Organization;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Cache;
-use App\Models\FrontendSetting;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -24,7 +22,7 @@ class AppServiceProvider extends ServiceProvider
             \App\Http\Middleware\CheckPermission::class
         );
 
-        // Organization Info
+        // Organization Info (Safe fallback)
         $org = Organization::select(
             'name',
             'organization_logo_name',
@@ -35,17 +33,7 @@ class AppServiceProvider extends ServiceProvider
         View::share('orgLogo', $org?->organization_logo_name ?? 'ORG');
         View::share('orgPicture', $org?->organization_picture);
 
-        // ✅ SETTINGS (SAFE + FAST + GLOBAL)
-        View::composer('*', function ($view) {
-
-            $settings = Cache::remember('frontend_settings', 3600, function () {
-                return FrontendSetting::first();
-            });
-
-            $view->with('settings', $settings);
-        });
-
-        // Debugbar toggle (good approach)
+        // ✅ Fix: Use View Composer (runs AFTER auth is ready)
         View::composer('*', function () {
             if (Auth::check() && Auth::user()->is_debugbar) {
                 if (class_exists(\Debugbar::class)) {
