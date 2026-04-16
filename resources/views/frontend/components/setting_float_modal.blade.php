@@ -93,7 +93,7 @@
         </div>
 
         <!-- Dark Mode -->
-        <div class="settings-card">
+        {{-- <div class="settings-card">
             <h5><i class="fas fa-moon"></i> Dark Mode</h5>
 
             <label class="switch">
@@ -101,7 +101,7 @@
                 <span class="slider"></span>
             </label>
 
-        </div>
+        </div> --}}
 
         <button type="submit" class="saveSettingsBtn">
             <i class="fas fa-save"></i> Save Settings
