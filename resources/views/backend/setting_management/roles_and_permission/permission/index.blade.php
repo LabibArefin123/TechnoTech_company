@@ -5,8 +5,9 @@
 @section('content_header')
     <div class="d-flex justify-content-between">
         <h1>Permissions List</h1>
+
         @if (auth()->user()->hasRole('admin'))
-            <button type="button" id="delete-selected" class="btn btn-danger btn-sm ms-2" title="Delete Selected">
+            <button type="button" id="delete-selected" class="btn btn-danger btn-sm ms-2 d-none" title="Delete Selected">
                 <i class="fas fa-trash-alt me-1"></i> Delete Selected
             </button>
         @endif
@@ -26,6 +27,23 @@
     @endif
 
     <div class="card">
+        <div id="selection-info" class="d-none mb-3">
+            <div class="d-flex align-items-center justify-content-between bg-light border rounded px-3 py-2 shadow-sm">
+
+                <div class="d-flex align-items-center">
+                    <i class="fas fa-check-circle text-success me-2"></i>
+
+                    <span id="selection-text" class="fw-semibold text-dark">
+                        0 permissions selected
+                    </span>
+                </div>
+
+                <button type="button" id="clear-selection" class="btn btn-sm btn-outline-secondary">
+                    Clear
+                </button>
+
+            </div>
+        </div>
         <div class="card-body">
             <!-- Add Permission Form -->
             <form method="POST" action="{{ route('permissions.store') }}">
@@ -94,73 +112,8 @@
 @stop
 @section('js')
     <script>
-        $(document).ready(function() {
-            let lastChecked = null;
-
-            // Shift + Click to select range
-            $('.row-checkbox').on('click', function(e) {
-                if (!lastChecked) {
-                    lastChecked = this;
-                    return;
-                }
-
-                if (e.shiftKey) {
-                    let start = $('.row-checkbox').index(this);
-                    let end = $('.row-checkbox').index(lastChecked);
-
-                    $('.row-checkbox').slice(Math.min(start, end), Math.max(start, end) + 1)
-                        .prop('checked', lastChecked.checked);
-                }
-
-                lastChecked = this;
-
-                // Update "Select All" checkbox
-                const allChecked = $('.row-checkbox').length === $('.row-checkbox:checked').length;
-                $('#select-all').prop('checked', allChecked);
-            });
-
-            // Select / Deselect all checkboxes
-            $('#select-all').on('click', function() {
-                const checked = $(this).prop('checked');
-                $('.row-checkbox').prop('checked', checked);
-            });
-
-            // Uncheck "Select All" if any single checkbox is unchecked
-            $('#dataTables').on('change', '.row-checkbox', function() {
-                const allChecked = $('.row-checkbox').length === $('.row-checkbox:checked').length;
-                $('#select-all').prop('checked', allChecked);
-            });
-
-            // Handle bulk delete
-            $('#delete-selected').on('click', function() {
-                const ids = $('.row-checkbox:checked').map(function() {
-                    return $(this).val();
-                }).get();
-
-                if (ids.length === 0) {
-                    alert('Please select at least one row to delete.');
-                    return;
-                }
-
-                if (!confirm('Are you sure you want to delete selected permissions?')) return;
-
-                $.ajax({
-                    url: '{{ route('permissions.deleteSelected') }}', // Route for bulk delete
-                    method: 'POST',
-                    data: {
-                        _token: '{{ csrf_token() }}',
-                        ids: ids
-                    },
-                    success: function(res) {
-                        alert(res.message || 'Selected permissions deleted successfully.');
-                        location.reload();
-                    },
-                    error: function() {
-                        alert('Something went wrong!');
-                    }
-                });
-            });
-        });
+        window.deletePermissionUrl = "{{ route('permissions.deleteSelected') }}";
+        window.csrfToken = "{{ csrf_token() }}";
     </script>
-
+    <script src="{{ asset('js/backend/setting_management/roles_and_permission/permission/index.js') }}"></script>
 @endsection
