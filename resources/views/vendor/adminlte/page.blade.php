@@ -76,6 +76,7 @@
     <script src="{{ asset('js/backend/page/notification.js') }}"></script>
     <script src="{{ asset('js/backend/page/confirm_leave.js') }}"></script>
     <script src="{{ asset('js/backend/page/skeleton_load.js') }}"></script>
+    <script src="{{ asset('js/backend/page/draft.js') }}"></script>
     <!-- start of data table format table -->
     <!-- end of data table format table -->
 
