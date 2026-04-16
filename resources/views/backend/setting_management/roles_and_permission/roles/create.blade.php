@@ -25,12 +25,8 @@
         </div>
     @endif
 
-
     <form method="POST" action="{{ route('roles.store') }}">
         @csrf
-
-
-        {{-- ROLE INFORMATION --}}
         <div class="card">
 
             <div class="card-header">
@@ -50,17 +46,16 @@
 
         </div>
 
-
-
-        {{-- PERMISSIONS --}}
         <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center flex-wrap">
 
-            <div class="card-header d-flex justify-content-between align-items-center">
+                <!-- Title -->
+                <h3 class="card-title mb-0 fw-semibold">
+                    Permission Management
+                </h3>
 
-                <h3 class="card-title">Permission Management</h3>
-
-                <div>
-
+                <!-- Actions -->
+                <div class="d-flex gap-2 ms-auto">
                     <button type="button" class="btn btn-sm btn-success" id="selectAllPermissions">
                         Select All
                     </button>
@@ -68,20 +63,14 @@
                     <button type="button" class="btn btn-sm btn-danger" id="unselectAllPermissions">
                         Unselect All
                     </button>
-
                 </div>
 
             </div>
 
-
             <div class="card-body p-0">
-
                 <div style="max-height:400px; overflow-y:auto;">
-
                     <table class="table table-hover table-bordered mb-0">
-
                         <thead>
-
                             <tr>
                                 <th width="60">#</th>
                                 <th width="200">Group</th>
@@ -92,7 +81,6 @@
                         </thead>
 
                         <tbody>
-
                             @php $index = 1; @endphp
 
                             @foreach ($groupedPermissions as $group => $permissions)

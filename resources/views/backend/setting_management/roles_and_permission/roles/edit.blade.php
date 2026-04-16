@@ -28,9 +28,6 @@
     <form method="POST" action="{{ route('roles.update', $role->id) }}">
         @csrf
         @method('PUT')
-
-
-        {{-- ROLE INFORMATION --}}
         <div class="card">
 
             <div class="card-header">
@@ -51,12 +48,15 @@
         {{-- PERMISSIONS --}}
         <div class="card">
 
-            <div class="card-header d-flex justify-content-between align-items-center">
+            <div class="card-header d-flex justify-content-between align-items-center flex-wrap">
 
-                <h3 class="card-title">Permission Management</h3>
+                <!-- Title -->
+                <h3 class="card-title mb-0 fw-semibold">
+                    Permission Management
+                </h3>
 
-                <div>
-
+                <!-- Actions -->
+                <div class="d-flex gap-2 ms-auto">
                     <button type="button" class="btn btn-sm btn-success" id="selectAllPermissions">
                         Select All
                     </button>
@@ -64,7 +64,6 @@
                     <button type="button" class="btn btn-sm btn-danger" id="unselectAllPermissions">
                         Unselect All
                     </button>
-
                 </div>
 
             </div>
