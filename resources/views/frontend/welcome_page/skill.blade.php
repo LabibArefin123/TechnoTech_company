@@ -43,7 +43,8 @@
             {{-- Right Image --}}
             <div class="col-lg-6">
                 <div class="skills-image">
-                    <img src="{{ asset($skillSection->first()->image) }}">
+                    <img src="{{ asset('uploads/images/welcome_page/skill/image_1.JPG') }}" alt="About Image">
+                    {{-- <img src="{{ asset($skillSection->first()->image) }}"> --}}
                 </div>
             </div>
 
