@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Spatie\Sitemap\Sitemap;
 use Spatie\Sitemap\Tags\Url;
 
-use App\Http\Controllers\WelcomePageController;
+use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\SeoSettingController;
 use App\Http\Controllers\OrganizationController;
@@ -42,13 +42,13 @@ use Illuminate\Support\Facades\Auth;
 |--------------------------------------------------------------------------
 */
 
-Route::get('/', [WelcomePageController::class, 'index'])->name('welcome');
-Route::get('/contact-us', [WelcomePageController::class, 'contact'])->name('contact');
-Route::get('/project/{id}', [WelcomePageController::class, 'showProject'])->name('project.show');
-Route::post('/contact/send', [WelcomePageController::class, 'sendContact'])->name('contact.send');
-Route::post('/quote', [WelcomePageController::class, 'quote_request_store'])->name('quote.store');
-Route::post('/system-problem/store', [WelcomePageController::class, 'system_problem_store'])->name('system_problem.store');
-Route::post('/settings/update', [WelcomePageController::class, 'updateSettings'])->name('settings.update');
+Route::get('/', [FrontendController::class, 'index'])->name('welcome');
+Route::get('/contact-us', [FrontendController::class, 'contact'])->name('contact');
+Route::get('/project/{id}', [FrontendController::class, 'showProject'])->name('project.show');
+Route::post('/contact/send', [FrontendController::class, 'sendContact'])->name('contact.send');
+Route::post('/quote', [FrontendController::class, 'quote_request_store'])->name('quote.store');
+Route::post('/system-problem/store', [FrontendController::class, 'system_problem_store'])->name('system_problem.store');
+Route::post('/settings/update', [FrontendController::class, 'updateSettings'])->name('settings.update');
 
 /*
 |--------------------------------------------------------------------------

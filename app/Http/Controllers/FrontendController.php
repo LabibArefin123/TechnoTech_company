@@ -17,7 +17,7 @@ use App\Models\QuoteRequest;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 
-class WelcomePageController extends Controller
+class FrontendController extends Controller
 {
     public function index()
     {
