@@ -3,7 +3,14 @@
 @section('title', 'Create Sub Project')
 
 @section('content')
-
+    <style>
+        .status-circle {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+    </style>
     <div class="card">
         <div class="card-body">
 
@@ -28,7 +35,21 @@
 
                     <div class="col-md-6 mb-3">
                         <label>Image</label>
-                        <input type="file" name="image" class="form-control">
+                        <input type="file" name="image[]" multiple class="form-control">
+                    </div>
+
+                    <div id="uploadStage" class="alert alert-info">
+                        Waiting...
+                    </div>
+
+                    <div id="previewContainer" class="row g-3">
+                    </div>
+
+                    <div id="imageQueue" class="mt-3">
+                    </div>
+
+                    <div id="dropZone" class="border rounded p-5 text-center">
+                        Drag Images Here
                     </div>
 
                     <div class="col-md-6 mb-3">
@@ -48,4 +69,7 @@
         </div>
     </div>
 
+@endsection
+@section('js')
+    <script src="{{ asset('js/backend/project_page/sub_project/create.js') }}"></script>
 @endsection

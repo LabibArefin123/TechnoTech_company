@@ -15,26 +15,33 @@
     <div class="card shadow-lg">
         <div class="card-body table-responsive">
             <table class="table table-bordered table-hover" id="dataTables">
-                <thead class="table-dark" >
+                <thead class="table-dark">
                     <tr>
                         <th>#</th>
+                        <th>Project</th>
                         <th>Image</th>
                         <th>Title</th>
                         <th>Status</th>
                         <th width="150">Action</th>
                     </tr>
                 </thead>
-
                 <tbody>
                     @foreach ($data as $key => $row)
                         <tr>
+
                             <td>{{ $key + 1 }}</td>
+
+                            <td>
+                                <span class="badge bg-primary">
+                                    {{ $row->project->title ?? 'N/A' }}
+                                </span>
+                            </td>
 
                             <td>
                                 <img src="{{ asset($row->image) }}" width="60">
                             </td>
 
-                            <td>{{ $row->title ?? 'N/A' }}</td>
+                            <td>{{ $row->title }}</td>
 
                             <td>
                                 @if ($row->is_active)
@@ -45,30 +52,13 @@
                             </td>
 
                             <td>
-                                <a href="{{ route('sub_project_sections.show', $row->id) }}" class="btn btn-sm btn-primary">
-                                    <i class="fas fa-eye"></i>
-                                </a>
-                                <a href="{{ route('sub_project_sections.edit', $row->id) }}" class="btn btn-sm btn-warning">
-                                    <i class="fas fa-edit"></i>
-                                </a>
-
-                                <form action="{{ route('sub_project_sections.destroy', $row->id) }}" method="POST"
-                                    class="d-inline">
-                                    @csrf
-                                    @method('DELETE')
-
-                                    <button class="btn btn-sm btn-danger" onclick="return confirm('Delete this?')">
-                                        <i class="fas fa-trash"></i>
-                                    </button>
-                                </form>
+                                ...
                             </td>
 
                         </tr>
                     @endforeach
                 </tbody>
-
             </table>
         </div>
     </div>
-
 @stop

@@ -49,7 +49,7 @@
 </head>
 
 <body>
-    <div id="app" x-data x-cloak>
+    <div id="app">
         <!-- Scroll Progress -->
         <div id="scrollProgress"></div>
 

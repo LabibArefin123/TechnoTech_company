@@ -13,10 +13,16 @@ class SubProjectSectionController extends Controller
 {
     public function index()
     {
-        $data = SubProjectSection::latest()->get();
-        return view('backend.sub_project_sections.index', compact('data'));
-    }
+        $data = SubProjectSection::with('project')
+            ->latest()
+            ->get();
 
+        return view(
+            'backend.sub_project_sections.index',
+            compact('data')
+        );
+    }
+    
     public function create()
     {
         $projects = ProjectSection::pluck('title', 'id');
