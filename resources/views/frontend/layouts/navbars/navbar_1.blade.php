@@ -58,7 +58,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="{{ route('welcome') }}#projects" class="nav-link custom-link">Projects</a>
+                    <a href="{{ route('project') }}" class="nav-link custom-link">Projects</a>
                 </li>
 
                 <li class="nav-item">

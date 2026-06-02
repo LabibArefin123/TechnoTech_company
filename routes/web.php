@@ -44,6 +44,7 @@ use Illuminate\Support\Facades\Auth;
 
 Route::get('/', [FrontendController::class, 'index'])->name('welcome');
 Route::get('/contact-us', [FrontendController::class, 'contact'])->name('contact');
+Route::get('/our-project', [FrontendController::class, 'projects'])->name('project');
 Route::get('/project/{id}', [FrontendController::class, 'showProject'])->name('project.show');
 Route::post('/contact/send', [FrontendController::class, 'sendContact'])->name('contact.send');
 Route::post('/quote', [FrontendController::class, 'quote_request_store'])->name('quote.store');

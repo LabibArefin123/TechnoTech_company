@@ -86,7 +86,14 @@ class FrontendController extends Controller
             ->where('status', 1)
             ->findOrFail($id);
 
-        return view('frontend.projects.show', compact('project'));
+        return view('frontend.project_page.show', compact('project'));
+    }
+
+    public function projects()
+    {
+        $projects = ProjectSection::latest()->paginate(12);
+
+        return view('frontend.project_page.index', compact('projects'));
     }
 
     public function quote_request_store(Request $request)

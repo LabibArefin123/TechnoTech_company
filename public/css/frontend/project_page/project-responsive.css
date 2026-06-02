@@ -1,0 +1,13 @@
+@media (max-width: 768px) {
+    .page-title {
+        font-size: 30px;
+    }
+
+    .project-box img {
+        height: 220px;
+    }
+
+    .project-details h2 {
+        font-size: 26px;
+    }
+}
