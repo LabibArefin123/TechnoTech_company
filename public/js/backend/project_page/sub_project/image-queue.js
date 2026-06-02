@@ -1,5 +1,5 @@
 function initImageQueue() {
-    const input = document.querySelector('input[name="image"]');
+    const input = document.getElementById("imageInput");
 
     if (!input) return;
 
@@ -11,14 +11,29 @@ function initImageQueue() {
         [...this.files].forEach((file) => {
             queue.innerHTML += `
 
-                <div class="queue-item d-flex justify-content-between align-items-center border p-2 mb-2">
+                <div
+                class="
+                d-flex
+                justify-content-between
+                border
+                rounded
+                p-2
+                mb-2">
 
-                    <span>${file.name}</span>
+                    <span>
+                        ${file.name}
+                    </span>
 
-                    <span class="status-circle bg-warning"></span>
+                    <span
+                    class="
+                    badge
+                    bg-warning">
+
+                    Pending
+
+                    </span>
 
                 </div>
-
                 `;
         });
     });

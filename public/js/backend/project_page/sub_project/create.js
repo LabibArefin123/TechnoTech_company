@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", function () {
     initImagePreview();
     initImageValidation();
     initUploadProgress();
@@ -6,4 +6,3 @@ document.addEventListener("DOMContentLoaded", () => {
     initDragDrop();
     initImageQueue();
 });
-    

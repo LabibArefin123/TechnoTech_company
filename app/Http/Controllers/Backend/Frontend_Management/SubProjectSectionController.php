@@ -14,8 +14,10 @@ class SubProjectSectionController extends Controller
     public function index()
     {
         $data = SubProjectSection::with('project')
-            ->latest()
-            ->get();
+            ->get()
+            ->groupBy(function ($item) {
+                return $item->project_id . '_' . $item->title;
+            });
 
         return view(
             'backend.sub_project_sections.index',
@@ -33,42 +35,61 @@ class SubProjectSectionController extends Controller
     {
         $request->validate([
             'project_id' => 'required|exists:project_sections,id',
-            'title' => 'nullable|string|max:255',
+
+            'image' => 'required|array|min:1',
+            'image.*' => 'image|mimes:jpg,jpeg,png,webp|max:2048',
+
+            'titles' => 'nullable|array',
+            'titles.*' => 'nullable|string|max:255',
+
             'is_active' => 'nullable|boolean',
-            'image' => 'required|image|mimes:jpg,jpeg,png,webp|max:2048'
         ]);
 
-        // 📁 Dynamic folder per project
-        $folder = public_path('uploads/images/welcome_page/projects/project_' . $request->project_id);
+        $folder = public_path(
+            'uploads/images/welcome_page/projects/project_' .
+                $request->project_id
+        );
 
         if (!File::exists($folder)) {
             File::makeDirectory($folder, 0755, true);
         }
 
-        $imagePath = null;
+        foreach ($request->file('image') as $index => $image) {
 
-        if ($request->hasFile('image')) {
-
-            $image = $request->file('image');
-
-            // 🔥 Unique sub image naming
-            $filename = time() . '_sub.' . $image->getClientOriginalExtension();
+            $filename =
+                time() .
+                '_' .
+                uniqid() .
+                '.' .
+                $image->getClientOriginalExtension();
 
             $image->move($folder, $filename);
 
-            $imagePath = 'uploads/images/welcome_page/projects/project_'
-                . $request->project_id . '/' . $filename;
+            $imagePath =
+                'uploads/images/welcome_page/projects/project_' .
+                $request->project_id .
+                '/' .
+                $filename;
+
+            SubProjectSection::create([
+
+                'project_id' => $request->project_id,
+
+                'title' => $request->titles[$index] ?? null,
+
+                'image' => $imagePath,
+
+                'is_active' => $request->is_active ?? 1,
+
+            ]);
         }
 
-        SubProjectSection::create([
-            'project_id' => $request->project_id,
-            'title' => $request->title,
-            'image' => $imagePath,
-            'is_active' => $request->is_active ?? 0,
-        ]);
-
-        return redirect()->route('sub_project_sections.index')
-            ->with('success', 'Sub Project Created Successfully');
+        return redirect()
+            ->route('sub_project_sections.index')
+            ->with(
+                'success',
+                'Sub Project Images Uploaded Successfully'
+            );
     }
 
     public function show($id)

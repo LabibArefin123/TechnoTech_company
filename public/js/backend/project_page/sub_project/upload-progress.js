@@ -1,29 +1,23 @@
 function initUploadProgress() {
-    const form = document.querySelector("form");
+    const form = document.getElementById("subProjectForm");
 
     if (!form) return;
 
     form.addEventListener("submit", function () {
-        updateStage("Validating Files");
+        const stage = document.getElementById("uploadStage");
+
+        stage.innerHTML = "🔍 Validating";
 
         setTimeout(() => {
-            updateStage("Preparing Upload");
+            stage.innerHTML = "📁 Preparing Files";
         }, 500);
 
         setTimeout(() => {
-            updateStage("Uploading Images");
+            stage.innerHTML = "☁ Uploading";
         }, 1000);
 
         setTimeout(() => {
-            updateStage("Saving Records");
+            stage.innerHTML = "💾 Saving";
         }, 1500);
     });
-}
-
-function updateStage(text) {
-    const stage = document.getElementById("uploadStage");
-
-    if (stage) {
-        stage.innerText = text;
-    }
 }

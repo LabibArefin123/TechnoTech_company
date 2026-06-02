@@ -26,37 +26,81 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($data as $key => $row)
+
+                    @foreach ($data as $group)
+                        @php
+                            $first = $group->first();
+                        @endphp
+
                         <tr>
 
-                            <td>{{ $key + 1 }}</td>
+                            <td>
+                                {{ $loop->iteration }}
+                            </td>
 
                             <td>
                                 <span class="badge bg-primary">
-                                    {{ $row->project->title ?? 'N/A' }}
+                                    {{ $first->project->title ?? 'N/A' }}
                                 </span>
                             </td>
 
                             <td>
-                                <img src="{{ asset($row->image) }}" width="60">
-                            </td>
 
-                            <td>{{ $row->title }}</td>
+                                @foreach ($group->take(4) as $image)
+                                    <img src="{{ asset($image->image) }}" width="50" class="me-1 rounded border">
+                                @endforeach
 
-                            <td>
-                                @if ($row->is_active)
-                                    <span class="badge bg-success">Active</span>
-                                @else
-                                    <span class="badge bg-danger">Hidden</span>
+                                @if ($group->count() > 4)
+                                    <span class="badge bg-info">
+
+                                        +{{ $group->count() - 4 }}
+
+                                    </span>
                                 @endif
+
                             </td>
 
                             <td>
-                                ...
+
+                                {{ $first->title }}
+
+                            </td>
+
+                            <td>
+
+                                @if ($first->is_active)
+                                    <span class="badge bg-success">
+                                        Active
+                                    </span>
+                                @else
+                                    <span class="badge bg-danger">
+                                        Hidden
+                                    </span>
+                                @endif
+
+                            </td>
+
+                            <td>
+
+                                <a href="{{ route('sub_project_sections.show', $first->id) }}"
+                                    class="btn btn-primary btn-sm">
+
+                                    <i class="fas fa-eye"></i>
+
+                                </a>
+
+                                <a href="{{ route('sub_project_sections.edit', $first->id) }}"
+                                    class="btn btn-warning btn-sm">
+
+                                    <i class="fas fa-edit"></i>
+
+                                </a>
+
                             </td>
 
                         </tr>
                     @endforeach
+
                 </tbody>
             </table>
         </div>
