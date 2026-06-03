@@ -24,7 +24,7 @@ class SubProjectSectionController extends Controller
             compact('data')
         );
     }
-    
+
     public function create()
     {
         $projects = ProjectSection::pluck('title', 'id');
@@ -107,21 +107,24 @@ class SubProjectSectionController extends Controller
         return view('backend.sub_project_sections.edit', compact('item', 'projects'));
     }
 
+
     public function update(Request $request, $id)
     {
         $item = SubProjectSection::findOrFail($id);
 
         $request->validate([
             'project_id' => 'required|exists:project_sections,id',
-            'title' => 'nullable|string|max:255',
-            'is_active' => 'nullable|boolean',
-            'image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048'
+            'title'      => 'nullable|string|max:255',
+            'is_active'  => 'nullable|boolean',
+            'image'      => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
         ]);
 
         $imagePath = $item->image;
 
-        // 📁 New folder (if project changed)
-        $folder = public_path('uploads/images/welcome_page/projects/project_' . $request->project_id);
+        $folder = public_path(
+            'uploads/images/welcome_page/projects/project_' .
+                $request->project_id
+        );
 
         if (!File::exists($folder)) {
             File::makeDirectory($folder, 0755, true);
@@ -129,32 +132,46 @@ class SubProjectSectionController extends Controller
 
         if ($request->hasFile('image')) {
 
-            // ❌ delete old image
-            if ($item->image && File::exists(public_path($item->image))) {
+            if (
+                $item->image &&
+                File::exists(public_path($item->image))
+            ) {
                 File::delete(public_path($item->image));
             }
 
             $image = $request->file('image');
 
-            $filename = time() . '_sub.' . $image->getClientOriginalExtension();
+            $filename =
+                time() .
+                '_' .
+                uniqid() .
+                '.' .
+                $image->getClientOriginalExtension();
 
             $image->move($folder, $filename);
 
-            $imagePath = 'uploads/images/welcome_page/projects/project_'
-                . $request->project_id . '/' . $filename;
+            $imagePath =
+                'uploads/images/welcome_page/projects/project_' .
+                $request->project_id .
+                '/' .
+                $filename;
         }
 
         $item->update([
             'project_id' => $request->project_id,
-            'title' => $request->title,
-            'image' => $imagePath,
-            'is_active' => $request->is_active ?? 0,
+            'title'      => $request->title,
+            'image'      => $imagePath,
+            'is_active'  => $request->is_active ?? 1,
         ]);
 
-        return redirect()->route('sub_project_sections.index')
-            ->with('success', 'Updated Successfully');
+        return redirect()
+            ->route('sub_project_sections.index')
+            ->with(
+                'success',
+                'Sub Project Gallery Updated Successfully'
+            );
     }
-
+    
     public function destroy($id)
     {
         $item = SubProjectSection::findOrFail($id);
