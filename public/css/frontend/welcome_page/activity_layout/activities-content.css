@@ -1,0 +1,58 @@
+/* =================================
+   ICONS & CONTENT
+================================= */
+
+.activity-box i {
+    font-size: 2.5rem;
+    color: #f7931e;
+    margin-bottom: 18px;
+    display: inline-block;
+    transition: 0.4s;
+    position: relative;
+    z-index: 5;
+}
+
+.activity-box h5 {
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: #1f1f1f;
+    font-size: 1.18rem;
+    position: relative;
+    z-index: 5;
+    transition: 0.35s;
+}
+
+.activity-box p {
+    font-size: 0.95rem;
+    color: #6c757d;
+    line-height: 1.7;
+    position: relative;
+    z-index: 5;
+    transition: 0.35s;
+}
+
+.activity-box:hover h5 {
+    color: #ffffff;
+}
+
+.activity-box:hover p {
+    color: #e6e6e6;
+}
+
+.activity-box:hover i {
+    color: #ffffff;
+    transform: scale(1.1) rotate(-4deg);
+}
+
+.activity-box:hover i::after {
+    content: "";
+    position: absolute;
+    inset: -10px;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle,
+        rgba(255, 147, 30, 0.35),
+        transparent 70%
+    );
+    z-index: -1;
+}

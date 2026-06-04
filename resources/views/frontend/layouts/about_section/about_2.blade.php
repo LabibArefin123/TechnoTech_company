@@ -1,5 +1,5 @@
 <section id="about" class="about-style-2 py-5">
-    <link rel="stylesheet" href="{{ asset('css/frontend/custom_about_2.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/about_layout/custom_about_2.css') }}">
 
     <div class="container">
         <div class="row align-items-center">

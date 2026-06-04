@@ -1,0 +1,39 @@
+/* =================================
+   IMAGE OVERLAY
+================================= */
+
+.activity-image {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    z-index: 2;
+    transition: opacity 0.5s ease;
+}
+
+.activity-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 16px;
+    transform: scale(1.15);
+    transition: transform 1s ease;
+}
+
+.activity-image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.25),
+        rgba(0, 0, 0, 0.75)
+    );
+}
+
+.activity-box:hover .activity-image {
+    opacity: 1;
+}
+
+.activity-box:hover .activity-image img {
+    transform: scale(1);
+}

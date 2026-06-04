@@ -1,5 +1,11 @@
 <section id="activities" class="techno-activities py-5">
-    <link rel="stylesheet" href="{{ asset('css/frontend/custom_activity.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/activity_layout/activities-layout.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/activity_layout/activities-header.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/activity_layout/activities-content.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/activity_layout/activities-card.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/activity_layout/activities-card-effects.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/activity_layout/activities-image.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/activity_layout/activities-responsive.css') }}">
 
     <div class="container">
 

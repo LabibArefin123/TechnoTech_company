@@ -1,0 +1,31 @@
+/* =======================
+   ENTERPRISE FOOTER
+======================= */
+
+.footer-enterprise {
+    background: #020617;
+}
+
+.footer-title {
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.footer-menu {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-menu li {
+    margin-bottom: 8px;
+}
+
+.footer-menu a {
+    color: #94a3b8;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.footer-menu a:hover {
+    color: #facc15;
+}

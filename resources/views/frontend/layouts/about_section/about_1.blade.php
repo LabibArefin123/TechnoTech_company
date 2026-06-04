@@ -1,13 +1,18 @@
 <section id="about" class="techno-about py-5">
 
-    <link rel="stylesheet" href="{{ asset('css/frontend/custom_about.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/about_layout/about-layout.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/about_layout/about-title.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/about_layout/about-content.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/about_layout/about-images.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/about_layout/about-animation.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/about_layout/about-responsive.css') }}">
 
     <div class="container">
 
         <div class="text-center mb-5">
             <h2 class="about-title">{{ $about->title }}</h2>
 
-            <p class="about-tagline">
+            <p class="about-tagline">   
                 {{ $about->tagline }}
             </p>
         </div>

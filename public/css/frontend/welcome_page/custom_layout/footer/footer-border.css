@@ -1,0 +1,12 @@
+/* =========================
+   FOOTER BORDERS & DIVIDERS
+========================= */
+
+footer .border-top {
+    opacity: 0.4;
+}
+
+.footer-divider {
+    border-color: #334155;
+    margin: 30px 0;
+}

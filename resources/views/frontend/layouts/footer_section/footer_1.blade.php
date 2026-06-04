@@ -1,6 +1,10 @@
 <!-- Footer -->
 <footer class="bg-dark text-white pt-5 pb-4" id="contact">
-    <link rel="stylesheet" href="{{ asset('css/frontend/custom_footer_1.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/custom_layout/footer/footer-base.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/custom_layout/footer/footer-links.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/custom_layout/footer/footer-border.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/custom_layout/footer/footer-modern.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/custom_layout/footer/footer-enterprise.css') }}">
     <div class="container">
         <div class="row gy-4">
             <!-- Company Info -->

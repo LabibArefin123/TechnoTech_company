@@ -1,0 +1,16 @@
+/* =================================
+   ACTIVITY CARD
+================================= */
+
+.activity-box {
+    background: #ffffff;
+    padding: 35px 30px;
+    border-radius: 16px;
+    text-align: left;
+    transition: all 0.45s ease;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.06);
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}

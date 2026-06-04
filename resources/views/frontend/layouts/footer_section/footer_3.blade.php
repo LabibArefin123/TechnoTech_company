@@ -1,6 +1,6 @@
 <footer class="footer-enterprise text-white pt-5 pb-5">
 
-    <link rel="stylesheet" href="{{ asset('css/frontend/custom_footer_3.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/custom_layout/footer/custom_footer_3.css') }}">
 
     <div class="container">
 

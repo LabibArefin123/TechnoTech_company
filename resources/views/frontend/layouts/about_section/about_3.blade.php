@@ -1,6 +1,6 @@
 <section id="about" class="about-style-3 py-5">
 
-    <link rel="stylesheet" href="{{ asset('css/frontend/custom_about_3.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/about_layout/custom_about_3.css') }}">
 
     <div class="container text-center">
         <h2 class="about3-title">

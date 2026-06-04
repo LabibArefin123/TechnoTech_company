@@ -1,0 +1,21 @@
+/* Responsive */
+@media (max-width: 992px) {
+    .about-image-wrapper {
+        position: relative;
+        height: 500px;
+        margin-top: 40px;
+    }
+
+    .image-card {
+        position: relative;
+        width: 100%;
+        height: 250px;
+        margin-bottom: 20px;
+        right: auto;
+        top: auto;
+    }
+
+    .image-card-2 {
+        margin-top: -30px;
+    }
+}
