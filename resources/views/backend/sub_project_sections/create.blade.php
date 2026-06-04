@@ -120,18 +120,18 @@
 
 @section('js')
 
-    <script src="{{ asset('js/backend/project_page/sub_project/image-preview.js') }}"></script>
+    <script src="{{ asset('js/backend/project_page/sub_project/create_page/image-preview.js') }}"></script>
 
-    <script src="{{ asset('js/backend/project_page/sub_project/image-validation.js') }}"></script>
+    <script src="{{ asset('js/backend/project_page/sub_project/create_page/image-validation.js') }}"></script>
 
-    <script src="{{ asset('js/backend/project_page/sub_project/upload-progress.js') }}"></script>
+    <script src="{{ asset('js/backend/project_page/sub_project/create_page/upload-progress.js') }}"></script>
 
-    <script src="{{ asset('js/backend/project_page/sub_project/image-queue.js') }}"></script>
+    <script src="{{ asset('js/backend/project_page/sub_project/create_page/image-queue.js') }}"></script>
 
-    <script src="{{ asset('js/backend/project_page/sub_project/drag-drop.js') }}"></script>
+    <script src="{{ asset('js/backend/project_page/sub_project/create_page/drag-drop.js') }}"></script>
 
-    <script src="{{ asset('js/backend/project_page/sub_project/unsaved-changes.js') }}"></script>
+    <script src="{{ asset('js/backend/project_page/sub_project/create_page/unsaved-changes.js') }}"></script>
 
-    <script src="{{ asset('js/backend/project_page/sub_project/create.js') }}"></script>
+    <script src="{{ asset('js/backend/project_page/sub_project/create_page/create.js') }}"></script>
 
 @endsection

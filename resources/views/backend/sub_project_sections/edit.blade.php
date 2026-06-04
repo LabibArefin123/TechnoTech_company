@@ -101,17 +101,45 @@
                 <div id="imageQueue"></div>
 
                 {{-- Preview --}}
-                <div id="previewContainer" class="row">
+                {{-- Existing Gallery Images --}}
+                <div class="row mt-4">
 
-                    <div class="col-md-4">
+                    <div class="col-12">
+                        <h5 class="mb-3">
+                            Existing Gallery Images
+                        </h5>
+                    </div>
 
-                        <div class="preview-card">
+                    @foreach ($galleryItems as $gallery)
+                        <div class="col-md-3 mb-4">
 
-                            <img src="{{ asset($item->image) }}" id="currentImagePreview" class="img-thumbnail">
+                            <div class="card shadow-sm h-100">
+
+                                <img src="{{ asset($gallery->image) }}" id="preview_{{ $gallery->id }}"
+                                    class="card-img-top" style="height:180px;object-fit:cover;">
+
+                                <div class="card-body">
+
+                                    <label class="fw-bold">
+                                        Title
+                                    </label>
+
+                                    <input type="text" name="titles[{{ $gallery->id }}]" value="{{ $gallery->title }}"
+                                        class="form-control mb-2">
+
+                                    <label>
+                                        Replace Image
+                                    </label>
+
+                                    <input type="file" name="images[{{ $gallery->id }}]"
+                                        class="form-control replaceImage" data-preview="preview_{{ $gallery->id }}">
+
+                                </div>
+
+                            </div>
 
                         </div>
-
-                    </div>
+                    @endforeach
 
                 </div>
 
@@ -141,19 +169,17 @@
 @endsection
 
 @section('js')
+    <script src="{{ asset('js/backend/project_page/sub_project/edit_page/image-preview.js') }}"></script>
 
-    <script src="{{ asset('js/backend/project_page/sub_project/image-preview.js') }}"></script>
+    <script src="{{ asset('js/backend/project_page/sub_project/edit_page/image-validation.js') }}"></script>
 
-    <script src="{{ asset('js/backend/project_page/sub_project/image-validation.js') }}"></script>
+    <script src="{{ asset('js/backend/project_page/sub_project/edit_page/upload-progress.js') }}"></script>
 
-    <script src="{{ asset('js/backend/project_page/sub_project/upload-progress.js') }}"></script>
+    <script src="{{ asset('js/backend/project_page/sub_project/edit_page/image-queue.js') }}"></script>
 
-    <script src="{{ asset('js/backend/project_page/sub_project/image-queue.js') }}"></script>
+    <script src="{{ asset('js/backend/project_page/sub_project/edit_page/drag-drop.js') }}"></script>
 
-    <script src="{{ asset('js/backend/project_page/sub_project/drag-drop.js') }}"></script>
+    <script src="{{ asset('js/backend/project_page/sub_project/edit_page/unsaved-changes.js') }}"></script>
 
-    <script src="{{ asset('js/backend/project_page/sub_project/unsaved-changes.js') }}"></script>
-
-    <script src="{{ asset('js/backend/project_page/sub_project/edit.js') }}"></script>
-
+    <script src="{{ asset('js/backend/project_page/sub_project/edit_page/edit.js') }}"></script>
 @endsection
