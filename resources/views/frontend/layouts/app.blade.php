@@ -44,7 +44,7 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ asset('css/frontend/frontend.css') }}">
- 
+
     <link rel="stylesheet" href="{{ asset('css/frontend/setting_button/button.css') }}">
 </head>
 
@@ -82,10 +82,10 @@
         @include('frontend.components.email_modal_footer')
         @include('frontend.components.phone_modal_footer')
         @include('frontend.components.location_modal_footer')
+        @include('backend.modal.image-zoom')
 
         @if (!request()->routeIs(['login', 'register', 'password.*']))
             @include('frontend.components.setting_float_modal')
-            
         @endif
     </div>
 

@@ -6,57 +6,106 @@
 
     @include('frontend.welcome_page.header')
 
-    <link rel="stylesheet" href="{{ asset('css/frontend/custom_project.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/custom_sub_project.css') }}">
 
-    <section class="py-5 bg-white">
+    <section class="sub-project-section">
 
         <div class="container">
 
-            {{-- HEADER --}}
-            <div class="text-center mb-5">
-                <h2 class="projects-title">{{ $project->title }}</h2>
-                <p class="projects-subtitle">
-                    {{ $project->category }}
-                </p>
+            {{-- HERO --}}
+            <div class="sub-project-hero">
+
+                <div class="sub-project-banner">
+
+                    <img src="{{ asset($project->image) }}" alt="{{ $project->title }}">
+
+                </div>
+
+                <div class="sub-project-info">
+
+                    <span class="sub-project-category">
+
+                        {{ $project->category }}
+
+                    </span>
+
+                    <h1 class="sub-project-title">
+
+                        {{ $project->title }}
+
+                    </h1>
+
+                </div>
+
             </div>
 
-            {{-- COVER IMAGE --}}
-            <div class="mb-5 text-center">
-                <img src="{{ asset($project->image) }}" class="img-fluid rounded shadow"
-                    style="max-height:400px; object-fit:cover;">
-            </div>
+            {{-- GALLERY --}}
+            <div class="sub-project-gallery-wrapper">
 
-            {{-- SUB PROJECT GALLERY --}}
-            <div class="row g-4">
+                <div class="sub-project-heading">
 
-                @if ($project->subProjects->count())
-                    @foreach ($project->subProjects as $sub)
+                    <h2>
+
+                        Project Gallery
+
+                    </h2>
+
+                    <p>
+
+                        Explore completed works and project highlights.
+
+                    </p>
+
+                </div>
+
+                <div class="row g-4">
+
+                    @forelse($project->subProjects as $sub)
                         <div class="col-lg-4 col-md-6">
-                            <div class="sub-project-card">
 
-                                <img src="{{ asset($sub->image) }}" alt="{{ $sub->title ?? 'image' }}">
+                            <div class="sub-project-gallery-card">
 
-                                @if ($sub->title)
-                                    <div class="sub-overlay">
-                                        <h6>{{ $sub->title }}</h6>
-                                    </div>
-                                @endif
+                                <div class="sub-project-image-wrapper">
+
+                                    <img src="{{ asset($sub->image) }}" class="sub-project-gallery-image galleryZoom"
+                                        data-image="{{ asset($sub->image) }}" alt="{{ $sub->title }}">
+
+                                </div>
+
+                                <div class="sub-project-card-body">
+
+                                    <h5>
+
+                                        {{ $sub->title ?: 'Project Image' }}
+
+                                    </h5>
+
+                                </div>
 
                             </div>
+
                         </div>
-                    @endforeach
-                @else
-                    <div class="text-center text-muted">
-                       
-                    </div>
-                @endif
+
+                    @empty
+
+                        <div class="col-12">
+
+                            <div class="sub-project-empty">
+
+                                No gallery images available.
+
+                            </div>
+
+                        </div>
+                    @endforelse
+
+                </div>
 
             </div>
 
         </div>
-
+        <script src="{{ asset('js/backend/page/image-zoom.js') }}"></script>
     </section>
-
     @include('frontend.welcome_page.footer')
 
 @endsection
