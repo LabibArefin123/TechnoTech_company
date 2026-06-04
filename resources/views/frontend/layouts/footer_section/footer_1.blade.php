@@ -50,7 +50,7 @@
                         <a href="#activities" class="footer-link">Key Activities</a>
                     </li>
                     <li>
-                        <a href="#projects" class="footer-link">Projects</a>
+                        <a href="{{ route('project') }}" class="footer-link">Projects</a>
                     </li>
                 </ul>
             </div>

@@ -37,8 +37,12 @@
                                     {{ $project->title }}
                                 </h4>
 
-                                <a href="{{ route('project.show', $project->id) }}" class="view-btn">
-                                    View Details
+                                <a href="{{ route('project.show', $project->id) }}" class="project-view-btn">
+
+                                    <i class="fas fa-arrow-right me-2"></i>
+
+                                    View Project
+
                                 </a>
 
                             </div>
