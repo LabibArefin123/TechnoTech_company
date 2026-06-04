@@ -1,0 +1,18 @@
+/* =================================
+   SKILL ITEMS
+================================= */
+
+.skill-item {
+    margin-bottom: 28px;
+}
+
+.skill-label {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.skill-percent {
+    color: #000;
+}

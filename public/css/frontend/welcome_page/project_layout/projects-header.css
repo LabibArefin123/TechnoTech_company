@@ -1,0 +1,15 @@
+/* =================================
+   SECTION HEADER
+================================= */
+
+.projects-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.projects-subtitle {
+    color: #64748b;
+    max-width: 600px;
+    margin: auto;
+}

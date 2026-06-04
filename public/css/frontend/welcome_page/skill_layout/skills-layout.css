@@ -1,0 +1,38 @@
+/* =================================
+   SKILLS SECTION LAYOUT
+================================= */
+
+.techno-skills {
+    background: linear-gradient(135deg, #ffffff, #f8fafc);
+    color: #0f172a;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Soft glowing background blur shapes */
+.techno-skills::before,
+.techno-skills::after {
+    content: "";
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.4;
+    z-index: 0;
+}
+
+.techno-skills::before {
+    top: -100px;
+    left: -100px;
+}
+
+.techno-skills::after {
+    bottom: -100px;
+    right: -100px;
+}
+
+.techno-skills .container {
+    position: relative;
+    z-index: 2;
+}

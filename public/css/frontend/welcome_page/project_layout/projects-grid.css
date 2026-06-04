@@ -1,0 +1,13 @@
+/* =================================
+   DESKTOP GRID LAYOUT
+================================= */
+
+.projects-slide .row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.projects-slide .col-lg-4 {
+    flex: 0 0 33.3333%;
+    max-width: 33.3333%;
+}

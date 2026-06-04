@@ -1,0 +1,31 @@
+/* =================================
+   RESPONSIVE
+================================= */
+
+/* Tablet */
+@media (max-width: 992px) {
+    .projects-slide .col-lg-4 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+
+    .project-card {
+        height: 380px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+    .projects-slide .col-lg-4 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    .project-card {
+        height: 320px;
+    }
+
+    .projects-title {
+        font-size: 28px;
+    }
+}

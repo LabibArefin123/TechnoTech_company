@@ -1,5 +1,14 @@
 <section id="projects" class="techno-projects py-5">
-    <link rel="stylesheet" href="{{ asset('css/frontend/custom_project.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/project_layout/projects-layout.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/project_layout/projects-header.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/project_layout/projects-slider.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/project_layout/projects-grid.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/project_layout/projects-dots.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/project_layout/projects-card.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/project_layout/projects-sub-card.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/project_layout/projects-overlay.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/project_layout/projects-animation.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/project_layout/projects-responsive.css') }}">
 
     <div class="container">
 

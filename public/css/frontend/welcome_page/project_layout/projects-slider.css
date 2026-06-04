@@ -1,0 +1,17 @@
+/* =================================
+   SLIDER
+================================= */
+
+.projects-slider {
+    position: relative;
+    overflow: hidden;
+}
+
+.projects-slide {
+    display: none;
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+.projects-slide.active {
+    display: block;
+}

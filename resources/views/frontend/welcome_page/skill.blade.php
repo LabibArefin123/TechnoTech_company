@@ -1,6 +1,14 @@
 <section id="skills" class="techno-skills py-5">
 
-    <link rel="stylesheet" href="{{ asset('css/frontend/custom_skill.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/skill_layout/skills-layout.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/skill_layout/skills-header.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/skill_layout/skills-effects.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/skill_layout/skills-items.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/skill_layout/skills-progress.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/skill_layout/skills-bar.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/skill_layout/skills-animations.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/skill_layout/skills-image.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/skill_layout/skills-responsive.css') }}">
 
     <div class="container">
         <div class="row align-items-center g-5">

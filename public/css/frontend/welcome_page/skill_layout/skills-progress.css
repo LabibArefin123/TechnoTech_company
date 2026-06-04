@@ -1,0 +1,30 @@
+/* =================================
+   PROGRESS BAR
+================================= */
+
+.skill-progress {
+    width: 0;
+    height: 100%;
+    position: relative;
+    border-radius: 50px;
+    background: linear-gradient(
+        90deg,
+        #00f5ff,
+        #7c3aed,
+        #00f5ff
+    );
+    background-size: 300% 300%;
+    transition: width 2s cubic-bezier(
+        0.68,
+        -0.55,
+        0.27,
+        1.55
+    );
+    box-shadow:
+        0 0 15px #00f5ff,
+        0 0 30px #7c3aed;
+}
+
+.skill-progress.animate {
+    animation: gradientMove 3s infinite linear;
+}

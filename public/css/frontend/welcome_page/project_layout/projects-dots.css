@@ -1,0 +1,27 @@
+/* =================================
+   SLIDER DOTS
+================================= */
+
+.projects-dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.projects-dots .dot {
+    width: 12px;
+    height: 12px;
+    background: #cbd5e1;
+    border-radius: 50%;
+    margin: 0 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.projects-dots .dot:hover {
+    transform: scale(1.2);
+}
+
+.projects-dots .dot.active {
+    background: #f97316;
+}

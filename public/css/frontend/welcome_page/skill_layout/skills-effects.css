@@ -1,0 +1,18 @@
+/* =================================
+   BUBBLE EFFECTS
+================================= */
+
+.progress-bubble {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 6px 12px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 600;
+    backdrop-filter: blur(10px);
+    color: #00f5ff;
+    box-shadow: 0 0 10px #00f5ff;
+    transform: translateX(50%);
+}
