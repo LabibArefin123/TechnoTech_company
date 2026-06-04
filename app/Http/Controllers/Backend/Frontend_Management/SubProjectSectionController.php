@@ -90,12 +90,23 @@ class SubProjectSectionController extends Controller
                 'Sub Project Images Uploaded Successfully'
             );
     }
-
     public function show($id)
     {
-        $item = SubProjectSection::with('project')->findOrFail($id);
+        $item = SubProjectSection::with('project')
+            ->findOrFail($id);
 
-        return view('backend.sub_project_sections.show', compact('item'));
+        $galleryItems = SubProjectSection::where(
+            'project_id',
+            $item->project_id
+        )->get();
+
+        return view(
+            'backend.sub_project_sections.show',
+            compact(
+                'item',
+                'galleryItems'
+            )
+        );
     }
 
     public function edit($id)
