@@ -7,7 +7,7 @@
 
     <div class="offcanvas-body text-center px-4">
 
-        <img src="{{ asset('uploads/images/welcome_page/quote/image_1.jpg') }}" class="img-fluid rounded mb-4">
+        <img src="{{ asset('uploads/images/welcome_page/quote/image_1.JPG') }}" class="img-fluid rounded mb-4">
 
         <h3 class="fw-bold mb-3">
             We Build Buildings and Great Constructive Homes
