@@ -44,25 +44,65 @@
                                 </span>
                             </td>
 
-                            <td>
+                            <td style="min-width:500px;">
 
-                                @foreach ($group->take(4) as $image)
-                                    <img src="{{ asset($image->image) }}" width="50" class="me-1 rounded border">
-                                @endforeach
+                                <div class="d-flex flex-wrap gap-2">
 
-                                @if ($group->count() > 4)
-                                    <span class="badge bg-info">
+                                    @foreach ($group->take(5) as $image)
+                                        <div>
+                                            <img src="{{ asset($image->image) }}" class="galleryZoom"
+                                                data-image="{{ asset($image->image) }}"
+                                                style="
+                                                 width:90px;
+                                                 height:70px;
+                                                 object-fit:cover;
+                                                 border-radius:8px;
+                                                 cursor:pointer;
+                                                 transition:.3s;">
+                                        </div>
+                                    @endforeach
 
-                                        +{{ $group->count() - 4 }}
+                                </div>
 
-                                    </span>
+                                @if ($group->count() > 5)
+                                    <div class="mt-2">
+
+                                        <span class="badge bg-info">
+
+                                            Showing 5 of {{ $group->count() }} Images
+
+                                        </span>
+
+                                    </div>
                                 @endif
 
                             </td>
+                            <td style="min-width:300px;">
 
-                            <td>
+                                <div style=" max-height:120px;overflow-y:auto;">
 
-                                {{ $first->title }}
+                                    <ul class="mb-0 ps-3">
+
+                                        @foreach ($group as $gallery)
+                                            <li class="mb-1">
+
+                                                {{ $gallery->title ?: 'No Title' }}
+
+                                            </li>
+                                        @endforeach
+
+                                    </ul>
+
+                                </div>
+
+                                @if ($group->count() > 5)
+                                    <small class="text-muted">
+
+                                        Total Titles:
+                                        {{ $group->count() }}
+
+                                    </small>
+                                @endif
 
                             </td>
 

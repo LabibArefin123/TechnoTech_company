@@ -14,10 +14,9 @@ class SubProjectSectionController extends Controller
     public function index()
     {
         $data = SubProjectSection::with('project')
+            ->orderBy('project_id')
             ->get()
-            ->groupBy(function ($item) {
-                return $item->project_id . '_' . $item->title;
-            });
+            ->groupBy('project_id');
 
         return view(
             'backend.sub_project_sections.index',
