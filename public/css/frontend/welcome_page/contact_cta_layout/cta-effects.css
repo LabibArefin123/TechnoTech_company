@@ -1,0 +1,17 @@
+/* ================================
+   CTA EFFECTS
+================================ */
+
+.cta-btn,
+.cta-btn-outline {
+    transition: all 0.3s ease;
+}
+
+.cta-btn:hover {
+    background: #fb923c;
+    transform: translateY(-2px);
+}
+
+.cta-btn-outline:hover {
+    background: rgba(255, 255, 255, 0.15);
+}

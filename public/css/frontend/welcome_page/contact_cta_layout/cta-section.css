@@ -1,0 +1,12 @@
+/* ================================
+   CONTACT CTA SECTION
+================================ */
+
+.techno-contact-cta {
+    position: relative;
+    background-color: #0f172a;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url('/uploads/images/welcome_page/contact_cta/image.jpg');
+}

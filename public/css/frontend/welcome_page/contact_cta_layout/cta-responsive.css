@@ -1,0 +1,13 @@
+/* ================================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 768px) {
+    .contact-cta-box {
+        padding: 40px 30px;
+    }
+
+    .cta-title {
+        font-size: 30px;
+    }
+}

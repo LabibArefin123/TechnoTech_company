@@ -1,0 +1,15 @@
+/* ================================
+   CTA GLASS BOX
+================================ */
+
+.contact-cta-box {
+    position: relative;
+    z-index: 2;
+    max-width: 720px;
+    padding: 60px;
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+}

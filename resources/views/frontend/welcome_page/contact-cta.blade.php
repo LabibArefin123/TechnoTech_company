@@ -1,5 +1,11 @@
 <section id="contact-cta" class="techno-contact-cta py-5">
-    <link rel="stylesheet" href="{{ asset('css/frontend/custom_contact_cta.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/contact_cta_layout/cta-section.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/contact_cta_layout/cta-overlay.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/contact_cta_layout/cta-box.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/contact_cta_layout/cta-content.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/contact_cta_layout/cta-buttons.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/contact_cta_layout/cta-effects.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/contact_cta_layout/cta-responsive.css') }}">
 
     <div class="container">
         <div class="contact-cta-box">
