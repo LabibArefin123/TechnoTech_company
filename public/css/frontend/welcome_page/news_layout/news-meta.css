@@ -1,0 +1,29 @@
+/* ================================
+   META INFORMATION
+================================ */
+
+.news-category {
+    font-size: 13px;
+    font-weight: 600;
+    color: #f97316;
+}
+
+.news-date {
+    font-size: 13px;
+    color: #64748b;
+    margin-left: 10px;
+}
+
+.news-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    color: #64748b;
+}
+
+.read-more {
+    color: #f97316;
+    font-weight: 600;
+    text-decoration: none;
+}

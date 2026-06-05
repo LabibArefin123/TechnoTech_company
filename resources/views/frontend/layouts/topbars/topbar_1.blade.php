@@ -1,5 +1,10 @@
 <!-- Top Info Bar -->
-<link rel="stylesheet" href="{{ asset('css/frontend/custom_topbar.css') }}">
+<link rel="stylesheet" href="{{ asset('css/frontend/custom_layout/topbar/topbar-links.css') }}">
+<link rel="stylesheet" href="{{ asset('css/frontend/custom_layout/topbar/topbar-buttons.css') }}">
+<link rel="stylesheet" href="{{ asset('css/frontend/custom_layout/topbar/topbar-social.css') }}">
+<link rel="stylesheet" href="{{ asset('css/frontend/custom_layout/topbar/topbar-modal.css') }}">
+<link rel="stylesheet" href="{{ asset('css/frontend/custom_layout/topbar/topbar-effects.css') }}">
+<link rel="stylesheet" href="{{ asset('css/frontend/custom_layout/topbar/topbar-google-translate.css') }}">
 <div class="bg-dark py-2">
     <div class="container-fluid d-flex justify-content-between align-items-center flex-wrap">
         <!-- LEFT : Address + WhatsApp + Map -->

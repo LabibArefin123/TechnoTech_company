@@ -1,0 +1,19 @@
+/* ================================
+   VIDEO FRAME
+================================ */
+
+.news-video-frame {
+    height: 360px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: #000;
+}
+
+.news-video-frame iframe {
+    width: 100% !important;
+    height: 100% !important;
+    max-height: 360px;
+    border-radius: 0;
+}

@@ -1,5 +1,3 @@
-<link rel="stylesheet" href="{{ asset('css/frontend/custom_topbar.css') }}">
-
 <div style="background:#f8f9fa;border-bottom:1px solid #ddd;padding:6px 0;">
     <div class="container d-flex justify-content-between align-items-center">
 

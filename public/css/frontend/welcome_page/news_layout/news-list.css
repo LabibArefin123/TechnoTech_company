@@ -1,0 +1,24 @@
+/* ================================
+   NEWS LIST
+================================ */
+
+.news-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.news-item {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.news-item h5 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 10px 0 15px;
+}

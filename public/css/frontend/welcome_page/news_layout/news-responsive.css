@@ -1,0 +1,9 @@
+/* ================================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 768px) {
+    .news-video-card iframe {
+        height: 260px;
+    }
+}

@@ -1,0 +1,21 @@
+/* =========================
+   HOVER EFFECTS
+========================= */
+
+.top-link:hover {
+    color: #ff6b6b;
+}
+
+.map-btn:hover {
+    background: #e63946;
+    color: #fff;
+}
+
+.social-icon:hover {
+    transform: scale(1.1);
+    background: #ff6b6b;
+}
+
+.map-btn:hover {
+    opacity: 0.9;
+}

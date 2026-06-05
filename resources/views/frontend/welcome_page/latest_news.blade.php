@@ -1,5 +1,11 @@
 <section id="news" class="techno-news py-5">
-    <link rel="stylesheet" href="{{ asset('css/frontend/custom_news.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/news_layout/news-section.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/news_layout/news-list.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/news_layout/news-meta.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/news_layout/news-effect.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/news_layout/news-video-frame.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/news_layout/news-video-card.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/news_layout/news-responsive.css') }}">
 
     <div class="container">
 

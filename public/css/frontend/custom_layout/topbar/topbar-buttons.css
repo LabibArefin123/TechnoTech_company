@@ -1,0 +1,42 @@
+/* =========================
+   MAP BUTTONS
+========================= */
+
+.map-btn {
+    background: #ff6b6b;
+    color: #fff;
+    border-radius: 20px;
+    padding: 2px 12px;
+    font-size: 13px;
+}
+
+.map-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.map-btn {
+    flex: 1;
+    border: none;
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    color: #fff;
+    font-weight: 600;
+}
+
+/* Provider Colors */
+
+.map-btn.google {
+    background: #4285f4;
+}
+
+.map-btn.pathao {
+    background: #00b14f;
+}
+
+.map-btn.uber {
+    background: #000000;
+}

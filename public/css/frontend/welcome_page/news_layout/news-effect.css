@@ -1,0 +1,11 @@
+/* ================================
+   HOVER EFFECTS
+================================ */
+
+.news-item:hover {
+    transform: translateY(-6px);
+}
+
+.read-more:hover {
+    text-decoration: underline;
+}

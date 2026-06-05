@@ -1,0 +1,19 @@
+/* ================================
+   NEWS SECTION
+================================ */
+
+.techno-news {
+    background: #f8fafc;
+}
+
+.news-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.news-subtitle {
+    color: #64748b;
+    max-width: 600px;
+    margin: auto;
+}

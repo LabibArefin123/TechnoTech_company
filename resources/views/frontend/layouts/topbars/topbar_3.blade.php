@@ -1,5 +1,3 @@
-<link rel="stylesheet" href="{{ asset('css/frontend/custom_topbar.css') }}">
-
 <div style="background:linear-gradient(90deg,#ff6b6b,#6f42c1);color:white;padding:6px 0;">
     <div class="container d-flex justify-content-between align-items-center">
 
