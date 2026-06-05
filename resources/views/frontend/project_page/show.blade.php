@@ -6,7 +6,13 @@
 
     @include('frontend.welcome_page.header')
 
-    <link rel="stylesheet" href="{{ asset('css/frontend/custom_sub_project.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/project_page/sub-project/sub-project-section.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/project_page/sub-project/sub-project-heading.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/project_page/sub-project/sub-project-hero.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/project_page/sub-project/sub-project-gallery.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/project_page/sub-project/sub-project-card.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/project_page/sub-project/sub-project-effects.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/project_page/sub-project/sub-project-responsive.css') }}">
 
     <section class="sub-project-section">
 

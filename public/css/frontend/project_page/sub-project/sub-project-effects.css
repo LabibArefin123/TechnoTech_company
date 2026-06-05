@@ -1,0 +1,11 @@
+/* ================================
+   HOVER EFFECTS
+================================ */
+
+.sub-project-gallery-card:hover {
+    transform: translateY(-8px);
+}
+
+.sub-project-gallery-image:hover {
+    transform: scale(1.08);
+}

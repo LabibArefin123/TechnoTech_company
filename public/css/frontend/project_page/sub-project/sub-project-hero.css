@@ -1,0 +1,36 @@
+/* ================================
+   HERO AREA
+================================ */
+
+.sub-project-hero {
+    margin-bottom: 70px;
+}
+
+.sub-project-banner img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, .12);
+}
+
+.sub-project-info {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.sub-project-category {
+    display: inline-block;
+    padding: 8px 18px;
+    border-radius: 30px;
+    background: #0d6efd;
+    color: #fff;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.sub-project-title {
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 0;
+}

@@ -1,0 +1,15 @@
+/* ================================
+   GALLERY
+================================ */
+
+.sub-project-image-wrapper {
+    overflow: hidden;
+}
+
+.sub-project-gallery-image {
+    width: 100%;
+    height: 260px;
+    object-fit: contain;
+    cursor: pointer;
+    transition: 0.4s;
+}

@@ -1,0 +1,15 @@
+/* ================================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 768px) {
+
+    .sub-project-title {
+        font-size: 28px;
+    }
+
+    .sub-project-banner img {
+        height: 300px;
+    }
+
+}

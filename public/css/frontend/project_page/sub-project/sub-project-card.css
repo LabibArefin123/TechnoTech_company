@@ -1,0 +1,31 @@
+/* ================================
+   GALLERY CARD
+================================ */
+
+.sub-project-gallery-card {
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    transition: 0.3s;
+    height: 100%;
+}
+
+.sub-project-card-body {
+    padding: 18px;
+    text-align: center;
+}
+
+.sub-project-card-body h5 {
+    margin: 0;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.sub-project-empty {
+    padding: 80px;
+    text-align: center;
+    background: #fff;
+    border-radius: 15px;
+    color: #999;
+}

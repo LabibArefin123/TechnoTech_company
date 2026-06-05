@@ -1,0 +1,17 @@
+/* ================================
+   SECTION HEADING
+================================ */
+
+.sub-project-heading {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.sub-project-heading h2 {
+    font-size: 34px;
+    font-weight: 700;
+}
+
+.sub-project-heading p {
+    color: #6c757d;
+}
