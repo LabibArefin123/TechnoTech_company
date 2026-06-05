@@ -1,0 +1,24 @@
+/* Buttons */
+
+.hero-buttons .btn {
+    padding: 12px 30px;
+    font-weight: 600;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.hero-buttons .btn-primary {
+    background-color: #f7931e;
+    border-color: #f7931e;
+}
+
+.hero-buttons .btn-primary:hover {
+    background-color: #d97f0f;
+    border-color: #d97f0f;
+}
+
+.hero-buttons .btn-outline-light:hover {
+    background-color: #ffffff;
+    color: #000;
+}

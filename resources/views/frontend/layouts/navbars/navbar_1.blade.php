@@ -1,4 +1,7 @@
-<link rel="stylesheet" href="{{ asset('css/frontend/custom_navbar.css') }}">
+<link rel="stylesheet" href="{{ asset('css/frontend/custom_layout/navbar/navbar-base.css') }}">
+<link rel="stylesheet" href="{{ asset('css/frontend/custom_layout/navbar/navbar-links.css') }}">
+<link rel="stylesheet" href="{{ asset('css/frontend/custom_layout/navbar/navbar-buttons.css') }}">
+<link rel="stylesheet" href="{{ asset('css/frontend/custom_layout/navbar/navbar-offcanvas.css') }}">
 
 <nav class="main-header navbar navbar-expand-md navbar-light navbar-white"
     style="padding-left: 30px; padding-right: 30px;">
