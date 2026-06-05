@@ -1,0 +1,13 @@
+/* ================================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 768px) {
+    .techno-services .section-title {
+        font-size: 1.8rem;
+    }
+
+    .service-box {
+        padding: 25px 20px;
+    }
+}

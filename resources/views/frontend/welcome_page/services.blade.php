@@ -1,5 +1,10 @@
 <section id="services" class="techno-services py-5">
-    <link rel="stylesheet" href="{{ asset('css/frontend/custom_service.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/service_layout/service-section.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/service_layout/service-content.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/service_layout/service-card.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/service_layout/service-icons.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/service_layout/service-effects.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/welcome_page/service_layout/service-responsive.css') }}">
 
     <div class="container">
 

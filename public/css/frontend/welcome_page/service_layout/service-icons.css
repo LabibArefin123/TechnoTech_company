@@ -1,0 +1,10 @@
+/* ================================
+   SERVICE ICONS
+================================ */
+
+.service-box i {
+    font-size: 2.5rem;
+    color: #0d6efd;
+    margin-bottom: 18px;
+    display: inline-block;
+}

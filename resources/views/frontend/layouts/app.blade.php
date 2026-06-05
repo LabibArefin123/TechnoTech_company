@@ -43,9 +43,9 @@
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="{{ asset('css/frontend/frontend.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/custom_layout/back_to_top/button.css') }}">
 
-    <link rel="stylesheet" href="{{ asset('css/frontend/setting_button/button.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/frontend/custom_layout/setting_button/button.css') }}">
 </head>
 
 <body>

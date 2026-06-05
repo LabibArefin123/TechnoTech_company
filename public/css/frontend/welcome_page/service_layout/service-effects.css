@@ -1,0 +1,12 @@
+/* ================================
+   SERVICE EFFECTS
+================================ */
+
+.service-box:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 35px rgba(13, 110, 253, 0.15);
+}
+
+.service-box:hover i {
+    color: #084298;
+}

@@ -1,0 +1,21 @@
+/* ================================
+   SERVICES SECTION
+================================ */
+
+.techno-services {
+    background-color: #f8f9fa;
+}
+
+.techno-services .section-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #1c1c1c;
+    margin-bottom: 10px;
+}
+
+.techno-services .section-subtitle {
+    max-width: 700px;
+    margin: 0 auto;
+    color: #6c757d;
+    font-size: 1rem;
+}

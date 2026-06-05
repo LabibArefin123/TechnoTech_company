@@ -1,0 +1,16 @@
+/* ================================
+   SERVICE CONTENT
+================================ */
+
+.service-box h5 {
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+    color: #212529;
+}
+
+.service-box p {
+    font-size: 0.9rem;
+    color: #6c757d;
+    line-height: 1.6;
+}

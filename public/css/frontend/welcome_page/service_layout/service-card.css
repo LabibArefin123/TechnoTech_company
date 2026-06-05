@@ -1,0 +1,12 @@
+/* ================================
+   SERVICE CARD
+================================ */
+
+.service-box {
+    background: #ffffff;
+    padding: 30px 25px;
+    border-radius: 12px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}

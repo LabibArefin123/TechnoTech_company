@@ -7,3 +7,34 @@
     text-decoration: none;
     transition: color 0.3s ease;
 }
+
+
+
+.header-link {
+    position: relative;
+    color: #fff;
+    text-decoration: none;
+    padding: 1px 1px;
+    z-index: 1;
+    overflow: hidden;
+    display: inline-block;
+}
+
+/* Parallelogram background */
+.header-link::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -20%;
+    width: 0;
+    height: 100%;
+    background-color: #ff6b6b;
+    transform: skewX(-20deg);
+    transition: width 0.35s ease;
+    z-index: -1;
+}
+
+/* Hover effect */
+.header-link:hover::after {
+    width: 140%;
+}
