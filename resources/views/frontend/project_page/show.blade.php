@@ -17,7 +17,6 @@
     <section class="sub-project-section">
 
         <div class="container">
-
             {{-- HERO --}}
             <div class="sub-project-hero">
 
