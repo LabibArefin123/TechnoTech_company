@@ -1,8 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     const openButton = document.getElementById("openTopLocationModal");
-
     const modal = document.getElementById("topLocationModal");
-
     const closeButton = document.querySelector(".top-location-close");
 
     if (!openButton || !modal) {

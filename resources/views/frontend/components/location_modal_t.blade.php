@@ -58,7 +58,25 @@
         <iframe src="https://www.google.com/maps?q=106/A+Green+Road+Farmgate+Dhaka+1205&output=embed" width="100%"
             height="450" style="border:0;border-radius:10px;" loading="lazy" allowfullscreen>
         </iframe>
+        <div class="text-center mt-4">
 
+            <button type="button" class="btn btn-success mr-2" id="openGoogleMaps">
+
+                <i class="fas fa-map-marked-alt"></i>
+
+                Open Google Maps
+
+            </button>
+
+            <button type="button" class="btn btn-dark" id="openUber">
+
+                <i class="fas fa-car"></i>
+
+                Open Uber
+
+            </button>
+
+        </div>
     </div>
 
 </div>

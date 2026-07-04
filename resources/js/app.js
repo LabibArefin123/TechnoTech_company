@@ -12,6 +12,7 @@ Alpine.start();
 import "../js/custom_frontend/sweet_alert.js";
 import "../js/custom_frontend/custom_top_bar.js";
 import "../js/custom_frontend/custom_top_map.js";
+import "../js/custom_frontend/custom_top_map_button.js";
 import "../js/custom_frontend/custom_banner.js";
 import "../js/custom_frontend/custom_skill.js";
 import "../js/custom_frontend/language.js";
