@@ -10,8 +10,11 @@
         <!-- LEFT : Address + WhatsApp + Map -->
         <div class="d-flex align-items-center flex-wrap gap-2 text-white">
             <i class="fas fa-map-marker-alt"></i>
-            <a href="#" class="header-link" id="openMapModal">
-                106/A, Green Road (3rd Floor), Farmgate, Corner Place Super Market, Dhaka-1205
+            <a href="javascript:void(0);" class="header-link" id="openTopLocationModal">
+
+                106/A, Green Road (3rd Floor), Farmgate,
+                Corner Place Super Market, Dhaka-1205
+
             </a>
 
             <span class="mx-2">|</span>
